@@ -2,5 +2,37 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:background="#DD403B"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_moive_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ui"
+            android:drawablePadding="3dp"
+            android:text="北京"
+            android:layout_marginTop="7dp"
+            android:paddingLeft="8dp"
+            android:textColor="#ffffff"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/ll_moive_zi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="影院"
+            android:textSize="20sp"
+            android:layout_marginTop="3dp"
+            android:textColor="#ffffff"
+            android:layout_centerHorizontal="true"
+            >
+        </TextView>
+
+    </RelativeLayout>
+
 
 </LinearLayout>
