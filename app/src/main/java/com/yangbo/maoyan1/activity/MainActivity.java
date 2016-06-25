@@ -5,7 +5,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Window;
-import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -23,31 +22,30 @@ public class MainActivity extends FragmentActivity {
 
     private RadioGroup rg_main;
     private RadioButton rb_moive;
-    private FrameLayout fl_main;
     private ArrayList<BaseFragment> list;
+    private MainActivity context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        context =this;
         findView();
         initView();
     }
     int cur = 0;
     private void findView() {
         rg_main = (RadioGroup)findViewById(R.id.rg_main);
-        fl_main = (FrameLayout)findViewById(R.id.fl_main);
         rb_moive = (RadioButton)findViewById(R.id.rb_moive);
     }
 
     private void initView() {
         list = new ArrayList<BaseFragment>();
-        list.add(new MoiveFragment());
-        list.add(new CinemaFragment());
-        list.add(new FindFragment());
-        list.add(new MyFragment());
+        list.add(new MoiveFragment(context));
+        list.add(new CinemaFragment(context));
+        list.add(new FindFragment(context));
+        list.add(new MyFragment(context));
 
         rg_main.check(0);
 

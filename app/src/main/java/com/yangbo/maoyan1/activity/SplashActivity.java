@@ -31,7 +31,6 @@ import java.util.List;
  * Created by yangbo on 2016/6/22.
  */
 public class SplashActivity extends Activity{
-
     private ImageView iv_splash;
 
     private RelativeLayout rl_splash;
@@ -85,9 +84,6 @@ public class SplashActivity extends Activity{
                 LogUtil.e("请求成功"+result);
                 result1 = result;
                 handler.sendEmptyMessageDelayed(2,1000);
-
-
-
             }
 
             @Override

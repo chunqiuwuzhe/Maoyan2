@@ -12,19 +12,15 @@ import android.view.ViewGroup;
  * Created by yangbo on 2016/6/22.
  */
 public abstract class BaseFragment extends Fragment {
-//        public View rootView;
+    private View view;
     public Context context;
-
-//    public BaseFragment() {
-//       rootView = initView();
-//
-//    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context = getActivity();
     }
+
 
     @Nullable
     @Override

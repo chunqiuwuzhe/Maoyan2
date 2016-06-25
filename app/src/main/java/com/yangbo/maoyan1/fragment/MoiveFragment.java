@@ -1,5 +1,6 @@
 package com.yangbo.maoyan1.fragment;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.view.PagerAdapter;
@@ -36,6 +37,10 @@ public class MoiveFragment extends BaseFragment {
 
     int leftMargin1;
     private ImageView iv_red_point;
+
+    public MoiveFragment(Context context) {
+        super();
+    }
 
     @Override
     public View initView() {

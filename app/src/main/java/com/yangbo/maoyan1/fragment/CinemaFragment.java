@@ -3,6 +3,7 @@ package com.yangbo.maoyan1.fragment;
 import android.view.View;
 
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.activity.MainActivity;
 import com.yangbo.maoyan1.base.BaseFragment;
 
 
@@ -12,7 +13,7 @@ import com.yangbo.maoyan1.base.BaseFragment;
 public class CinemaFragment extends BaseFragment {
 
 
-    public CinemaFragment( ) {
+    public CinemaFragment(MainActivity context) {
         super();
     }
 

@@ -29,20 +29,27 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType==0){
 
-            View view = LayoutInflater.from(content).inflate(R.layout.pager_reying,parent,false);
+            View view = LayoutInflater.from(content).inflate(R.layout.reying_item_sou_vp,parent,false);
 
-            return new HeadHolder(view);
+            return new Ry_HeadHolder(view);
+        }
+        if(viewType==1){
+            View view = LayoutInflater.from(content).inflate(R.layout.reying_item_rcl_one,null);
+            return new Ry_TwoHeadHolder(view);
         }
         View view = LayoutInflater.from(content).inflate(R.layout.item_reying_rcl,parent,false);
-        return new RclViewHolder(view);
+        return new Ry_RclViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (position==0){
-            return;
+            return ;
         }
-        ((RclViewHolder)holder).text.setText(arr.get(position));
+        if(position==1){
+            return ;
+        }
+        ((Ry_RclViewHolder)holder).text.setText(arr.get(position));
     }
 
     @Override
@@ -54,23 +61,32 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         if (position==0){
             return 0;
         }
-        return 1;
+        if(position==1){
+            return 1;
+        }
+        return 2;
     }
 }
-class RclViewHolder extends RecyclerView.ViewHolder{
+class Ry_RclViewHolder extends RecyclerView.ViewHolder{
     TextView text;
-    public RclViewHolder(View itemView) {
+    public Ry_RclViewHolder(View itemView) {
         super(itemView);
         text = (TextView) itemView.findViewById(R.id.text);
     }
 }
-class HeadHolder extends RecyclerView.ViewHolder{
+class Ry_HeadHolder extends RecyclerView.ViewHolder{
     private LinearLayout ll_sousou;
     private ViewPager vp_reying_title;
-    public HeadHolder(View itemView) {
+    public Ry_HeadHolder(View itemView) {
         super(itemView);
         ll_sousou = (LinearLayout) itemView.findViewById(R.id.ll_sousou);
         vp_reying_title = (ViewPager) itemView.findViewById(R.id.vp_reying_title);
+    }
+
+}
+class Ry_TwoHeadHolder extends RecyclerView.ViewHolder{
+    public Ry_TwoHeadHolder(View itemView) {
+        super(itemView);
     }
 
 }

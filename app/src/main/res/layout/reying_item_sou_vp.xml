@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#dd403b">
+        <LinearLayout
+            android:id="@+id/ll_sousou"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/ll_reying_sousuo_selector">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_sousuokuang"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 找电影,影人,影院"
+                android:textSize="13sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_reying_title"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#22000000">
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>
