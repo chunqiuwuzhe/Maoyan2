@@ -6,9 +6,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
 import android.widget.ImageView;
@@ -40,18 +40,18 @@ public class SplashActivity extends Activity{
         public void handleMessage(Message msg){
             switch (msg.what) {
                 case 1 :
-                    handler.removeCallbacksAndMessages(null);
 
                     startActivity(new Intent(SplashActivity.this,MainActivity.class));
                     finish();
                     break;
                 case 2:
-                    handler.removeCallbacksAndMessages(null);
+
                     iv_splash.setVisibility(View.VISIBLE);
                     processData(result1);
                     ScaleAnimation scaleAnimation = new ScaleAnimation(1,1.1f,1,1.1f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.8f);
                     scaleAnimation.setDuration(2000);
                     iv_splash.startAnimation(scaleAnimation);
+                    handler.removeCallbacksAndMessages(null);
                     sendEmptyMessageDelayed(1,2000);
             }
         }
@@ -62,26 +62,31 @@ public class SplashActivity extends Activity{
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        LogUtil.e("wocao!!wocao!!wocao!!wocao!!");
         rl_splash = (RelativeLayout)findViewById(R.id.rl_splash);
         iv_splash = (ImageView)findViewById(R.id.iv_splash);
         handler.sendEmptyMessageDelayed(1,2000);
 
-        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
-
-        rl_splash.startAnimation(alphaAnimation);
-
+//        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
+//
+//        rl_splash.startAnimation(alphaAnimation);
+        LogUtil.e("wocao!!wocao!!wocao!!wocao!!");
         getDataFromNet();
 
     }
 
     private void getDataFromNet() {
+        LogUtil.e("wocao!!wocao!!wocao!!wocao!!");
+        Log.e("Tag","caonima");
         String url = UrlUtils.URL_SPLASH;
+        Log.e("Tag","url = "+url);
         RequestParams params = new RequestParams(url);
 //        params.addQueryStringParameter("wd", "xUtils");
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
                 LogUtil.e("请求成功"+result);
+                Log.e("Tag","请求成功 = "+result);
                 result1 = result;
                 handler.sendEmptyMessageDelayed(2,1000);
             }
@@ -89,6 +94,7 @@ public class SplashActivity extends Activity{
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
                 LogUtil.e("请求失败");
+                Log.e("Tag","请求失败 = ");
             }
 
             @Override
@@ -125,7 +131,7 @@ public class SplashActivity extends Activity{
                 .setImageScaleType(ImageView.ScaleType.CENTER_CROP)
                 // 下载中显示的图片
 //                .setLoadingDrawableId(R.drawable.y9)
-                // 下载失败显示的图片
+//                // 下载失败显示的图片
 //                .setFailureDrawableId(R.drawable.yc)
                 // 得到ImageOptions对象
                 .build();
@@ -149,5 +155,11 @@ public class SplashActivity extends Activity{
             }
         });
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        handler.removeCallbacksAndMessages(null);
     }
 }

@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/Maoyan1.iml" filepath="$PROJECT_DIR$/Maoyan1.iml" />
+=======
       <module fileurl="file://$PROJECT_DIR$/MaterialRefresh_library/MaterialRefresh_library.iml" filepath="$PROJECT_DIR$/MaterialRefresh_library/MaterialRefresh_library.iml" />
+>>>>>>> 54459bcd894fef6464d230b8bd9d2580e733849e
       <module fileurl="file://$PROJECT_DIR$/MyMaoYan.iml" filepath="$PROJECT_DIR$/MyMaoYan.iml" />
       <module fileurl="file://$PROJECT_DIR$/TabLayout/TabLayout.iml" filepath="$PROJECT_DIR$/TabLayout/TabLayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
