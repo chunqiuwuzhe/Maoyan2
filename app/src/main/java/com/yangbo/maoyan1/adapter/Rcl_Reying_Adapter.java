@@ -54,7 +54,8 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public int getItemCount() {
-        return arr.size();
+//        return arr.size();
+        return  0;
     }
     @Override
     public int getItemViewType(int position) {
