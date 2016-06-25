@@ -3,20 +3,14 @@ package com.yangbo.maoyan1.pager;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.Rcl_Reying_Adapter;
 import com.yangbo.maoyan1.base.BasePager;
 import com.yangbo.maoyan1.ui.RecyclerViewItemDecoration;
-import com.yangbo.maoyan1.utils.UrlUtils;
-import com.zhy.http.okhttp.OkHttpUtils;
-import com.zhy.http.okhttp.callback.StringCallback;
 
 import java.util.ArrayList;
-
-import okhttp3.Request;
 
 
 /**
@@ -57,20 +51,20 @@ public class ReYingPager extends BasePager {
     * 获取数据
     * */
     private void setData() {
-        //联网获取数据
-        OkHttpUtils.get().url(UrlUtils.URL_REYING_VIEWPAGER).build().execute(new StringCallback() {
-            //请求成功
-            @Override
-            public void onError(Request request, Exception e) {
-                Log.e("TAG","请求是失败");
-
-            }
-            //请求失败
-            @Override
-            public void onResponse(String response) {
-                Log.e("TAG","请求成功");
-
-            }
-        });
+//        //联网获取数据
+//        OkHttpUtils.get().url(UrlUtils.URL_REYING_VIEWPAGER).build().execute(new StringCallback() {
+//            //请求成功
+//            @Override
+//            public void onError(Request request, Exception e) {
+//                Log.e("TAG","请求是失败");
+//
+//            }
+//            //请求失败
+//            @Override
+//            public void onResponse(String response) {
+//                Log.e("TAG","请求成功");
+//
+//            }
+//        });
     }
 }

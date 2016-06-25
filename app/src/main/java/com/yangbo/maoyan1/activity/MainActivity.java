@@ -42,10 +42,10 @@ public class MainActivity extends FragmentActivity {
 
     private void initView() {
         list = new ArrayList<BaseFragment>();
-        list.add(new MoiveFragment(context));
-        list.add(new CinemaFragment(context));
-        list.add(new FindFragment(context));
-        list.add(new MyFragment(context));
+        list.add(new MoiveFragment());
+        list.add(new CinemaFragment());
+        list.add(new FindFragment());
+        list.add(new MyFragment());
 
         rg_main.check(0);
 

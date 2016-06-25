@@ -67,17 +67,12 @@ public class SplashActivity extends Activity{
         iv_splash = (ImageView)findViewById(R.id.iv_splash);
         handler.sendEmptyMessageDelayed(1,2000);
 
-//        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
 //
-//        rl_splash.startAnimation(alphaAnimation);
-        LogUtil.e("wocao!!wocao!!wocao!!wocao!!");
         getDataFromNet();
 
     }
 
     private void getDataFromNet() {
-        LogUtil.e("wocao!!wocao!!wocao!!wocao!!");
-        Log.e("Tag","caonima");
         String url = UrlUtils.URL_SPLASH;
         Log.e("Tag","url = "+url);
         RequestParams params = new RequestParams(url);
@@ -85,16 +80,14 @@ public class SplashActivity extends Activity{
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
-                LogUtil.e("请求成功"+result);
-                Log.e("Tag","请求成功 = "+result);
+//                Log.e("Tag","请求成功 = "+result);
                 result1 = result;
                 handler.sendEmptyMessageDelayed(2,1000);
             }
 
             @Override
             public void onError(Throwable ex, boolean isOnCallback) {
-                LogUtil.e("请求失败");
-                Log.e("Tag","请求失败 = ");
+//                LogUtil.e("请求失败");
             }
 
             @Override

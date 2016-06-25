@@ -5,22 +5,20 @@
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleJvm" value="1.7" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/MaterialRefresh_library" />
             <option value="$PROJECT_DIR$/TabLayout" />
             <option value="$PROJECT_DIR$/app" />
-<<<<<<< HEAD
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/MaterialRefresh_library" />
+            <option value="$PROJECT_DIR$/TabLayout" />
             <option value="$PROJECT_DIR$/app" />
-=======
->>>>>>> 54459bcd894fef6464d230b8bd9d2580e733849e
           </set>
         </option>
       </GradleProjectSettings>

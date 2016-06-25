@@ -18,4 +18,8 @@ public class UrlUtils {
             "=116.378273&__skck=6a375bce8c66a0dc293860dfa83833ef&__skts" +
             "=1463730432992&__skua=7e01cf8dd30a179800a7a93979b430b2&__skno=" +
             "01f9c5c0-eb56-4e19-92fb-b86b16ad79da&__skcy=5K8wRR%2FKYAZDTgmAzbhrXi%2FomzU%3D";
+
+    public static final String URL_CINEMA = "http://m.maoyan.com/cinemas.json";
+
+
 }

@@ -1,6 +1,5 @@
 package com.yangbo.maoyan1.fragment;
 
-import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 
@@ -14,9 +13,9 @@ import com.yangbo.maoyan1.base.BaseFragment;
 public class FindFragment extends BaseFragment {
     private TextView tv;
 
-    public FindFragment(Context context) {
-        super();
-    }
+//    public FindFragment(Context context) {
+//        super();
+//    }
 
     @Override
     public View initView() {
