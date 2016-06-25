@@ -29,5 +29,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile project(':MaterialRefresh_library')
-
+    compile files('libs/glide-3.7.0.jar')
+    compile 'com.zhy:okhttputils:2.6.2'
 }

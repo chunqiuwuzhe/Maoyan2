@@ -3,14 +3,22 @@ package com.yangbo.maoyan1.pager;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 
+import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.Rcl_Reying_Adapter;
 import com.yangbo.maoyan1.base.BasePager;
+import com.yangbo.maoyan1.bean.ReYing_ViewPager_bean;
 import com.yangbo.maoyan1.ui.RecyclerViewItemDecoration;
+import com.yangbo.maoyan1.utils.UrlUtils;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import okhttp3.Call;
 
 
 /**
@@ -24,8 +32,10 @@ public class ReYingPager extends BasePager {
     private LinearLayoutManager manager;
     //适配器
     private Rcl_Reying_Adapter rcl_adapter;
-    //假数据
-    private ArrayList<String> arr;
+    //json数据
+    private List<ReYing_ViewPager_bean.DataBean> vp_data;
+    private String url;
+
     public ReYingPager(Context context) {
         super(context);
     }
@@ -37,34 +47,53 @@ public class ReYingPager extends BasePager {
         rlv_reying = (RecyclerView) recylerViewlist.findViewById(R.id.rlv_reying);
 
         setData();
+
         //设置布局管理器
         manager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         rlv_reying.setLayoutManager(manager);
         //加分割线
-        rlv_reying.addItemDecoration(new RecyclerViewItemDecoration(RecyclerViewItemDecoration.MODE_HORIZONTAL,"#44000000",0,1,0));
-        //设置适配器
-        rcl_adapter=new Rcl_Reying_Adapter(context,arr);
-        rlv_reying.setAdapter(rcl_adapter);
+        rlv_reying.addItemDecoration(new RecyclerViewItemDecoration(RecyclerViewItemDecoration.MODE_HORIZONTAL, "#44000000", 0, 1, 0));
+
         return recylerViewlist;
     }
     /*
     * 获取数据
     * */
     private void setData() {
-//        //联网获取数据
-//        OkHttpUtils.get().url(UrlUtils.URL_REYING_VIEWPAGER).build().execute(new StringCallback() {
-//            //请求成功
-//            @Override
-//            public void onError(Request request, Exception e) {
-//                Log.e("TAG","请求是失败");
-//
-//            }
-//            //请求失败
-//            @Override
-//            public void onResponse(String response) {
-//                Log.e("TAG","请求成功");
-//
-//            }
-//        });
+        Log.e("TAG", "VIewPager数据请求数据");
+        url = UrlUtils.URL_REYING_VIEWPAGER;
+        Log.e("TAG","url="+url);
+        //联网获取数据
+        OkHttpUtils
+                .get()
+                .url(url)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e("TAG", "VIewPager数据请求失败"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.e("TAG", "VIewPager数据请求成功");
+                        parseData(response);
+                    }
+                });
+    }
+    //解析数据
+    private void parseData(String data) {
+        ReYing_ViewPager_bean jsonObject = parseJson(data);
+        vp_data = jsonObject.getData();
+        String name = vp_data.get(0).getName();
+        //设置适配器
+        rcl_adapter=new Rcl_Reying_Adapter(context,vp_data);
+        rlv_reying.setAdapter(rcl_adapter);
+    }
+
+    private ReYing_ViewPager_bean parseJson(String json) {
+        Gson gson=new Gson();
+        ReYing_ViewPager_bean data = gson.fromJson(json, ReYing_ViewPager_bean.class);
+        return data;
     }
 }
