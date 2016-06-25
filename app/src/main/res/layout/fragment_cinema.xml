@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
     <RelativeLayout
+        android:id="@+id/rl_cinema"
         android:layout_width="match_parent"
-        android:layout_height="62dp"
+        android:layout_height="60dp"
         android:background="#DD403B"
+
         android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/tv_moive_city"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableRight="@drawable/ui"
+            android:layout_height="60dp"
             android:drawablePadding="3dp"
+            android:drawableRight="@drawable/ui"
+            android:gravity="center"
             android:text="北京"
-            android:layout_marginTop="7dp"
-            android:paddingLeft="8dp"
             android:textColor="#ffffff"
             android:textSize="17sp" />
 
@@ -24,15 +27,62 @@
             android:id="@+id/ll_moive_zi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="影院"
-            android:textSize="20sp"
-            android:layout_marginTop="3dp"
-            android:textColor="#ffffff"
             android:layout_centerHorizontal="true"
-            >
-        </TextView>
+            android:layout_centerVertical="true"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/iv_cinema_selector"
+            android:gravity="center"
+            android:text="影院"
+            android:textColor="#ffffff"
+            android:textSize="20sp"></TextView>
+
+        <ImageView
+            android:id="@+id/iv_cinema_search"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/iv_cinema_selector"
+            android:padding="14dp"
+            android:src="@drawable/search" />
+
+        <ImageView
+            android:id="@+id/iv_cinema_select"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="60dp"
+            android:padding="15dp"
+            android:src="@drawable/select" />
+
 
     </RelativeLayout>
 
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rl_cinema"
+        android:layout_height="match_parent">
 
-</LinearLayout>
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_margin="8dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/rl_cinema_bg"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:text="北京市昌平区多彩印刷有限公司附近"
+            android:drawableLeft="@drawable/t5"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/t6"
+            android:layout_alignParentRight="true"
+            />
+    </RelativeLayout>
+
+</RelativeLayout>
