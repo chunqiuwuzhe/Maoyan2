@@ -12,6 +12,7 @@ import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.MyCinemaAdapter;
 import com.yangbo.maoyan1.base.BaseFragment;
 import com.yangbo.maoyan1.bean.CinemaBean;
+import com.yangbo.maoyan1.bean.CinemaViewPagerBean;
 import com.yangbo.maoyan1.utils.CacheUtils;
 import com.yangbo.maoyan1.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -62,6 +63,12 @@ public class CinemaFragment extends BaseFragment {
         iv_cinema_search = (ImageView) view.findViewById(R.id.iv_cinema_search);
         rv_cinema = (RecyclerView) view.findViewById(R.id.rv_cinema);
 
+        //设置布局管理者
+        rv_cinema.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+        //设置适配器
+        myCinemaAdapter = new MyCinemaAdapter(context);
+        rv_cinema.setAdapter(myCinemaAdapter);
+
         return view;
 
     }
@@ -79,8 +86,13 @@ public class CinemaFragment extends BaseFragment {
         if (!TextUtils.isEmpty(saveJson)) {
             processData(saveJson);
         }
+
        // 联网请求数据
         getDataFromNet();
+
+
+
+
 
     }
 
@@ -109,25 +121,34 @@ public class CinemaFragment extends BaseFragment {
                     }
                 });
 
-//        RequestParams params = new RequestParams(url);
-//
-//        x.http().get(params, new Callback.CommonCallback<String>() {
-//            @Override
-//            public void onSuccess(String result) {
-//                LogUtil.e("请求成功！！！！"+result);
-//                processData(result);
-//            }
-//            @Override
-//            public void onError(Throwable ex, boolean isOnCallback) {
-//                LogUtil.e("请求失败");
-//            }
-//            @Override
-//            public void onCancelled(CancelledException cex) {
-//            }
-//            @Override
-//            public void onFinished() {
-//            }
-//        });
+        url = UrlUtils.URL_CINEMA_HEADER;
+
+        OkHttpUtils
+                .get()
+                .url(url)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.e("请求成功！！！！" + response);
+                        //解析数据
+                        processViewPagerData(response);
+
+                        CacheUtils.putString(context, url,response);
+                    }
+                });
+
+    }
+
+    private void processViewPagerData(String response) {
+        Gson gson = new Gson();
+        CinemaViewPagerBean cinemaViewPagerBean = gson.fromJson(response, CinemaViewPagerBean.class);
+        List<CinemaViewPagerBean.DataBean> data = cinemaViewPagerBean.getData();
+        myCinemaAdapter.setViewPagerData(data);
     }
 
     private void processData(String result) {
@@ -152,17 +173,15 @@ public class CinemaFragment extends BaseFragment {
         Gson gson = new Gson();
         CinemaBean cinemaBean = gson.fromJson(result, CinemaBean.class);
 
-        List<CinemaBean.DataBean.chaoyangquBean> changpingqu = cinemaBean.getData().getchaoyangqu();
+        List<CinemaBean.DataBean.changpingquBean> changpingqu = cinemaBean.getData().getchangpingqu();
         LogUtil.e(changpingqu.get(1).getNm());
 
         List datas =changpingqu;
 
-        //设置布局管理者
-        rv_cinema.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
 
         //设置适配器
-        myCinemaAdapter = new MyCinemaAdapter(context,cinemaBean);
-        rv_cinema.setAdapter(myCinemaAdapter);
+        myCinemaAdapter.setCinemaBean(changpingqu);
+        myCinemaAdapter.notifyItemRangeChanged(1,changpingqu.size());
 
     }
 
