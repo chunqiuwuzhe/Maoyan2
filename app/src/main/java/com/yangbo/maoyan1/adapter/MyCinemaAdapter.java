@@ -10,18 +10,24 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.bean.CinemaBean;
+import com.yangbo.maoyan1.utils.DistanceUtil;
+
+import java.text.DecimalFormat;
+import java.util.List;
 
 /**
  * Created by yangbo on 2016/6/25.
  */
 public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private final CinemaBean cinemaBean;
 
     private Context context;
 
-    public MyCinemaAdapter(Context context) {
+    public MyCinemaAdapter(Context context, CinemaBean cinemaBean) {
         this.context = context;
+        this.cinemaBean = cinemaBean;
     }
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if (viewType == 0) {
@@ -41,14 +47,34 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             CinemaHeaderAdapter  cinema_header_adapter = new CinemaHeaderAdapter();
             ( (MyHolder1) holder).vp_cinema_header.setAdapter(cinema_header_adapter);
         }else{
-//            ( (MyHolder2) holder)
+            List<CinemaBean.DataBean.changpingquBean> changpingqu = cinemaBean.getData().getchangpingqu();
+            //绑定数据
+            ( (MyHolder2) holder).tv_cinema_yingyuan.setText(changpingqu.get(position-1).getNm());
+            ( (MyHolder2) holder).tv_cinema_price.setText(changpingqu.get(position-1).getSellPrice()+"");
+            ( (MyHolder2) holder).tv_cinema_dizhi.setText(changpingqu.get(position-1).getAddr().replace("changpingqu","昌平区"));
+
+//            116.386267,40.107628?
+            //根据经温度 计算距离
+            double lng = changpingqu.get(position).getLng();
+            double lat = changpingqu.get(position).getLat();
+            double distance = DistanceUtil.getDistance(40.107628, 116.386267, lat, lng);
+
+            String format = new DecimalFormat("#.0").format(distance);
+            //设置距离
+            ( (MyHolder2) holder).tv_cinema_intance.setText(format+"km");
+
+            if(onItemClickListener!=null) {
+                onItemClickListener.onItemClick();
+            }
+
+//            ( (MyHolder2) holder).
         }
     }
 
 
     @Override
     public int getItemCount() {
-        return 10;
+        return cinemaBean.getData().getchangpingqu().size()+1;
     }
 
     @Override
@@ -75,13 +101,23 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
      * 下边的ViewHolder
      */
     class MyHolder2 extends RecyclerView.ViewHolder {
+        TextView tv_cinema_yingyuan;//影院名称
+        TextView tv_cinema_price;//价格 --元起
+        TextView tv_cinema_dizhi;//地址
+        TextView tv_cinema_intance;//距离
+
 
         public MyHolder2(View itemView) {
             super(itemView);
+            tv_cinema_yingyuan = (TextView) itemView.findViewById(R.id.tv_cinema_yingyuan);
+            tv_cinema_price = (TextView) itemView.findViewById(R.id.tv_cinema_price);
+            tv_cinema_dizhi = (TextView) itemView.findViewById(R.id.tv_cinema_dizhi);
+            tv_cinema_intance = (TextView) itemView.findViewById(R.id.tv_cinema_intance);
         }
     }
 
     /**
+     * =====================================================================================================
      * 顶部广告页ViewPager的适配器
      */
     class CinemaHeaderAdapter extends PagerAdapter{
@@ -109,5 +145,18 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 //            super.destroyItem(container, position, object);
             container.removeView((View) object);
         }
+    }
+
+    /**
+     * 设置接口
+     */
+    interface OnItemClickListener{
+        public void onItemClick();
+    }
+    //创建成员变量
+    OnItemClickListener onItemClickListener;
+    //set方法
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
     }
 }

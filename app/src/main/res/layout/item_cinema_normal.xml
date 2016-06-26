@@ -16,13 +16,14 @@
             android:layout_height="wrap_content"
             android:text="金逸影城（新都店）"
             android:textColor="#000000"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tv_cinema_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="39"
+
             android:textColor="#ff0000"
             android:textSize="17sp" />
 
@@ -45,6 +46,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:singleLine="true"
+            android:textSize="13sp"
             android:text="海淀区西三旗建材城" />
 
         <TextView

@@ -2,6 +2,7 @@ package com.yangbo.maoyan1.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,14 +12,16 @@ import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.MyCinemaAdapter;
 import com.yangbo.maoyan1.base.BaseFragment;
 import com.yangbo.maoyan1.bean.CinemaBean;
+import com.yangbo.maoyan1.utils.CacheUtils;
 import com.yangbo.maoyan1.utils.UrlUtils;
+import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
 
-import org.xutils.common.Callback;
 import org.xutils.common.util.LogUtil;
-import org.xutils.http.RequestParams;
-import org.xutils.x;
 
 import java.util.List;
+
+import okhttp3.Call;
 
 
 /**
@@ -33,6 +36,10 @@ public class CinemaFragment extends BaseFragment {
     private ImageView iv_cinema_select;//右上角选择
 
     private ImageView iv_cinema_search;//右上角搜素
+    //请求的数据
+    List datas;
+
+
     //RecyclerView
     private RecyclerView rv_cinema;
     //RececleView的适配器
@@ -64,15 +71,16 @@ public class CinemaFragment extends BaseFragment {
     public void initDate() {
         super.initDate();
 
+        url = UrlUtils.URL_CINEMA;
+
+        //取出缓存的数据
+        String saveJson = CacheUtils.getString(context, url);
+        //判断是否有本地数据
+        if (!TextUtils.isEmpty(saveJson)) {
+            processData(saveJson);
+        }
+       // 联网请求数据
         getDataFromNet();
-
-        //设置布局管理者
-        rv_cinema.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
-
-        //设置适配器
-        myCinemaAdapter = new MyCinemaAdapter(context);
-
-        rv_cinema.setAdapter(myCinemaAdapter);
 
     }
 
@@ -82,47 +90,44 @@ public class CinemaFragment extends BaseFragment {
     private void getDataFromNet() {
         url = UrlUtils.URL_CINEMA;
 
-//        OkHttpUtils
-//                .get()
-//                .url(url)
-//                .build()
-//                .execute(new StringCallback() {
-//                    @Override
-//                    public void onError(Call call, Exception e, int id) {
+        OkHttpUtils
+                .get()
+                .url(url)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.e("请求成功！！！！" + response);
+                        //解析数据
+                        processData(response);
+
+                        CacheUtils.putString(context, url,response);
+                    }
+                });
+
+//        RequestParams params = new RequestParams(url);
 //
-//                    }
-//
-//                    @Override
-//                    public void onResponse(String response, int id) {
-//                        LogUtil.e("请求成功！！！！" + response);
-//                        processData(response);
-//                    }
-//                });
-
-        RequestParams params = new RequestParams(url);
-
-        x.http().get(params, new Callback.CommonCallback<String>() {
-            @Override
-            public void onSuccess(String result) {
-                LogUtil.e("请求成功！！！！"+result);
-                processData(result);
-            }
-
-            @Override
-            public void onError(Throwable ex, boolean isOnCallback) {
-                LogUtil.e("请求失败");
-            }
-
-            @Override
-            public void onCancelled(CancelledException cex) {
-
-            }
-
-            @Override
-            public void onFinished() {
-
-            }
-        });
+//        x.http().get(params, new Callback.CommonCallback<String>() {
+//            @Override
+//            public void onSuccess(String result) {
+//                LogUtil.e("请求成功！！！！"+result);
+//                processData(result);
+//            }
+//            @Override
+//            public void onError(Throwable ex, boolean isOnCallback) {
+//                LogUtil.e("请求失败");
+//            }
+//            @Override
+//            public void onCancelled(CancelledException cex) {
+//            }
+//            @Override
+//            public void onFinished() {
+//            }
+//        });
     }
 
     private void processData(String result) {
@@ -146,8 +151,18 @@ public class CinemaFragment extends BaseFragment {
         LogUtil.e("youmeiyou " + result);
         Gson gson = new Gson();
         CinemaBean cinemaBean = gson.fromJson(result, CinemaBean.class);
+
         List<CinemaBean.DataBean.chaoyangquBean> changpingqu = cinemaBean.getData().getchaoyangqu();
         LogUtil.e(changpingqu.get(1).getNm());
+
+        List datas =changpingqu;
+
+        //设置布局管理者
+        rv_cinema.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+
+        //设置适配器
+        myCinemaAdapter = new MyCinemaAdapter(context,cinemaBean);
+        rv_cinema.setAdapter(myCinemaAdapter);
 
     }
 
