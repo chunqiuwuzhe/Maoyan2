@@ -19,17 +19,16 @@ import java.util.List;
  */
 public class ReYing_title_Adapter extends PagerAdapter {
     private Context context;
-    private List<ReYing_ViewPager_bean.DataBean> imageUrl;
-
+    private List<ReYing_ViewPager_bean.DataBean> vpData;
     public ReYing_title_Adapter(Context context,List<ReYing_ViewPager_bean.DataBean> imageUrl) {
         this.context=context;
-        this.imageUrl=imageUrl;
+        this.vpData=imageUrl;
         Log.e("imagerUrl+++",imageUrl.toString());
     }
 
     @Override
     public int getCount() {
-        return imageUrl.size();
+        return vpData.size();
     }
 
     @Override
@@ -40,7 +39,7 @@ public class ReYing_title_Adapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
         //获取图片URL路径 动态创建一个imageView 将获取的图片赋值给imageView 添加到ViewPager中 返回
-        String imgurl = imageUrl.get(position).getImgUrl();
+        String imgurl = vpData.get(position).getImgUrl();
         ImageView imageView=new ImageView(context);
         Glide.with(context).load(imgurl)
                 .placeholder(R.drawable.kg)

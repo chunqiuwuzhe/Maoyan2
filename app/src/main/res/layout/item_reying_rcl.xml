@@ -1,13 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:id="@+id/text"
-        android:textSize="15sp"
-        android:text="文字"
-        android:gravity="center"
-        android:background="#22ff0000"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp" />
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/rl_image"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:id="@+id/iv_ry_movie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/dai" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:paddingBottom="5dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/a5b"/>
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/rl_image"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/tv_movie_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="25dp"
+                        android:text="一个大杯子"
+                        android:textSize="18sp" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:src="@drawable/rv"/>
+                    <Button
+                        android:layout_width="30dp"
+                        android:layout_height="15dp"
+                        android:background="@drawable/iv_imax_shap"/>
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_name_one"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:text="一个大杯子"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_name_two"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="一个大杯子"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_pingfen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="25dp"
+                    android:gravity="center_horizontal"
+                    android:text="8.6"
+                    android:textSize="20sp"
+                    android:textColor="#ffcb7e" />
+
+                <Button
+                    android:id="@+id/btn_goupiao"
+                    android:layout_width="60dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/btn_ry_selector"
+                    android:gravity="center"
+                    android:text="购票"
+                    android:textSize="12dp"
+                    android:textColor="@drawable/tv_ry_color_selector" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

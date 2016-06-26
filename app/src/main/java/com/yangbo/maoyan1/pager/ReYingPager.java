@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.Rcl_Reying_Adapter;
 import com.yangbo.maoyan1.base.BasePager;
+import com.yangbo.maoyan1.bean.ReYingListViewBean;
 import com.yangbo.maoyan1.bean.ReYing_ViewPager_bean;
 import com.yangbo.maoyan1.ui.RecyclerViewItemDecoration;
 import com.yangbo.maoyan1.utils.UrlUtils;
@@ -34,7 +35,12 @@ public class ReYingPager extends BasePager {
     private Rcl_Reying_Adapter rcl_adapter;
     //json数据
     private List<ReYing_ViewPager_bean.DataBean> vp_data;
-    private String url;
+
+    private String url_vp;
+    private List<ReYingListViewBean.DataBean.HotBean> lv_movies;
+
+    private String url_listview;
+
 
     public ReYingPager(Context context) {
         super(context);
@@ -53,7 +59,8 @@ public class ReYingPager extends BasePager {
         rlv_reying.setLayoutManager(manager);
         //加分割线
         rlv_reying.addItemDecoration(new RecyclerViewItemDecoration(RecyclerViewItemDecoration.MODE_HORIZONTAL, "#44000000", 0, 1, 0));
-
+        rcl_adapter=new Rcl_Reying_Adapter(context);
+        rlv_reying.setAdapter(rcl_adapter);
         return recylerViewlist;
     }
     /*
@@ -61,37 +68,80 @@ public class ReYingPager extends BasePager {
     * */
     private void setData() {
         Log.e("TAG", "VIewPager数据请求数据");
-        url = UrlUtils.URL_REYING_VIEWPAGER;
-        Log.e("TAG","url="+url);
-        //联网获取数据
+        url_vp = UrlUtils.URL_REYING_VIEWPAGER;
+        url_listview=UrlUtils.URL_REYING_LISTVIEW;
+        //联网获取viewpager数据
         OkHttpUtils
                 .get()
-                .url(url)
+                .url(url_vp)
                 .build()
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
-                        Log.e("TAG", "VIewPager数据请求失败"+e.getMessage());
+                        Log.e("TAG", "VIewPager数据请求失败" + e.getMessage());
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
                         Log.e("TAG", "VIewPager数据请求成功");
-                        parseData(response);
+                        parseViewPagerData(response);
                     }
                 });
+        //联网获取listview数据
+        OkHttpUtils
+                .get()
+                .url(url_listview)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        Log.e("TAG", "LIstView数据请求失败" + e.getMessage());
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        Log.e("TAG", "LIstView数据请求成功");
+                        Log.e("TAG:LIstView数据请求成功+++", response);
+                        parseListViewData(response);
+                    }
+                });
+
+
     }
-    //解析数据
-    private void parseData(String data) {
-        ReYing_ViewPager_bean jsonObject = parseJson(data);
-        vp_data = jsonObject.getData();
-        String name = vp_data.get(0).getName();
-        //设置适配器
-        rcl_adapter=new Rcl_Reying_Adapter(context,vp_data);
-        rlv_reying.setAdapter(rcl_adapter);
+    /*
+    * 解析ListVIew数据
+    * */
+    private void parseListViewData(String data) {
+        ReYingListViewBean reYingListViewBean = parseLVJson(data);
+        lv_movies = reYingListViewBean.getData().getHot();
+        if(lv_movies.size()>0&&lv_movies!=null){
+            //设置适配器
+            rcl_adapter.setLv_movies(lv_movies);
+            rcl_adapter.notifyItemRangeChanged(1, lv_movies.size());
+        }
+    }
+    /*
+    * 解析listViewjson
+    * */
+    private ReYingListViewBean parseLVJson(String json) {
+        Gson gson=new Gson();
+        ReYingListViewBean listViewBean = gson.fromJson(json, ReYingListViewBean.class);
+        return listViewBean;
     }
 
-    private ReYing_ViewPager_bean parseJson(String json) {
+    //解析viewpager数据
+    private void parseViewPagerData(String data) {
+        ReYing_ViewPager_bean jsonObject = parseVPJson(data);
+        vp_data = jsonObject.getData();
+        //设置适配器
+        if(vp_data!=null&&vp_data.size()>0){
+            rcl_adapter.setArr(vp_data);
+            rcl_adapter.notifyItemRangeChanged(0, 1);
+        }
+
+    }
+    //解析viewpagerJson
+    private ReYing_ViewPager_bean parseVPJson(String json) {
         Gson gson=new Gson();
         ReYing_ViewPager_bean data = gson.fromJson(json, ReYing_ViewPager_bean.class);
         return data;

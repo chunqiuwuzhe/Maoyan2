@@ -55,8 +55,8 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 //            116.386267,40.107628?
             //根据经温度 计算距离
-            double lng = changpingqu.get(position).getLng();
-            double lat = changpingqu.get(position).getLat();
+            double lng = changpingqu.get(position-1).getLng();
+            double lat = changpingqu.get(position-1).getLat();
             double distance = DistanceUtil.getDistance(40.107628, 116.386267, lat, lng);
 
             String format = new DecimalFormat("#.0").format(distance);
