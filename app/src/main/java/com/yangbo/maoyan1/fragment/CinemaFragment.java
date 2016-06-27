@@ -1,14 +1,20 @@
 package com.yangbo.maoyan1.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.activity.CinemaDetailActivity;
+import com.yangbo.maoyan1.activity.SearchCinemaActivity;
 import com.yangbo.maoyan1.adapter.MyCinemaAdapter;
 import com.yangbo.maoyan1.base.BaseFragment;
 import com.yangbo.maoyan1.bean.CinemaBean;
@@ -30,9 +36,10 @@ import okhttp3.Call;
  */
 public class CinemaFragment extends BaseFragment {
 
-    TextView tv_moive_city;//城市
+    TextView tv_cinena_city;//城市
 
     TextView tv_cinema_dress;//底部地址
+    RelativeLayout rl_cinema_dress;//底部地址
 
     private ImageView iv_cinema_select;//右上角选择
 
@@ -57,25 +64,94 @@ public class CinemaFragment extends BaseFragment {
 
         View view = View.inflate(context, R.layout.fragment_cinema, null);
         //初始化
-        tv_moive_city = (TextView) view.findViewById(R.id.tv_moive_city);
+        tv_cinena_city = (TextView) view.findViewById(R.id.tv_cinena_city);
         tv_cinema_dress = (TextView) view.findViewById(R.id.tv_cinema_dress);
         iv_cinema_select = (ImageView) view.findViewById(R.id.iv_cinema_select);
         iv_cinema_search = (ImageView) view.findViewById(R.id.iv_cinema_search);
         rv_cinema = (RecyclerView) view.findViewById(R.id.rv_cinema);
+        rl_cinema_dress = (RelativeLayout) view.findViewById(R.id.rl_cinema_dress);
 
+
+        initonclike();
         //设置布局管理者
         rv_cinema.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         //设置适配器
         myCinemaAdapter = new MyCinemaAdapter(context);
         rv_cinema.setAdapter(myCinemaAdapter);
 
+        //设置item的点击事件
+        myCinemaAdapter.setOnItemClickListener(new MyCinemaAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(CinemaBean.DataBean.changpingquBean changpingquBean) {
+                Toast.makeText(context, changpingquBean.getDealPrice()+"", Toast.LENGTH_SHORT).show();
+                //得到要跳转页面的网址
+                url = "http://m.maoyan.com/showtime/wrap.json？cinemaid=11533&movieid=request";
+                //跳转到新页面
+                Intent intent = new Intent(context,CinemaDetailActivity.class);
+                intent.putExtra("url",url);
+                startActivity(intent);
+            }
+        });
+
+//        initonclike();
+        //
+        rv_cinema.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN :
+
+                        break;
+                    case MotionEvent.ACTION_MOVE :
+                        rl_cinema_dress.setVisibility(View.GONE);
+                        break;
+                    case MotionEvent.ACTION_UP :
+                        rl_cinema_dress.setVisibility(View.VISIBLE);
+                        break;
+                }
+                return false;
+            }
+        });
+
         return view;
 
+    }
+
+    /**
+     * 设置顶部的点击事件
+     */
+    private void initonclike() {
+        MyOnClickListener myOnClickListener = new MyOnClickListener();
+        tv_cinena_city.setOnClickListener(myOnClickListener);
+        iv_cinema_select.setOnClickListener(myOnClickListener);
+        iv_cinema_search.setOnClickListener(myOnClickListener);
+    }
+    class MyOnClickListener implements View.OnClickListener {
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.tv_cinena_city :
+                    Toast.makeText(context, "tv_moive_city", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.iv_cinema_select :
+                    Toast.makeText(context, "iv_cinema_select", Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.iv_cinema_search :
+                    Toast.makeText(context, "iv_cinema_search", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(context,SearchCinemaActivity.class));
+                    break;
+            }
+        }
     }
 
     //初始化数据 重写父类的方法
     @Override
     public void initDate() {
+
+
+
         super.initDate();
 
         url = UrlUtils.URL_CINEMA;
@@ -89,8 +165,6 @@ public class CinemaFragment extends BaseFragment {
 
        // 联网请求数据
         getDataFromNet();
-
-
 
 
 
@@ -114,10 +188,12 @@ public class CinemaFragment extends BaseFragment {
                     @Override
                     public void onResponse(String response, int id) {
                         LogUtil.e("请求成功！！！！" + response);
+
+                        CacheUtils.putString(context, url,response);
                         //解析数据
                         processData(response);
 
-                        CacheUtils.putString(context, url,response);
+
                     }
                 });
 
@@ -141,6 +217,11 @@ public class CinemaFragment extends BaseFragment {
                         CacheUtils.putString(context, url,response);
                     }
                 });
+
+
+        MyOnClickListener myOnClickListener = new MyOnClickListener();
+
+
 
     }
 
@@ -179,7 +260,7 @@ public class CinemaFragment extends BaseFragment {
         List datas =changpingqu;
 
 
-        //设置适配器
+        //设置适配器的数据
         myCinemaAdapter.setCinemaBean(changpingqu);
         myCinemaAdapter.notifyItemRangeChanged(1,changpingqu.size());
 

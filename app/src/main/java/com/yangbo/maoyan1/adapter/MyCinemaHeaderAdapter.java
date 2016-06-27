@@ -18,6 +18,8 @@ import java.util.List;
  */
 public class MyCinemaHeaderAdapter extends PagerAdapter{
 
+
+
     private final List<CinemaViewPagerBean.DataBean> viewPagerDatas;
     private Context context;
 
@@ -28,7 +30,7 @@ public class MyCinemaHeaderAdapter extends PagerAdapter{
 
     @Override
     public int getCount() {
-        return viewPagerDatas.size();
+        return 1000;
     }
 
     @Override
@@ -38,9 +40,10 @@ public class MyCinemaHeaderAdapter extends PagerAdapter{
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
+        int i = position % viewPagerDatas.size();
         ImageView imageView;
         imageView = new ImageView(context);
-        String imgUrl = viewPagerDatas.get(position).getImgUrl();
+        String imgUrl = viewPagerDatas.get(i).getImgUrl();
         Glide.with(context).load(imgUrl)
                 .placeholder(R.drawable.kg)
                 .error(R.drawable.kg)

@@ -50,6 +50,7 @@ public class SplashActivity extends Activity{
                     processData(result1);
                     ScaleAnimation scaleAnimation = new ScaleAnimation(1,1.1f,1,1.1f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.8f);
                     scaleAnimation.setDuration(2000);
+                    scaleAnimation.setFillAfter(true);
                     iv_splash.startAnimation(scaleAnimation);
                     handler.removeCallbacksAndMessages(null);
                     sendEmptyMessageDelayed(1,2000);

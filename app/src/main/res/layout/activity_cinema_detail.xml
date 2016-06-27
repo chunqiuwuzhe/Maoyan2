@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_cinema_detail"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#DD403B"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/iv_cinema_detail_back"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/je"
+            android:padding="11dp"
+            android:layout_alignParentLeft="true"></ImageView>
+
+        <TextView
+            android:id="@+id/tv_cinema_detail_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/iv_cinema_selector"
+            android:gravity="center"
+            android:text="影院"
+            android:textColor="#ffffff"
+            android:textSize="20sp"></TextView>
+
+        <ImageView
+            android:id="@+id/iv_cinema_detail_search"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_alignParentRight="true"
+            android:padding="5dp"
+            android:src="@drawable/a32" />
+        <!--android:background="@drawable/iv_cinema_selector"-->
+
+    </RelativeLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <WebView
+        android:id="@+id/wv_cinema_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </WebView>
+
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+    android:indeterminateDrawable="@drawable/custom_progress"
+
+        android:background="@drawable/backgroud_logo02"
+        android:visibility="visible" />
+    <!--android:indeterminateDrawable="@drawable/backgroud_logo01"-->
+</RelativeLayout>
+   
+    
+    
+</LinearLayout>

@@ -7,7 +7,7 @@
     <android.support.v4.view.ViewPager
         android:id="@+id/vp_cinema_header"
         android:layout_width="match_parent"
-        android:layout_height="120dp">
+        android:layout_height="100dp">
 
     </android.support.v4.view.ViewPager>
 </LinearLayout>

@@ -63,25 +63,60 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/sp" />
+        <Button
+            android:id="@+id/btn_small_zuo"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:text="座"
+            android:textSize="10sp"
+            android:layout_marginRight="5dp"
+            android:textColor="#63afd7"
+            android:background="@drawable/iv_imax_shap"/>
+        <Button
+            android:id="@+id/btn_small_tuan"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:text="团"
+            android:layout_marginRight="5dp"
+            android:textSize="10sp"
+            android:textColor="#63afd7"
+            android:background="@drawable/iv_imax_shap"/>
+        <Button
+            android:id="@+id/btn_small_4d"
+            android:layout_width="25dp"
+            android:layout_height="15dp"
+            android:layout_marginRight="5dp"
+            android:text="4D厅"
+            android:textSize="10sp"
+            android:textColor="#63afd7"
+            android:background="@drawable/iv_imax_shap"/>
+        <Button
+            android:id="@+id/btn_small_xiaochi"
+            android:layout_width="25dp"
+            android:layout_height="15dp"
+            android:text="小吃"
+            android:layout_marginRight="5dp"
+            android:textSize="10sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/iv_imax_shap2"/>
+        <Button
+            android:id="@+id/btn_small_tui"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:text="退"
+            android:layout_marginRight="5dp"
+            android:textSize="10sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/iv_imax_shap2"/>
+        <Button
+            android:id="@+id/btn_small_gaiqian"
+            android:layout_width="25dp"
+            android:layout_height="15dp"
+            android:text="改签"
+            android:layout_marginRight="5dp"
+            android:textSize="10sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/iv_imax_shap2"/>
 
 
     </LinearLayout>
