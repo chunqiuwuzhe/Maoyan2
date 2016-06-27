@@ -4,24 +4,24 @@
         "source": "C:\\Users\\sdf\\Desktop\\MyMaoYan\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
-        "merged": "C:\\Users\\sdf\\Desktop\\M1\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
-        "source": "C:\\Users\\sdf\\Desktop\\M1\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
-    },
-    {
         "merged": "C:\\Users\\yangbo\\Documents\\Maoyan2\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
         "source": "C:\\Users\\yangbo\\Documents\\Maoyan2\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\sdf\\Desktop\\M1\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
+        "source": "C:\\Users\\sdf\\Desktop\\M1\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
         "merged": "F:\\Android\\pre_workspace\\BeiJingNews\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
         "source": "F:\\Android\\pre_workspace\\BeiJingNews\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
     },
     {
-        "merged": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
-        "source": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
-    },
-    {
         "merged": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_dark.xml",
         "source": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\color-v11\\abc_background_cache_hint_selector_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
+        "source": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
         "merged": "C:\\Users\\sdf\\Desktop\\M1\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\color-v11\\abc_background_cache_hint_selector_material_light.xml",
