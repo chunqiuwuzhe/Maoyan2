@@ -5,7 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+<<<<<<< .merge_file_a10128
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+=======
+>>>>>>> .merge_file_a12484
 
     <application
         android:name=".activity.MyApplication"
@@ -16,7 +19,11 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
+<<<<<<< .merge_file_a10128
             android:launchMode="singleTask" />
+=======
+            android:launchMode="singleTask"></activity>
+>>>>>>> .merge_file_a12484
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,8 +31,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< .merge_file_a10128
         <activity android:name=".activity.CinemaDetailActivity" />
         <activity android:name=".activity.SearchCinemaActivity"></activity>
+=======
+        <activity android:name=".activity.SouSuoActivity"></activity>
+>>>>>>> .merge_file_a12484
     </application>
 
 </manifest>

@@ -1,7 +1,6 @@
 package com.yangbo.maoyan1.adapter;
 
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -15,13 +14,17 @@ import java.util.ArrayList;
 public class Vp_HaiWai_Adapter extends PagerAdapter {
 
 
-    private final ArrayList<BaseFireFragment> arr;
+    private ArrayList<BaseFireFragment> arr;
     private String[] str = {"美国","韩国","日本"};
 
     public Vp_HaiWai_Adapter(ArrayList<BaseFireFragment> arr_vp) {
-        Log.e("TAG",arr_vp.toString());
-        Log.e("TAG*************", str.toString());
         this.arr=arr_vp;
+    }
+
+
+
+    public void setArr(ArrayList<BaseFireFragment> arr) {
+        this.arr = arr;
     }
 
 

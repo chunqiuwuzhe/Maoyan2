@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="170dp"
+        android:layout_height="90dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="13dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#22000000"
+            android:src="@drawable/background02" />
+        <TextView
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="#33000000"
+            android:text=""/>
+        <TextView
+            android:layout_marginLeft="3dp"
+            android:layout_marginBottom="3dp"
+            android:layout_alignParentBottom="true"
+            android:layout_width="60dp"
+            android:textSize="12sp"
+            android:layout_height="wrap_content"
+            android:text="湄公河行动首款预告片"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/a5b"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="3dp"/>
+    </RelativeLayout>
+</FrameLayout>

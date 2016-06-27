@@ -24,7 +24,6 @@ public class HaiWaiPager extends BasePager {
     private TabLayout tab_haiwai;
     private TextView tv_haiwai_guojia;
     private ViewPager vp_haiwai;
-    private String[] str = {"美国","韩国","日本"};
     private ArrayList<BaseFireFragment> arr_vp;
     private Vp_HaiWai_Adapter hwAdapter;
 
@@ -41,7 +40,6 @@ public class HaiWaiPager extends BasePager {
         setData();
         return view;
     }
-
     public void setData() {
         arr_vp = new ArrayList<>();
 //        添加页面
