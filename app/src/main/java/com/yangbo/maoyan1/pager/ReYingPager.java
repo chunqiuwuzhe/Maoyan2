@@ -5,7 +5,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.Rcl_Reying_Adapter;
@@ -41,6 +44,8 @@ public class ReYingPager extends BasePager {
 
     private String url_listview;
 
+    private MaterialRefreshLayout materialrefresh;
+
 
     public ReYingPager(Context context) {
         super(context);
@@ -51,7 +56,7 @@ public class ReYingPager extends BasePager {
 
         View recylerViewlist=View.inflate(context,R.layout.reying_rv_paer,null);
         rlv_reying = (RecyclerView) recylerViewlist.findViewById(R.id.rlv_reying);
-
+        materialrefresh = (MaterialRefreshLayout) recylerViewlist.findViewById(R.id.materialrefresh);
         setData();
 
         //设置布局管理器
@@ -61,6 +66,23 @@ public class ReYingPager extends BasePager {
         rlv_reying.addItemDecoration(new RecyclerViewItemDecoration(RecyclerViewItemDecoration.MODE_HORIZONTAL, "#44000000", 0, 1, 0));
         rcl_adapter=new Rcl_Reying_Adapter(context);
         rlv_reying.setAdapter(rcl_adapter);
+        //刷新
+        materialrefresh.setSunStyle(true);
+        materialrefresh.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(final MaterialRefreshLayout materialRefreshLayout) {
+                materialRefreshLayout.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        materialRefreshLayout.finishRefresh();
+                    }
+                }, 3000);
+            }
+            @Override
+            public void onfinish() {
+                Toast.makeText(context, "finish", Toast.LENGTH_LONG).show();
+            }
+        });
         return recylerViewlist;
     }
     /*
