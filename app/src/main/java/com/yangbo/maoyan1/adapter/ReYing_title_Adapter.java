@@ -28,7 +28,7 @@ public class ReYing_title_Adapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return vpData.size();
+        return 1000;
     }
 
     @Override
@@ -38,8 +38,9 @@ public class ReYing_title_Adapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
+        int i = position % vpData.size();
         //获取图片URL路径 动态创建一个imageView 将获取的图片赋值给imageView 添加到ViewPager中 返回
-        String imgurl = vpData.get(position).getImgUrl();
+        String imgurl = vpData.get(i).getImgUrl();
         ImageView imageView=new ImageView(context);
         Glide.with(context).load(imgurl)
                 .placeholder(R.drawable.kg)

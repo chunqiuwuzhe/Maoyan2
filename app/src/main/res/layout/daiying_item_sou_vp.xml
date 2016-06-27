@@ -35,7 +35,7 @@
         android:text="预告片推荐"
         android:textSize="13sp"
         android:gravity="center_vertical"
-        android:paddingLeft="5dp"/>
+        android:paddingLeft="13dp"/>
     <android.support.v7.widget.RecyclerView
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
