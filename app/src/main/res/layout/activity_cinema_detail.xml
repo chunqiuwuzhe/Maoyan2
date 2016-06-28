@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:layout_gravity="center"
-    android:indeterminateDrawable="@drawable/custom_progress"
+        android:indeterminateDrawable="@drawable/custom_progress"
 
         android:background="@drawable/backgroud_logo02"
         android:visibility="visible" />

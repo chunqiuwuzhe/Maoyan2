@@ -98,7 +98,6 @@ public class SearchCinemaActivity extends Activity {
         }
 
 
-
         //设置适配器的数据
         adapter.setCinemaBean(datas);
         adapter.notifyItemRangeChanged(1,datas.size());
