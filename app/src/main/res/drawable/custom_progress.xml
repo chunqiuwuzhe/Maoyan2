@@ -11,6 +11,7 @@
         android:shape="ring"
 
         android:thicknessRatio="15"
+
         android:useLevel="false">
 
 

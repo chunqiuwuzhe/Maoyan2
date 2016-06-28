@@ -23,6 +23,7 @@ import java.util.List;
  * Created by yangbo on 2016/6/25.
  */
 public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private int type;
 //    private  CinemaBean cinemaBean;
 
     private Context context;
@@ -35,8 +36,9 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
     //适配器
-    public MyCinemaAdapter(Context context) {
+    public MyCinemaAdapter(Context context, int i) {
         this.context = context;
+        this.type = i;
     }
 
     //设置数据
@@ -51,9 +53,18 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         if (viewType == 0) {
-            View view = LayoutInflater.from(context).inflate(R.layout.item_cinema_vp, parent, false);
-            return new MyHolder1(view);
+            if(type ==1) {
+                View view = LayoutInflater.from(context).inflate(R.layout.item_cinema_vp, parent, false);
+                return new MyHolder1(view);
+            }
+
+            if(type ==2) {
+                View view = LayoutInflater.from(context).inflate(R.layout.item_cinema_vp1, parent, false);
+                return new MyHolder3(view);
+            }
+
         }
         if (viewType == 1) {
             View view = LayoutInflater.from(context).inflate(R.layout.item_cinema_normal, parent, false);
@@ -64,7 +75,8 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        if (position == 0 && viewPagerDatas != null && viewPagerDatas.size() > 0) {
+        if (type==1&&position == 0 && viewPagerDatas != null && viewPagerDatas.size() > 0) {
+            ((MyHolder1) holder).vp_cinema_header.setVisibility(View.VISIBLE);
             MyCinemaHeaderAdapter cinema_header_adapter = new MyCinemaHeaderAdapter(context, viewPagerDatas);
             viewpager = ((MyHolder1) holder).vp_cinema_header;
             ((MyHolder1) holder).vp_cinema_header.setAdapter(cinema_header_adapter);
@@ -83,6 +95,9 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 internalHander.postDelayed(new InternalRunnable(), 3000);
             }
 
+        }else if(type ==2){
+
+            ((MyHolder3) holder).tv_cinema_header.setText("  ");
         }
 
 
@@ -90,18 +105,21 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (changpingqu != null && changpingqu.size() > 0) {
             if (holder instanceof MyHolder2) {
                 changpingquBean = changpingqu.get(position - 1);
-                //绑定数据
-                ((MyHolder2) holder).tv_cinema_yingyuan.setText(changpingquBean.getNm());
-                ((MyHolder2) holder).tv_cinema_price.setText(changpingquBean.getSellPrice() + "");
-                ((MyHolder2) holder).tv_cinema_dizhi.setText(changpingquBean.getAddr().replace("changpingqu", "昌平区"));
-
-//            116.386267,40.107628?
+                //            116.386267,40.107628?
                 //根据经温度 计算距离
                 double lng = changpingqu.get(position - 1).getLng();
                 double lat = changpingqu.get(position - 1).getLat();
                 double distance = DistanceUtil.getDistance(40.107628, 116.386267, lat, lng);
 
                 String format = new DecimalFormat("#.0").format(distance);
+
+
+                //绑定数据
+                ((MyHolder2) holder).tv_cinema_yingyuan.setText(changpingquBean.getNm());
+                ((MyHolder2) holder).tv_cinema_price.setText(changpingquBean.getSellPrice() + "");
+                ((MyHolder2) holder).tv_cinema_dizhi.setText(changpingquBean.getAddr().replace("changpingqu", "昌平区"));
+
+
                 //设置距离
                 ((MyHolder2) holder).tv_cinema_intance.setText(format + "km");
 
@@ -217,6 +235,15 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
 
 
+        }
+    }
+    class MyHolder3 extends RecyclerView.ViewHolder {
+
+        public TextView tv_cinema_header;
+
+        public MyHolder3(View itemView) {
+            super(itemView);
+            tv_cinema_header = (TextView) itemView.findViewById(R.id.tv_cinema_header);
         }
     }
 

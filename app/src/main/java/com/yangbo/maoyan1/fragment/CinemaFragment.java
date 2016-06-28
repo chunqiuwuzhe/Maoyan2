@@ -44,6 +44,8 @@ public class CinemaFragment extends BaseFragment {
     private ImageView iv_cinema_select;//右上角选择
 
     private ImageView iv_cinema_search;//右上角搜素
+    //传到搜索栏 de 数据
+    String jsonData;
     //请求的数据
     List datas;
 
@@ -76,7 +78,7 @@ public class CinemaFragment extends BaseFragment {
         //设置布局管理者
         rv_cinema.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
         //设置适配器
-        myCinemaAdapter = new MyCinemaAdapter(context);
+        myCinemaAdapter = new MyCinemaAdapter(context,1);
         rv_cinema.setAdapter(myCinemaAdapter);
 
         //设置item的点击事件
@@ -139,8 +141,12 @@ public class CinemaFragment extends BaseFragment {
                     Toast.makeText(context, "iv_cinema_select", Toast.LENGTH_SHORT).show();
                     break;
                 case R.id.iv_cinema_search :
-                    Toast.makeText(context, "iv_cinema_search", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(context,SearchCinemaActivity.class));
+//                    Toast.makeText(context, "iv_cinema_search", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context,SearchCinemaActivity.class);
+                    intent.putExtra("tt",jsonData);
+                    startActivity(intent);
+
+
                     break;
             }
         }
@@ -230,10 +236,12 @@ public class CinemaFragment extends BaseFragment {
         CinemaViewPagerBean cinemaViewPagerBean = gson.fromJson(response, CinemaViewPagerBean.class);
         List<CinemaViewPagerBean.DataBean> data = cinemaViewPagerBean.getData();
         myCinemaAdapter.setViewPagerData(data);
+
     }
 
     private void processData(String result) {
-        LogUtil.e("youmeiyou " + result);
+//        LogUtil.e("youmeiyou " + result);
+        //转化成英文，不然会报错
         result = result.replace("朝阳区", "chaoyangqu");
         result = result.replace("海淀区", "haidianqu");
         result = result.replace("东城区", "dongchengqu");
@@ -250,14 +258,16 @@ public class CinemaFragment extends BaseFragment {
         result = result.replace("平谷区", "pingguqu");
         result = result.replace("密云县", "miyunxian");
         result = result.replace("延庆县", "yanqingxian");
-        LogUtil.e("youmeiyou " + result);
+
+        jsonData =result;
+//        LogUtil.e("youmeiyou " + result);
         Gson gson = new Gson();
         CinemaBean cinemaBean = gson.fromJson(result, CinemaBean.class);
 
         List<CinemaBean.DataBean.changpingquBean> changpingqu = cinemaBean.getData().getchangpingqu();
-        LogUtil.e(changpingqu.get(1).getNm());
+//        LogUtil.e(changpingqu.get(1).getNm());
 
-        List datas =changpingqu;
+        datas =changpingqu;
 
 
         //设置适配器的数据

@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.MainActivity"
-            android:launchMode="singleTask"></activity>
+            android:launchMode="singleTask" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,9 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.SouSuoActivity"></activity>
-        <activity android:name=".activity.CinemaDetailActivity"></activity>
-        <activity android:name=".activity.SearchCinemaActivity"></activity>
+        <activity android:name=".activity.SouSuoActivity" />
+        <activity android:name=".activity.CinemaDetailActivity" />
+        <activity android:name=".activity.SearchCinemaActivity" />
+        <activity android:name=".activity.H5FindActivity"></activity>
     </application>
 
 </manifest>

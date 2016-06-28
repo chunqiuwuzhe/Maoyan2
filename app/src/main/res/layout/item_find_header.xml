@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_find_item"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vp_find_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_find_huati"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="80dp"
+        android:drawableTop="@drawable/v_"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="话题"/>
+    <TextView
+        android:id="@+id/tv_find_zixun"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="80dp"
+        android:drawableTop="@mipmap/a0w"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="资讯"/>
+    <TextView
+        android:id="@+id/tv_find_yingku"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="80dp"
+        android:drawableTop="@drawable/v02_"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="影库"/>
+    <TextView
+        android:id="@+id/tv_find_piaofang"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="80dp"
+        android:drawableTop="@drawable/tf"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:text="票房"/>
+
+
+</LinearLayout>
+
+
+</LinearLayout>
