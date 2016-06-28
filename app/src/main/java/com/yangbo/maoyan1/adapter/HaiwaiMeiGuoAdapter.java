@@ -76,6 +76,7 @@ public class HaiwaiMeiGuoAdapter extends BaseAdapter{
         holder.tv_name_one.setText(comingBean.getOverseaTime()+"美国上映");
         holder.tv_name_two.setText(comingBean.getDesc());
         holder.tv_pingfen.setText(comingBean.getWish()+"");
+
         String img = comingBean.getImg();
         //替换字符串
         img = replace(img);
@@ -92,6 +93,15 @@ public class HaiwaiMeiGuoAdapter extends BaseAdapter{
             holder.view_line.setVisibility(View.VISIBLE);
             holder.tv_chankan.setVisibility(View.VISIBLE);
         }
+        //设置显示或者不显示3d
+        holder.btn_imax.setVisibility(View.VISIBLE);
+        holder.iv_3d.setVisibility(View.VISIBLE);
+        String ver = comingBean.getVer();
+        if(ver!=null){
+            isContains(holder, comingBean,ver);
+        }
+        //设置显示想看或者预售
+        isButton(holder, comingBean);
         return convertView;
     }
     //替换字符串
@@ -100,6 +110,44 @@ public class HaiwaiMeiGuoAdapter extends BaseAdapter{
         return replace;
     }
 
+    private void isButton(ViewHolder holder, MeiGuoBean.DataBean.ComingBean comingBean) {
+        int showst = comingBean.getShowst();
+        if(showst==1){
+            //隐藏预售
+            holder.btn_yushou.setVisibility(View.GONE);
+            //隐藏购票
+            holder.btn_goupiao.setVisibility(View.GONE);
+            // 显示想看
+            holder.btn_xiangkan.setVisibility(View.VISIBLE);
+        }else if(showst==4){
+            //隐藏想看
+            holder.btn_xiangkan.setVisibility(View.GONE);
+            //隐藏购票
+            holder.btn_goupiao.setVisibility(View.GONE);
+            //显示预售
+            holder.btn_yushou.setVisibility(View.VISIBLE);
+        }else{
+            //隐藏预售
+            holder.btn_yushou.setVisibility(View.GONE);
+            //隐藏想看
+            holder.btn_xiangkan.setVisibility(View.GONE);
+            //显示购票
+            holder.btn_goupiao.setVisibility(View.VISIBLE);
+        }
+    }
+    private void isContains(ViewHolder holder, MeiGuoBean.DataBean.ComingBean hotBean, String ver) {
+        //如果包含其中的字符床就显示反之不显示
+        if(ver.contains("3D/IMAX 3D")){//显示3d2D/3D
+            holder.iv_3d.setVisibility(View.VISIBLE);
+            holder.btn_imax.setVisibility(View.VISIBLE);
+        }else if(ver.contains("2D/3D")){//不显示
+            holder.iv_3d.setVisibility(View.VISIBLE);
+            holder.btn_imax.setVisibility(View.GONE);
+        } else {
+            holder.btn_imax.setVisibility(View.GONE);
+            holder.iv_3d.setVisibility(View.GONE);
+        }
+    }
     static class ViewHolder{
         ImageView iv_hw_movie,iv_3d;
         TextView tv_movie_name,tv_name_one,tv_name_two;

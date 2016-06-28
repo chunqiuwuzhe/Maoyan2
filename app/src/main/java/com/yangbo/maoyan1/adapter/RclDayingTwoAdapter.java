@@ -17,7 +17,6 @@ public class RclDayingTwoAdapter extends RecyclerView.Adapter<RclDayingTwoAdapte
     public RclDayingTwoAdapter(Context context) {
         this.context=context;
     }
-
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_haiwai_two_rcl, parent, false);;
