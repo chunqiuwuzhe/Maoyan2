@@ -1,6 +1,204 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/hw_image"
+                    android:layout_width="60dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/iv_hw_movie"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/dai" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="5dp"
+                        android:paddingBottom="7dp"
+                        android:src="@drawable/a5b" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/hw_image"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_movie_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="一个大杯子"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:id="@+id/iv_3d"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:src="@drawable/rv" />
+
+                        <Button
+                            android:id="@+id/btn_imax"
+                            android:layout_width="30dp"
+                            android:layout_height="15dp"
+                            android:background="@drawable/iv_imax_shap"
+                            android:text="IMAX"
+                            android:textColor="#63afd7"
+                            android:textSize="9sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_teying"
+                        android:layout_width="55dp"
+                        android:layout_height="20dp"
+                        android:text="大陆特映"
+                        android:textSize="10dp"
+                        android:gravity="center"
+                        android:textColor="#12a2f1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:background="@drawable/mg_teying_selector"/>
+                    <TextView
+                        android:id="@+id/tv_name_one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+
+                        android:text="一个大杯子"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tv_name_two"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:singleLine="true"
+                        android:ellipsize="end"
+                        android:text="一个大杯子"
+                        android:textSize="13sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="27dp"
+                            android:layout_marginTop="5dp"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_pingfen"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12345"
+                                android:textColor="#ffcb7e"
+                                android:textSize="20sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="人想看"
+                                android:textColor="#ffcb7e"
+                                android:textSize="10dp" />
+                        </LinearLayout>
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal">
+
+                            <Button
+                                android:id="@+id/btn_yushou"
+                                android:layout_width="56dp"
+                                android:layout_height="30dp"
+                                android:background="@drawable/btn_hw_selector"
+                                android:gravity="center"
+                                android:text="预售"
+                                android:textColor="@drawable/tv_hw_yu_color_selector"
+                                android:textSize="12dp"
+                                android:visibility="gone" />
+
+                            <Button
+                                android:id="@+id/btn_xiangkan"
+                                android:layout_width="60dp"
+                                android:layout_height="30dp"
+                                android:background="@drawable/btn_hw_love_selector"
+                                android:drawableLeft="@drawable/xihuan_xin"
+                                android:padding="5dp"
+                                android:text="想看"
+                                android:textColor="@drawable/tv_hw_color_selector"
+                                android:textSize="12dp" />
+
+                            <Button
+                                android:id="@+id/btn_goupiao"
+                                android:layout_width="56dp"
+                                android:layout_height="30dp"
+                                android:background="@drawable/btn_ry_selector"
+                                android:gravity="center"
+                                android:text="购票"
+                                android:textColor="@drawable/tv_ry_color_selector"
+                                android:textSize="12dp"
+                                android:visibility="gone" />
+                        </FrameLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+        <View
+            android:visibility="gone"
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#22000000"/>
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_chankan"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:textColor="#f34f43"
+            android:text="查看全部待映影片影片" />
+    </LinearLayout>
 </LinearLayout>

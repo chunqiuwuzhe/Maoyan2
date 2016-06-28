@@ -12,8 +12,6 @@ import java.util.ArrayList;
  * Created by sdf on 2016/6/25.
  */
 public class Vp_HaiWai_Adapter extends PagerAdapter {
-
-
     private ArrayList<BaseFireFragment> arr;
     private String[] str = {"美国","韩国","日本"};
 
@@ -30,7 +28,10 @@ public class Vp_HaiWai_Adapter extends PagerAdapter {
 
     @Override
     public int getCount() {
-        return arr.size();
+        if(arr!=null&&arr.size()>0){
+            return arr.size();
+        }
+        return 0;
     }
 
     @Override
@@ -42,7 +43,7 @@ public class Vp_HaiWai_Adapter extends PagerAdapter {
     public Object instantiateItem(ViewGroup container, int position) {
         BaseFireFragment baseFireFragment = arr.get(position);
         View view = baseFireFragment.initView();
-        baseFireFragment.initData();
+//        baseFireFragment.initData();
         container.addView(view);
         return view;
     }

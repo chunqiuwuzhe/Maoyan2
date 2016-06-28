@@ -105,19 +105,7 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                         .into(((Ry_RclViewHolder) holder).iv_ry_movie);
                 //设置显示或者不显示3d
                 isContains((Ry_RclViewHolder) holder, hotBean);
-
-
-
             }
-//            if(lv_movies.get(position).getNewsHeadlines()==null){
-//                return;
-//            }
-//            newsHeadlines = lv_movies.get(position).getNewsHeadlines();
-//            if(newsHeadlines!=null&&newsHeadlines.size()>0){
-//                View view=View.inflate(context,R.layout.reying_lv_zhuanti,null);
-//                ry_listview = (ListView) view.findViewById(R.id.ry_listview);
-//                ry_listview.setAdapter(new MyRyListViewAdapter(context,newsHeadlines));
-//            }
         }
     }
 

@@ -57,7 +57,6 @@ public class ReYingPager extends BasePager {
         View recylerViewlist=View.inflate(context,R.layout.reying_rv_paer,null);
         rlv_reying = (RecyclerView) recylerViewlist.findViewById(R.id.rlv_reying);
         materialrefresh = (MaterialRefreshLayout) recylerViewlist.findViewById(R.id.materialrefresh);
-        setData();
 
         //设置布局管理器
         manager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
@@ -85,10 +84,10 @@ public class ReYingPager extends BasePager {
         });
         return recylerViewlist;
     }
-    /*
-    * 获取数据
-    * */
-    private void setData() {
+
+    @Override
+    public void initData() {
+        super.initData();
         Log.e("TAG", "VIewPager数据请求数据");
         url_vp = UrlUtils.URL_REYING_VIEWPAGER;
         url_listview=UrlUtils.URL_REYING_LISTVIEW;
@@ -127,8 +126,6 @@ public class ReYingPager extends BasePager {
                         parseListViewData(response);
                     }
                 });
-
-
     }
     /*
     * 解析ListVIew数据

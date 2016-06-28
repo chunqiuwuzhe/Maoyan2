@@ -70,6 +70,10 @@ public class MoiveFragment extends BaseFragment {
         pagers.add(new HaiWaiPager(context));
         //适配器
         vp_moive_da.setAdapter(adapter);
+        //默认加载热映界面
+        vp_moive_da.setCurrentItem(0);
+        pagers.get(0).initData();
+        vp_moive_da.addOnPageChangeListener(new MtOnPageChangeListener());
 
         //得到总间距
         //监听onlayout的执行
@@ -184,6 +188,23 @@ public class MoiveFragment extends BaseFragment {
         public void destroyItem(ViewGroup container, int position, Object object) {
 //            super.destroyItem(container, position, object);
             container.removeView((View) object);
+        }
+    }
+
+    private class MtOnPageChangeListener implements ViewPager.OnPageChangeListener {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            pagers.get(position).initData();
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
         }
     }
 }
