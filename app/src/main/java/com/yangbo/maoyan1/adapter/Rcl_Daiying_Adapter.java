@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,10 +76,11 @@ public class Rcl_Daiying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 ((Dy_RclViewHolder) holder).tv_movie_name.setText(comingBean.getNm());
                 ((Dy_RclViewHolder) holder).tv_name_one.setText(comingBean.getScm());
                 ((Dy_RclViewHolder) holder).tv_name_two.setText(comingBean.getShowInfo());
-                ((Dy_RclViewHolder) holder).tv_pingfen.setText(comingBean.getWish()+"");
+                ((Dy_RclViewHolder) holder).tv_pingfen.setText(comingBean.getWish() + "");
                 ((Dy_RclViewHolder) holder).ll_one.setVisibility(View.GONE);
                 ((Dy_RclViewHolder) holder).ll_two.setVisibility(View.GONE);
                 ((Dy_RclViewHolder) holder).ll_two.setVisibility(View.GONE);
+                //显示附带专题数据
                 isVisibility((Dy_RclViewHolder) holder, position, comingBean);
 
                 String img = comingBean.getImg();
@@ -163,6 +163,8 @@ public class Rcl_Daiying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
         Button btn_one,btn_two,btn_three;
         TextView tv_one,tv_two,tv_three;
 
+        TextView tv_date;
+
         public Dy_RclViewHolder(View itemView) {
             super(itemView);
             iv_hw_movie = (ImageView) itemView.findViewById(R.id.iv_hw_movie);
@@ -174,6 +176,8 @@ public class Rcl_Daiying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             tv_pingfen = (TextView) itemView.findViewById(R.id.tv_pingfen);
             btn_yushou = (Button) itemView.findViewById(R.id.btn_yushou);
             btn_xiangkan = (Button) itemView.findViewById(R.id.btn_xiangkan);
+
+            tv_date = (TextView) itemView.findViewById(R.id.tv_date);
 
             ll_one = (LinearLayout) itemView.findViewById(R.id.ll_one);
             ll_two = (LinearLayout) itemView.findViewById(R.id.ll_two);
@@ -218,10 +222,7 @@ public class Rcl_Daiying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 hotBean.getHeadLinesVO().size()> 0){
 
             int size = hotBean.getHeadLinesVO().size();
-            Log.e("TAG-----------size==", size + "");
-            Log.e("TAG------position==",position+"");
             List<DaiYIngRcViewBean.DataBean.ComingBean.HeadLinesVOBean> newsHeadlines = hotBean.getHeadLinesVO();
-
             if(size==1){
                 //设置布局为显示
                 holder.ll_one.setVisibility(View.VISIBLE);

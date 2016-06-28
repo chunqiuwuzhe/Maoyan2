@@ -49,8 +49,6 @@ public class DaiYingPager extends BasePager {
         ProgressDialog pro=new ProgressDialog(context);
         View recylerViewlist=View.inflate(context,R.layout.daiying_rv_paer,null);
         rlv_daiying = (RecyclerView) recylerViewlist.findViewById(R.id.rlv_daiying);
-
-        setData();
         //设置布局管理器
         manager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         rlv_daiying.setLayoutManager(manager);
@@ -61,10 +59,10 @@ public class DaiYingPager extends BasePager {
         rlv_daiying.setAdapter(rcl_adapter);
         return recylerViewlist;
     }
-    /*
-    * 获取数据
-    * */
-    private void setData() {
+
+    @Override
+    public void initData() {
+        super.initData();
         //联网获取viewpager数据
         OkHttpUtils
                 .get()
@@ -83,7 +81,6 @@ public class DaiYingPager extends BasePager {
                     }
                 });
     }
-
     private void parseRLData(String data) {
         DaiYIngRcViewBean rcViewBean = parseRLJson(data);
         coming = rcViewBean.getData().getComing();

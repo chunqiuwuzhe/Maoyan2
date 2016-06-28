@@ -1,29 +1,5 @@
 [
     {
-        "outputFile": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\values-ldrtl-v23\\values-ldrtl-v23.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 112,
-                    "endOffset": 163
-                },
-                "from": {
-                    "file": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-ldrtl-v23\\values-ldrtl-v23.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 240,
-                        "endColumn": 112,
-                        "endOffset": 348
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "C:\\Users\\sdf\\Desktop\\M1\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\values-ldrtl-v23\\values-ldrtl-v23.xml",
         "map": [
             {
@@ -36,78 +12,6 @@
                 },
                 "from": {
                     "file": "C:\\Users\\sdf\\Desktop\\M1\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-ldrtl-v23\\values-ldrtl-v23.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 240,
-                        "endColumn": 112,
-                        "endOffset": 348
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "F:\\Android\\pre_workspace\\BeiJingNews\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\values-ldrtl-v23\\values-ldrtl-v23.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 112,
-                    "endOffset": 163
-                },
-                "from": {
-                    "file": "F:\\Android\\pre_workspace\\BeiJingNews\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-ldrtl-v23\\values-ldrtl-v23.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 240,
-                        "endColumn": 112,
-                        "endOffset": 348
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "C:\\Users\\sdf\\Desktop\\MyMaoYan\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\values-ldrtl-v23\\values-ldrtl-v23.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 112,
-                    "endOffset": 163
-                },
-                "from": {
-                    "file": "C:\\Users\\sdf\\Desktop\\MyMaoYan\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-ldrtl-v23\\values-ldrtl-v23.xml",
-                    "position": {
-                        "startLine": 4,
-                        "startColumn": 4,
-                        "startOffset": 240,
-                        "endColumn": 112,
-                        "endOffset": 348
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "C:\\Users\\yangbo\\Documents\\Maoyan2\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\debug\\values-ldrtl-v23\\values-ldrtl-v23.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 112,
-                    "endOffset": 163
-                },
-                "from": {
-                    "file": "C:\\Users\\yangbo\\Documents\\Maoyan2\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\values-ldrtl-v23\\values-ldrtl-v23.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
