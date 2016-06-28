@@ -18,6 +18,9 @@ import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.activity.SouSuoActivity;
 import com.yangbo.maoyan1.bean.DaiYIngRcViewBean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 
@@ -77,12 +80,15 @@ public class Rcl_Daiying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 ((Dy_RclViewHolder) holder).tv_name_one.setText(comingBean.getScm());
                 ((Dy_RclViewHolder) holder).tv_name_two.setText(comingBean.getShowInfo());
                 ((Dy_RclViewHolder) holder).tv_pingfen.setText(comingBean.getWish() + "");
+                //是否显示日期
+                ShowDate((Dy_RclViewHolder) holder, comingBean);
+
                 ((Dy_RclViewHolder) holder).ll_one.setVisibility(View.GONE);
                 ((Dy_RclViewHolder) holder).ll_two.setVisibility(View.GONE);
                 ((Dy_RclViewHolder) holder).ll_two.setVisibility(View.GONE);
                 //显示附带专题数据
                 isVisibility((Dy_RclViewHolder) holder, position, comingBean);
-
+                //图片地址
                 String img = comingBean.getImg();
                 //替换字符串
                 img = replace(img);
@@ -100,6 +106,33 @@ public class Rcl_Daiying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 isButton((Dy_RclViewHolder) holder, comingBean);
             }
         }
+    }
+
+    private void ShowDate(Dy_RclViewHolder holder, DaiYIngRcViewBean.DataBean.ComingBean comingBean) {
+        //是否显示标题
+        String rt = comingBean.getRt();
+        for(int i = 0;i<coming.indexOf(comingBean);i++){
+            if(rt.equals(coming.get(i).getRt())){
+                holder.tv_date.setVisibility(View.GONE);
+                break;
+            }
+            holder.tv_date.setVisibility(View.VISIBLE);
+        }
+        if(coming.indexOf(comingBean) == 0) {
+            holder.tv_date.setVisibility(View.VISIBLE);
+        }
+        //显示日期
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("MM月dd日 E");
+        Date date = null;//提取格式中的日期
+        try {
+            date = sdf1.parse(rt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        rt = sdf2.format(date);
+
+        holder.tv_date.setText(rt);
     }
 
     private void isButton(Dy_RclViewHolder holder, DaiYIngRcViewBean.DataBean.ComingBean comingBean) {
@@ -224,38 +257,41 @@ public class Rcl_Daiying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             int size = hotBean.getHeadLinesVO().size();
             List<DaiYIngRcViewBean.DataBean.ComingBean.HeadLinesVOBean> newsHeadlines = hotBean.getHeadLinesVO();
             if(size==1){
+                position=0;
                 //设置布局为显示
                 holder.ll_one.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_one.setText(newsHeadlines.get(position-2).getType());
-                holder.tv_one.setText(newsHeadlines.get(position-2).getTitle());
+                holder.btn_one.setText(newsHeadlines.get(position).getType());
+                holder.tv_one.setText(newsHeadlines.get(position).getTitle());
             }else if(size==2){
+                position=0;
                 //设置布局为显示
                 holder.ll_one.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_one.setText(newsHeadlines.get(position-2).getType());
-                holder.tv_one.setText(newsHeadlines.get(position-2).getTitle());
+                holder.btn_one.setText(newsHeadlines.get(position).getType());
+                holder.tv_one.setText(newsHeadlines.get(position).getTitle());
                 //设置布局为显示
                 holder.ll_two.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_two.setText(newsHeadlines.get(position-1).getType());
-                holder.tv_two.setText(newsHeadlines.get(position-1).getTitle());
+                holder.btn_two.setText(newsHeadlines.get(position+1).getType());
+                holder.tv_two.setText(newsHeadlines.get(position+1).getTitle());
             }else if(size==3){
+                position=0;
                 //设置布局为显示
                 holder.ll_one.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_one.setText(newsHeadlines.get(position-2).getType());
-                holder.tv_one.setText(newsHeadlines.get(position-2).getTitle());
+                holder.btn_one.setText(newsHeadlines.get(position).getType());
+                holder.tv_one.setText(newsHeadlines.get(position).getTitle());
                 //设置布局为显示
                 holder.ll_two.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_two.setText(newsHeadlines.get(position-1).getType());
-                holder.tv_two.setText(newsHeadlines.get(position-1).getTitle());
+                holder.btn_two.setText(newsHeadlines.get(position+1).getType());
+                holder.tv_two.setText(newsHeadlines.get(position+1).getTitle());
                 //设置布局为显示
                 holder.ll_three.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_three.setText(newsHeadlines.get(position).getType());
-                holder.tv_three.setText(newsHeadlines.get(position).getTitle());
+                holder.btn_three.setText(newsHeadlines.get(position+2).getType());
+                holder.tv_three.setText(newsHeadlines.get(position+2).getTitle());
             }
         }
     }

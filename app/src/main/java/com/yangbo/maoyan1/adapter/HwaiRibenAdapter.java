@@ -13,36 +13,36 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
-import com.yangbo.maoyan1.bean.HanGuoBean;
+import com.yangbo.maoyan1.bean.HaiWaiRiBenBean;
 
 import java.util.List;
 
 /**
  * Created by sdf on 2016/6/28.
  */
-public class HaiWaiHanGuoAdapter  extends BaseAdapter{
+public class HwaiRibenAdapter extends BaseAdapter{
     private Context context;
-    private List<HanGuoBean.DataBean.HotBean> arrhot;
 
-    public void setArrhot(List<HanGuoBean.DataBean.HotBean> arrhot) {
-        this.arrhot = arrhot;
+    private List<HaiWaiRiBenBean.DataBean.HotBean> hot;
+
+    public void setArrhot(List<HaiWaiRiBenBean.DataBean.HotBean> hot) {
+        this.hot = hot;
     }
 
-    public HaiWaiHanGuoAdapter(Context context) {
+    public HwaiRibenAdapter(Context context) {
         this.context=context;
     }
-
     @Override
     public int getCount() {
-        if(arrhot!=null&&arrhot.size()>0){
-            return arrhot.size();
+        if(hot!=null&&hot.size()>0){
+            return hot.size();
         }
         return 0;
     }
 
     @Override
     public Object getItem(int position) {
-        return arrhot.get(position);
+        return hot.get(position);
     }
 
     @Override
@@ -79,23 +79,20 @@ public class HaiWaiHanGuoAdapter  extends BaseAdapter{
             holder.tv_one = (TextView) convertView.findViewById(R.id.tv_one);
             holder.tv_two = (TextView) convertView.findViewById(R.id.tv_two);
             holder.tv_three = (TextView) convertView.findViewById(R.id.tv_three);
-
-
             convertView.setTag(holder);
         }else{
             holder= (ViewHolder) convertView.getTag();
         }
-        HanGuoBean.DataBean.HotBean comingBean = arrhot.get(position);
+        HaiWaiRiBenBean.DataBean.HotBean comingBean = hot.get(position);
         holder.tv_movie_name.setText(comingBean.getNm());
-        holder.tv_name_one.setText(comingBean.getOverseaTime()+"美国上映");
+        holder.tv_name_one.setText(comingBean.getOverseaTime() + "美国上映");
         holder.tv_name_two.setText(comingBean.getDesc());
-        holder.tv_pingfen.setText(comingBean.getWish()+"");
+        holder.tv_pingfen.setText(comingBean.getWish() + "");
         //显示附带专题数据
         holder.ll_one.setVisibility(View.GONE);
         holder.ll_two.setVisibility(View.GONE);
         holder.ll_three.setVisibility(View.GONE);
         isVisibility(holder, position, comingBean);
-        //图片地址
         String img = comingBean.getImg();
         //替换字符串
         img = replace(img);
@@ -108,7 +105,7 @@ public class HaiWaiHanGuoAdapter  extends BaseAdapter{
         //显示查看全部影片
         holder.view_line.setVisibility(View.GONE);
         holder.tv_chankan.setVisibility(View.GONE);
-        if(position==arrhot.size()-1){
+        if(position==hot.size()-1){
             holder.view_line.setVisibility(View.VISIBLE);
             holder.tv_chankan.setVisibility(View.VISIBLE);
         }
@@ -125,7 +122,7 @@ public class HaiWaiHanGuoAdapter  extends BaseAdapter{
         String replace = img.replace("w.h", "165.220");
         return replace;
     }
-    private void isContains(ViewHolder holder, HanGuoBean.DataBean.HotBean hotBean) {
+    private void isContains(ViewHolder holder, HaiWaiRiBenBean.DataBean.HotBean hotBean) {
         //如果包含其中的字符床就显示反之不显示
         if(hotBean.getVer().contains("3D/IMAX 3D")){//显示3d2D/3D
             holder.iv_3d.setVisibility(View.VISIBLE);
@@ -138,7 +135,7 @@ public class HaiWaiHanGuoAdapter  extends BaseAdapter{
             holder.iv_3d.setVisibility(View.GONE);
         }
     }
-    private void isButton(ViewHolder holder, HanGuoBean.DataBean.HotBean comingBean) {
+    private void isButton(ViewHolder holder, HaiWaiRiBenBean.DataBean.HotBean comingBean) {
         int showst = comingBean.getShowst();
         if(showst==1){
             //隐藏预售
@@ -175,16 +172,15 @@ public class HaiWaiHanGuoAdapter  extends BaseAdapter{
         LinearLayout ll_one,ll_two,ll_three;
         Button btn_one,btn_two,btn_three;
         TextView tv_one,tv_two,tv_three;
-
     }
-    private void isVisibility(ViewHolder holder, int position, HanGuoBean.DataBean.HotBean hotBean) {
+    private void isVisibility(ViewHolder holder, int position, HaiWaiRiBenBean.DataBean.HotBean hotBean) {
         if(hotBean.getHeadLinesVO()!=null&&
                 hotBean.getHeadLinesVO().size()> 0){
 
             int size = hotBean.getHeadLinesVO().size();
-            Log.e("size+++++",size+"");
+            Log.e("size+++++", size + "");
             Log.e("position+++++",position+"");
-            List<HanGuoBean.DataBean.HotBean.HeadLinesVOBean> newsHeadlines = hotBean.getHeadLinesVO();
+            List<HaiWaiRiBenBean.DataBean.HotBean.HeadLinesVOBean> newsHeadlines = hotBean.getHeadLinesVO();
             if(size==1){
                 position=0;
                 //设置布局为显示
