@@ -41,7 +41,7 @@ public class SearchCinemaActivity extends Activity {
 
     private void initView() {
 
-        adapter = new MyCinemaAdapter(this, 2);
+        adapter = new MyCinemaAdapter(this);
         rv_search_cinema.setAdapter(adapter);
 
         et_seach_cinema.addTextChangedListener(watcher);
