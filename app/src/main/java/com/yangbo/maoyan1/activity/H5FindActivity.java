@@ -11,8 +11,6 @@ import android.widget.ProgressBar;
 
 import com.yangbo.maoyan1.R;
 
-import org.xutils.common.util.LogUtil;
-
 public class H5FindActivity extends Activity {
    ImageView iv_h5_find;
     WebView wv_find;
@@ -38,7 +36,6 @@ public class H5FindActivity extends Activity {
          * 加载H5页面
          */
         url = getIntent().getStringExtra( "url");
-        LogUtil.e(url);
         wv_find .loadUrl(url) ;
         settings = wv_find .getSettings();
 //设置WebView 支持javaScript

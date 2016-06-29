@@ -189,9 +189,27 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             tv_two = (TextView) itemView.findViewById(R.id.tv_two);
             tv_three = (TextView) itemView.findViewById(R.id.tv_three);
 
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(myItemOnClickLinster!=null){
+                        myItemOnClickLinster.itemOnClickLinster();
+                    }
+                }
+            });
 
         }
     }
+    public interface MyItemOnClickLinster{
+        void itemOnClickLinster();
+    }
+    public MyItemOnClickLinster myItemOnClickLinster;
+
+    public void setMyItemOnClickLinster(MyItemOnClickLinster myItemOnClickLinster) {
+        this.myItemOnClickLinster = myItemOnClickLinster;
+    }
+
+
     /*
 * 热映ViewPager
 * */
