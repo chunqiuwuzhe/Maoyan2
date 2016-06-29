@@ -2,5 +2,9 @@
     {
         "merged": "C:\\Users\\sdf\\Desktop\\M1\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\release\\drawable-v23\\abc_control_background_material.xml",
         "source": "C:\\Users\\sdf\\Desktop\\M1\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\release\\drawable-v23\\abc_control_background_material.xml",
+        "source": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.1.1\\res\\drawable-v23\\abc_control_background_material.xml"
     }
 ]

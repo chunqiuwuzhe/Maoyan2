@@ -66,7 +66,7 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".activity.MyShopCityActivity"></activity>
+        <activity android:name=".activity.FindYingKuActivity"></activity>
     </application>
 
 </manifest>
