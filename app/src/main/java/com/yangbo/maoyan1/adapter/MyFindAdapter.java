@@ -10,15 +10,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.activity.FindYingKuActivity;
 import com.yangbo.maoyan1.activity.H5FindActivity;
 import com.yangbo.maoyan1.bean.FindListBean;
 import com.yangbo.maoyan1.bean.FindViewPagerBean;
 import com.yangbo.maoyan1.utils.UrlUtilsFind;
+
+import org.xutils.common.util.DensityUtil;
 
 import java.util.List;
 
@@ -34,6 +38,9 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     private List<FindViewPagerBean.DataBean> datas;
     //为了接收消息
     private ViewPager vp_find_vp1;
+
+    //上一次 红点的位置
+    private int prePosition = 0;
 
     public MyFindAdapter(Context context) {
         this.context = context;
@@ -87,6 +94,8 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         return null;
     }
 
+
+
     /**
      * 绑定数据
      *
@@ -99,8 +108,63 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 //            LogUtil.e("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+datas.get(0).getImgUrl());
             MyFindHeaderAdapter myFindHeaderAdapter = new MyFindHeaderAdapter(context, datas);
             vp_find_vp1 = ((MyFindHolder0) holder).vp_find_vp;
+            //得到点的LinearLayout
+            final LinearLayout ll_find_vp_point = ((MyFindHolder0) holder).ll_find_vp_point;
+            //得到ViewPager
             ((MyFindHolder0) holder).vp_find_vp.setAdapter(myFindHeaderAdapter);
+
+            //设置点
+            //移除所有的点
+            ll_find_vp_point .removeAllViews();
+            for ( int i = 0 ; i < datas .size(); i++) {
+                ImageView point = new ImageView( context);
+                point.setBackgroundResource(R.drawable. point_bg_selector);
+
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(DensityUtil. dip2px( 5), DensityUtil.dip2px(5 ));
+                if (i == 0 ) {
+                    point.setEnabled( true);
+                } else {
+                    point.setEnabled( false);
+
+                }
+                if (i != 0) {
+                    params. leftMargin = DensityUtil.dip2px (5 );
+                }
+                point.setLayoutParams(params) ;
+                ll_find_vp_point.addView(point) ;
+
+            }
+//            tv_tittle.setText(datas .get(prePosition).getTitle()) ;
+            ll_find_vp_point.getChildAt(prePosition ).setEnabled(true) ;
+
+            //监听页面的改变
+            vp_find_vp1.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                    if(position != prePosition) {
+
+
+                        //设置高亮点
+                        ll_find_vp_point.getChildAt(position%datas.size()).setEnabled(true);
+                        ll_find_vp_point.getChildAt(prePosition).setEnabled(false);
+                    }
+                    prePosition = position%datas.size();
+                }
+
+                @Override
+                public void onPageSelected(int position) {
+
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int state) {
+
+                }
+            });
+
+            //发消息，实现自动播放
             handler.sendEmptyMessageDelayed(1, 2000);
+
         }
         if (feeds != null && feeds.size() > 0&&(getItemViewType(position) == 8 ||getItemViewType(position) == 2||
                 getItemViewType(position) == 4)||getItemViewType(position) == 7) {
@@ -251,6 +315,7 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         TextView tv_find_zixun;
         TextView tv_find_yingku;
         TextView tv_find_piaofang;
+        LinearLayout ll_find_vp_point;
 
 
         public MyFindHolder0(View itemView) {
@@ -260,6 +325,7 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             tv_find_zixun = (TextView) itemView.findViewById(R.id.tv_find_zixun);
             tv_find_yingku = (TextView) itemView.findViewById(R.id.tv_find_yingku);
             tv_find_piaofang = (TextView) itemView.findViewById(R.id.tv_find_piaofang);
+            ll_find_vp_point = (LinearLayout) itemView.findViewById(R.id.ll_find_vp_point);
 
             MyOnClickListener myOnClickListener = new MyOnClickListener();
             tv_find_huati.setOnClickListener(myOnClickListener);
@@ -415,19 +481,22 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             switch (v.getId()) {
                 case R.id.tv_find_huati:
                     intent.putExtra("url", UrlUtilsFind.URL_FIND_HUATI);
+                    context.startActivity(intent);
                     break;
                 case R.id.tv_find_zixun:
                     intent.putExtra("url", UrlUtilsFind.URL_FIND_ZIXUN);
+                    context.startActivity(intent);
 
                     break;
                 case R.id.tv_find_yingku:
-                    intent.putExtra("url", "");
+                    Intent intent1 = new Intent(context, FindYingKuActivity.class);
+                    context.startActivity(intent1);
                     break;
                 case R.id.tv_find_piaofang:
                     intent.putExtra("url", "");
                     break;
             }
-            context.startActivity(intent);
+
         }
     }
 
