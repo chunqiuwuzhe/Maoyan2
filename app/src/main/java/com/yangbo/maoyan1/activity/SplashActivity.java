@@ -30,30 +30,30 @@ import java.util.List;
 /**
  * Created by yangbo on 2016/6/22.
  */
-public class SplashActivity extends Activity{
+public class SplashActivity extends Activity {
     private ImageView iv_splash;
 
     private RelativeLayout rl_splash;
     String result1;
 
-    private Handler handler = new Handler(){
-        public void handleMessage(Message msg){
+    private Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
             switch (msg.what) {
-                case 1 :
+                case 1:
 
-                    startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
                     finish();
                     break;
                 case 2:
 
                     iv_splash.setVisibility(View.VISIBLE);
                     processData(result1);
-                    ScaleAnimation scaleAnimation = new ScaleAnimation(1,1.1f,1,1.1f, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.8f);
+                    ScaleAnimation scaleAnimation = new ScaleAnimation(1, 1.1f, 1, 1.1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.8f);
                     scaleAnimation.setDuration(2000);
                     scaleAnimation.setFillAfter(true);
                     iv_splash.startAnimation(scaleAnimation);
                     handler.removeCallbacksAndMessages(null);
-                    sendEmptyMessageDelayed(1,2000);
+                    sendEmptyMessageDelayed(1, 2000);
             }
         }
     };
@@ -64,9 +64,9 @@ public class SplashActivity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         LogUtil.e("wocao!!wocao!!wocao!!wocao!!");
-        rl_splash = (RelativeLayout)findViewById(R.id.rl_splash);
-        iv_splash = (ImageView)findViewById(R.id.iv_splash);
-        handler.sendEmptyMessageDelayed(1,2000);
+        rl_splash = (RelativeLayout) findViewById(R.id.rl_splash);
+        iv_splash = (ImageView) findViewById(R.id.iv_splash);
+        handler.sendEmptyMessageDelayed(1, 2000);
 
 //
         getDataFromNet();
@@ -75,7 +75,7 @@ public class SplashActivity extends Activity{
 
     private void getDataFromNet() {
         String url = UrlUtils.URL_SPLASH;
-        Log.e("Tag","url = "+url);
+        Log.e("Tag", "url = " + url);
         RequestParams params = new RequestParams(url);
 //        params.addQueryStringParameter("wd", "xUtils");
         x.http().get(params, new Callback.CommonCallback<String>() {
@@ -83,7 +83,7 @@ public class SplashActivity extends Activity{
             public void onSuccess(String result) {
 //                Log.e("Tag","请求成功 = "+result);
                 result1 = result;
-                handler.sendEmptyMessageDelayed(2,1000);
+                handler.sendEmptyMessageDelayed(2, 1000);
             }
 
             @Override
@@ -107,16 +107,16 @@ public class SplashActivity extends Activity{
         Gson gson = new Gson();
         String pic = "";
         SplashBean splashBean = gson.fromJson(result, SplashBean.class);
-        if(splashBean!=null) {
+        if (splashBean != null) {
             List<SplashBean.PostersBean> posters = splashBean.getPosters();
-            if(posters!=null) {
-                pic =   posters.get(0).getPic();
+            if (posters != null) {
+                pic = posters.get(0).getPic();
             }
 
         }
 
 
-        LogUtil.e(pic);
+        //LogUtil.e(pic);
         // 设置加载图片的参数
         ImageOptions options = new ImageOptions.Builder()
                 // 是否忽略GIF格式的图片
@@ -135,14 +135,17 @@ public class SplashActivity extends Activity{
             public void onSuccess(Drawable arg0) {
                 LogUtil.e("jiazao成功");
             }
+
             @Override
             public void onFinished() {
                 LogUtil.e("下载完成");
             }
+
             @Override
             public void onError(Throwable arg0, boolean arg1) {
                 LogUtil.e("下载出错，" + arg0.getMessage());
             }
+
             @Override
             public void onCancelled(CancelledException arg0) {
                 LogUtil.e("下载取消");

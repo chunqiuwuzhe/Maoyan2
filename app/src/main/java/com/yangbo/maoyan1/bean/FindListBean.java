@@ -7,10 +7,11 @@ import java.util.List;
  */
 public class FindListBean {
 
+
     /**
-     * feeds : [{"commentCount":78,"description":"0","feedType":4,"id":14641,"images":[{"authorId":0,"height":150,"id":2697798,"sizeType":0,"targetId":14641,"targetType":11,"url":"http://p1.meituan.net/movie/8de03bb3fda92b4bfa827cac937a286b8192.jpg@300w_225h_1e_1c_1l","width":200}],"style":5,"time":1467092028000,"title":"《盗墓笔记》预告：最正宗南派开启寻秘征程","url":"meituanmovie://www.meituan.com/videolist?id=79203&name=盗墓笔记&videoId=46676","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/09a332a7da70a44fb4d5c96427cb348177095.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":35,"gender":0,"id":371664071,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"预告片速递","occupation":"","registerTime":1461852877000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"预告片速递","vipInfo":"","vipType":0,"visitorCount":0},"viewCount":11021},{"commentCount":81,"description":"","feedType":7,"id":14638,"images":[{"authorId":0,"height":450,"id":2697681,"sizeType":0,"targetId":12427,"targetType":13,"url":"http://p1.meituan.net/movie/8e3df59662dd1164f8f220ad7168ed6834816.jpg@300w_225h_1e_1c","width":450}],"style":2,"time":1467089197000,"title":"专访梁家辉&郭富城：希望\u201c小李\u201d来演《寒战3》","upCount":61,"url":"meituanmovie://www.meituan.com/forum/newsDetail?id=12427","user":{"age":"25","authInfo":"","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/eaba9b2ba757f4bd3afd6f5cff208fdb103848.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":5,"gender":0,"id":372191365,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"独家专訪","occupation":"","registerTime":1461895584000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"独家专訪","vipInfo":"","vipType":0,"visitorCount":1},"viewCount":11250},{"commentCount":4,"description":"","feedType":7,"id":14656,"images":[{"authorId":0,"height":480,"id":2698167,"sizeType":0,"targetId":12440,"targetType":13,"url":"http://p1.meituan.net/movie/e176a85da9cbb85d01e7a5928a5bb35134816.jpg@300w_225h_1e_1c","width":480},{"authorId":0,"height":400,"id":2698168,"sizeType":0,"targetId":12440,"targetType":13,"url":"http://p0.meituan.net/movie/d433e0590be0ad5df2a15f01c9a0c98d26624.jpg@300w_225h_1e_1c","width":400}],"style":2,"time":1467087657000,"title":"张一白监制《太阳的后裔》电影版确定开拍，主演未定","upCount":3,"url":"meituanmovie://www.meituan.com/forum/newsDetail?id=12440","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/1fae1268d70810edf668395dc7a74bfc18495.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":15,"gender":0,"id":332456130,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"猫眼资讯","occupation":"","registerTime":1459394732000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"maoyan_movie","vipInfo":"官方","vipType":1,"visitorCount":41},"viewCount":343},{"commentCount":11,"description":"0","feedType":4,"id":14648,"images":[{"authorId":0,"height":150,"id":2697864,"sizeType":0,"targetId":14648,"targetType":11,"url":"http://p1.meituan.net/movie/2fbae0dcf5d0516f9b153cd3d710da0d6144.jpg@300w_225h_1e_1c_1l","width":200}],"style":5,"time":1467086117000,"title":"《惊天魔盗团2》发周杰伦片段：英文流利变翻译","url":"meituanmovie://www.meituan.com/videolist?id=246333&name=惊天魔盗团2&videoId=46687","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/09a332a7da70a44fb4d5c96427cb348177095.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":35,"gender":0,"id":371664071,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"预告片速递","occupation":"","registerTime":1461852877000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"预告片速递","vipInfo":"","vipType":0,"visitorCount":0},"viewCount":6006},{"commentCount":61,"description":"","feedType":2,"groupId":1469001,"groupName":"深度影评","id":14630,"images":[{"authorId":0,"height":394,"id":2697351,"sizeType":0,"targetId":104954,"targetType":10,"url":"http://p0.meituan.net/movie/a5b9fe9281739d006e003badd837284040960.jpg@300w_225h_1e_1c_1l","width":394},{"authorId":0,"height":262,"id":2697352,"sizeType":0,"targetId":104954,"targetType":10,"url":"http://p1.meituan.net/movie/d68f90df25046d61c99423d70c5653c116384.jpg@300w_225h_1e_1c_1l","width":262},{"authorId":0,"height":421,"id":2697353,"sizeType":0,"targetId":104954,"targetType":10,"url":"http://p1.meituan.net/movie/4d4e2294de69593e64cbfdf59de9efc924576.jpg@300w_225h_1e_1c_1l","width":421}],"style":3,"time":1467085677000,"title":"《独立日2》：为了一个球的战争","upCount":33,"url":"meituanmovie://www.meituan.com/forum/postDetail?postID=104954","user":{"age":"24","authInfo":"","avatarType":255,"avatarurl":"http://p0.meituan.net/avatar/__45738825__7146991.jpg","birthday":705513600000,"city":{"deleted":false,"id":108,"nm":"珠海","py":"zhuhai"},"currentExp":2229,"gender":1,"id":2535264,"interest":"旅游,时尚,音乐,摄影,电影,科技,文学","maoyanAge":"5","marriage":"单身","nextTitle":"","nickName":"mkingod","occupation":"广告创意","registerTime":1298436291000,"roleType":0,"signature":"闭上眼睛看你","title":"铂金会员","topicCount":0,"totalExp":3100,"uid":0,"userLevel":4,"userNextLevel":5,"username":"mkingod","vipInfo":"","vipType":0,"visitorCount":38},"viewCount":4108},{"commentCount":25,"description":"","feedType":2,"groupId":1469413,"groupName":"Movie画册","id":14652,"images":[{"authorId":95231645,"height":471,"id":2697996,"sizeType":0,"targetId":105034,"targetType":10,"url":"http://p1.meituan.net/movie/aa0a9741d60fcb3d8426bbb6eabf8e1e49152.jpg@300w_225h_1e_1c_1l","width":471},{"authorId":95231645,"height":419,"id":2697998,"sizeType":0,"targetId":105034,"targetType":10,"url":"http://p0.meituan.net/movie/5197632551de3af24c1004493c45ced847104.jpg@300w_225h_1e_1c_1l","width":419},{"authorId":95231645,"height":462,"id":2697994,"sizeType":0,"targetId":105034,"targetType":10,"url":"http://p0.meituan.net/movie/080fea54e95c3791f7ab7901a630e11853248.jpg@300w_225h_1e_1c_1l","width":462},{"authorId":95231645,"height":460,"id":2698000,"sizeType":0,"targetId":105034,"targetType":10,"url":"http://p1.meituan.net/movie/71b4cfd27c4499c19705d7df5870a37251200.jpg@300w_225h_1e_1c_1l","width":460}],"style":3,"time":1467084973000,"title":"圆珠笔手绘《惊天魔盗团2》，每人都有不一样色彩","upCount":41,"url":"meituanmovie://www.meituan.com/forum/postDetail?postID=105034","user":{"age":"24","authInfo":"","avatarType":255,"avatarurl":"http://p0.meituan.net/avatar/7106d4adff4da2d18a3cde687e4b43e7195383.jpg","birthday":724780800000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":142,"gender":1,"id":95231645,"interest":"","maoyanAge":"1.5","marriage":"","nextTitle":"","nickName":"丁一ONEART","occupation":"媒体出版","registerTime":1404992599000,"roleType":0,"signature":"微博同名","title":"白银会员","topicCount":1,"totalExp":500,"uid":0,"userLevel":2,"userNextLevel":3,"username":"eRZ516689992","vipInfo":"特邀作者","vipType":1,"visitorCount":15},"viewCount":1560},{"commentCount":59,"description":"","feedType":7,"id":14640,"images":[{"authorId":0,"height":390,"id":2697843,"sizeType":0,"targetId":12430,"targetType":13,"url":"http://p0.meituan.net/movie/0e4d822b7d74bc37b4d2d91ac66e3ca324576.jpg@300w_225h_1e_1c","width":390}],"style":2,"time":1467084621000,"title":"《X特遣队》后期制作完成，片长确定为130分钟","upCount":88,"url":"meituanmovie://www.meituan.com/forum/newsDetail?id=12430","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/1fae1268d70810edf668395dc7a74bfc18495.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":15,"gender":0,"id":332456130,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"猫眼资讯","occupation":"","registerTime":1459394732000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"maoyan_movie","vipInfo":"官方","vipType":1,"visitorCount":41},"viewCount":3870},{"commentCount":10,"description":"","feedType":7,"id":14654,"images":[{"authorId":0,"height":320,"id":2698052,"sizeType":0,"targetId":12438,"targetType":13,"url":"http://p0.meituan.net/movie/3aab95a3a23b7ae754277f55217a86aa18432.jpg@300w_225h_1e_1c","width":320}],"style":2,"time":1467084269000,"title":"《九层妖塔》侵权案宣判：确认侵犯张牧野署名权","upCount":14,"url":"meituanmovie://www.meituan.com/forum/newsDetail?id=12438","user":{"age":"25","authInfo":"","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/17275711bbddc419bac4726784b6edd010437.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":40,"gender":0,"id":371639108,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"电影快讯","occupation":"","registerTime":1461851454000,"roleType":0,"signature":"","title":"青铜会员","topicCount":1,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"头条快讯","vipInfo":"","vipType":0,"visitorCount":0},"viewCount":1118},{"commentCount":8,"description":"","feedType":7,"id":14653,"images":[{"authorId":0,"height":620,"id":2698036,"sizeType":0,"targetId":12437,"targetType":13,"url":"http://p1.meituan.net/movie/50bf84eab08e84db795829365c3beea461440.jpg@300w_225h_1e_1c","width":620}],"style":2,"time":1467083565000,"title":"《速激》男星泰瑞斯·吉布森确定回归《变形金刚5》","upCount":31,"url":"meituanmovie://www.meituan.com/forum/newsDetail?id=12437","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/1fae1268d70810edf668395dc7a74bfc18495.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":15,"gender":0,"id":332456130,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"猫眼资讯","occupation":"","registerTime":1459394732000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"maoyan_movie","vipInfo":"官方","vipType":1,"visitorCount":41},"viewCount":1326},{"commentCount":5,"description":"","feedType":8,"id":14651,"imageCount":9,"images":[{"authorId":0,"height":516,"id":2698011,"sizeType":0,"targetId":12436,"targetType":13,"url":"http://p0.meituan.net/movie/04069329a36e95155710b66a6e55483643008.jpg@593w_450h_1e_1c","width":516},{"authorId":0,"height":549,"id":2698012,"sizeType":0,"targetId":12436,"targetType":13,"url":"http://p1.meituan.net/movie/16875ba4ef255743bd9fea41e2a62a7c47104.jpg@300w_225h_1e_1c","width":549},{"authorId":0,"height":481,"id":2698013,"sizeType":0,"targetId":12436,"targetType":13,"url":"http://p0.meituan.net/movie/b401006321342f8c6ba151930453db0740960.jpg@300w_225h_1e_1c","width":481}],"style":4,"time":1467070991000,"title":"\u201c小丑女\u201d一身中国风长裙亮相《泰山归来》首映","upCount":11,"url":"meituanmovie://www.meituan.com/forum/imagecollection?id=12436","user":{"age":"25","authInfo":"","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/17275711bbddc419bac4726784b6edd010437.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":40,"gender":0,"id":371639108,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"电影快讯","occupation":"","registerTime":1461851454000,"roleType":0,"signature":"","title":"青铜会员","topicCount":1,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"头条快讯","vipInfo":"","vipType":0,"visitorCount":0},"viewCount":1479}]
+     * feeds : [{"commentCount":50,"description":"","feedType":8,"id":14666,"imageCount":30,"images":[{"authorId":0,"height":499,"id":2698602,"sizeType":0,"targetId":12444,"targetType":13,"url":"http://p1.meituan.net/movie/a6829263ea2947ad5b1f9ee086cd6c0243008.jpg@593w_450h_1e_1c","width":499},{"authorId":0,"height":411,"id":2698603,"sizeType":0,"targetId":12444,"targetType":13,"url":"http://p1.meituan.net/movie/0a3b767dc840f950348dfa963e21d81026624.jpg@300w_225h_1e_1c","width":411},{"authorId":0,"height":503,"id":2698604,"sizeType":0,"targetId":12444,"targetType":13,"url":"http://p1.meituan.net/movie/7ce371774233ddfa751a48ba52e6dcec40960.jpg@300w_225h_1e_1c","width":503}],"style":4,"time":1467159840000,"title":"《大鱼海棠》30张人物海报，凸显国漫古韵","upCount":110,"url":"meituanmovie://www.meituan.com/forum/imagecollection?id=12444","user":{"age":"25","authInfo":"","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/17275711bbddc419bac4726784b6edd010437.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":40,"gender":0,"id":371639108,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"电影快讯","occupation":"","registerTime":1461851454000,"roleType":0,"signature":"","title":"青铜会员","topicCount":1,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"头条快讯","vipInfo":"","vipType":0,"visitorCount":0},"viewCount":3004},{"commentCount":3,"description":"0","feedType":4,"id":14673,"images":[{"authorId":0,"height":150,"id":2698682,"sizeType":0,"targetId":14673,"targetType":11,"url":"http://p1.meituan.net/movie/ed1ba9707b3fb63367ea8cb738f910db6144.jpg@300w_225h_1e_1c_1l","width":200}],"style":5,"time":1467147772000,"title":"《惊天魔盗团2》魔术正片片段：杰西控制下雨","url":"meituanmovie://www.meituan.com/videolist?id=246333&name=惊天魔盗团2&videoId=46708","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/09a332a7da70a44fb4d5c96427cb348177095.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":35,"gender":0,"id":371664071,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"预告片速递","occupation":"","registerTime":1461852877000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"预告片速递","vipInfo":"","vipType":0,"visitorCount":0},"viewCount":927},{"commentCount":2,"description":"","feedType":7,"id":14679,"images":[{"authorId":0,"height":523,"id":2698745,"sizeType":0,"targetId":12450,"targetType":13,"url":"http://p1.meituan.net/movie/46061f0ca4ffe8be5a217a091519be2a63488.jpg@300w_225h_1e_1c","width":523}],"style":2,"time":1467147768000,"title":"美国队长并不是九头蛇，一切都是红骷髅的阴谋","upCount":4,"url":"meituanmovie://www.meituan.com/forum/newsDetail?id=12450","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/1fae1268d70810edf668395dc7a74bfc18495.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":15,"gender":0,"id":332456130,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"猫眼资讯","occupation":"","registerTime":1459394732000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"maoyan_movie","vipInfo":"官方","vipType":1,"visitorCount":41},"viewCount":178},{"commentCount":11,"description":"","feedType":8,"id":14664,"imageCount":13,"images":[{"authorId":0,"height":671,"id":2698587,"sizeType":0,"targetId":12442,"targetType":13,"url":"http://p0.meituan.net/movie/0f4d7fa875ef7b734f5a08ba43067f1347104.jpg@593w_450h_1e_1c","width":671},{"authorId":0,"height":469,"id":2698588,"sizeType":0,"targetId":12442,"targetType":13,"url":"http://p0.meituan.net/movie/77765b56dd3dda3a021d948cfcc6a81028672.jpg@300w_225h_1e_1c","width":469},{"authorId":0,"height":411,"id":2698589,"sizeType":0,"targetId":12442,"targetType":13,"url":"http://p1.meituan.net/movie/0bf5bd2bbf9afa95d521e3fd30ec21e324576.jpg@300w_225h_1e_1c","width":411}],"style":4,"time":1467147765000,"title":"《蜘蛛侠：归来》片场：穿着战衣背上了小书包","upCount":24,"url":"meituanmovie://www.meituan.com/forum/imagecollection?id=12442","user":{"age":"25","authInfo":"","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/17275711bbddc419bac4726784b6edd010437.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":40,"gender":0,"id":371639108,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"电影快讯","occupation":"","registerTime":1461851454000,"roleType":0,"signature":"","title":"青铜会员","topicCount":1,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"头条快讯","vipInfo":"","vipType":0,"visitorCount":0},"viewCount":3423},{"commentCount":10,"description":"","feedType":8,"id":14669,"imageCount":7,"images":[{"authorId":0,"height":533,"id":2698645,"sizeType":0,"targetId":12447,"targetType":13,"url":"http://p0.meituan.net/movie/b77dd3989f3eeb5aa6ada2223fceb6ff61440.jpg@593w_450h_1e_1c","width":533},{"authorId":0,"height":533,"id":2698646,"sizeType":0,"targetId":12447,"targetType":13,"url":"http://p0.meituan.net/movie/2e58523c7d47bcda26c84754edb2ae0949152.jpg@300w_225h_1e_1c","width":533},{"authorId":0,"height":533,"id":2698664,"sizeType":0,"targetId":12447,"targetType":13,"url":"http://p1.meituan.net/movie/3eedbfb8413bae19d71397f7922ec9f747104.jpg@300w_225h_1e_1c","width":533}],"style":4,"time":1467147763000,"title":"《盗墓笔记》地宫诡域：鬼魅兵阵暗藏危机","upCount":7,"url":"meituanmovie://www.meituan.com/forum/imagecollection?id=12447","user":{"age":"25","authInfo":"","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/17275711bbddc419bac4726784b6edd010437.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":40,"gender":0,"id":371639108,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"电影快讯","occupation":"","registerTime":1461851454000,"roleType":0,"signature":"","title":"青铜会员","topicCount":1,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"头条快讯","vipInfo":"","vipType":0,"visitorCount":0},"viewCount":1471},{"commentCount":20,"description":"","feedType":7,"id":14668,"images":[{"authorId":0,"height":561,"id":2698607,"sizeType":0,"targetId":12446,"targetType":13,"url":"http://p0.meituan.net/movie/4dcd6e8572af77c2ec1d6d3c33f7d40a24576.jpg@300w_225h_1e_1c","width":561},{"authorId":0,"height":620,"id":2698608,"sizeType":0,"targetId":12446,"targetType":13,"url":"http://p1.meituan.net/movie/191357061c409db6786bd7a1d17d101945056.jpg@300w_225h_1e_1c","width":620}],"style":2,"time":1467147761000,"title":"《正义联盟》全新概念图曝光，琼基确定为影片配乐","upCount":26,"url":"meituanmovie://www.meituan.com/forum/newsDetail?id=12446","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/1fae1268d70810edf668395dc7a74bfc18495.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":15,"gender":0,"id":332456130,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"猫眼资讯","occupation":"","registerTime":1459394732000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"maoyan_movie","vipInfo":"官方","vipType":1,"visitorCount":41},"viewCount":1513},{"commentCount":49,"description":"","feedType":2,"groupId":1469405,"groupName":"一起聊电影","id":14681,"images":[{"authorId":0,"height":255,"id":2698609,"sizeType":0,"targetId":105056,"targetType":10,"url":"http://p0.meituan.net/movie/064dfca51f1e0d9236d90f5de2e2cfed14336.png@300w_225h_1e_1c_1l","width":255},{"authorId":0,"height":399,"id":2698610,"sizeType":0,"targetId":105056,"targetType":10,"url":"http://p0.meituan.net/movie/82989b729d110eeb000bad993aa89d3130720.jpg@300w_225h_1e_1c_1l","width":399},{"authorId":0,"height":400,"id":2698611,"sizeType":0,"targetId":105056,"targetType":10,"url":"http://p0.meituan.net/movie/c04b89674e606c27892ddb8eff89b31426624.jpg@300w_225h_1e_1c_1l","width":400}],"style":3,"time":1467147760000,"title":"你是谁的黑粉or死忠粉？八卦一下好礼就到手！","upCount":30,"url":"meituanmovie://www.meituan.com/forum/postDetail?postID=105056","user":{"age":"117","authInfo":"","avatarType":255,"avatarurl":"http://p0.meituan.net/avatar/1f0105dc0e7aa2065d84591ef49e051485322.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":334,"gender":0,"id":12551917,"interest":"","maoyanAge":"4.5","marriage":"","nextTitle":"","nickName":"电影票房","occupation":"","registerTime":1315129411000,"roleType":0,"signature":"百度电影_票房吧，微_信BOXOFFICEBAR","title":"白银会员","topicCount":3,"totalExp":500,"uid":0,"userLevel":2,"userNextLevel":3,"username":"BOXOFFICEBAR","vipInfo":"自媒体","vipType":1,"visitorCount":162},"viewCount":2483},{"commentCount":2,"description":"","feedType":7,"id":14678,"images":[{"authorId":0,"height":260,"id":2698733,"sizeType":0,"targetId":12449,"targetType":13,"url":"http://p0.meituan.net/movie/24fc5c6b4b1c7e5e3a418f8f5af49d9f14336.jpg@300w_225h_1e_1c","width":260},{"authorId":0,"height":174,"id":2698734,"sizeType":0,"targetId":12449,"targetType":13,"url":"http://p1.meituan.net/movie/8f3309d0f89b8533029b274eb5aba3d88192.jpg@300w_225h_1e_1c","width":174}],"style":2,"time":1467147760000,"title":"卡梅隆评《星战7》：更多是在重复过去的东西","upCount":2,"url":"meituanmovie://www.meituan.com/forum/newsDetail?id=12449","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/1fae1268d70810edf668395dc7a74bfc18495.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":15,"gender":0,"id":332456130,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"猫眼资讯","occupation":"","registerTime":1459394732000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"maoyan_movie","vipInfo":"官方","vipType":1,"visitorCount":41},"viewCount":85},{"commentCount":2,"description":"0","feedType":4,"id":14676,"images":[{"authorId":0,"height":150,"id":2698724,"sizeType":0,"targetId":14676,"targetType":11,"url":"http://p1.meituan.net/movie/054eebf1cda5486f7d024ca71579000010240.jpg@300w_225h_1e_1c_1l","width":200}],"style":5,"time":1467147760000,"title":"《忍者神龟2》儿童版预告：偶遇\u201c大黄蜂\u201d","url":"meituanmovie://www.meituan.com/videolist?id=13511&name=忍者神龟2：破影而出&videoId=46700","user":{"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/09a332a7da70a44fb4d5c96427cb348177095.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":35,"gender":0,"id":371664071,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"预告片速递","occupation":"","registerTime":1461852877000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"预告片速递","vipInfo":"","vipType":0,"visitorCount":0},"viewCount":1764},{"commentCount":1,"description":"","feedType":2,"groupId":1469001,"groupName":"深度影评","id":14680,"images":[{"authorId":0,"height":399,"id":2698740,"sizeType":0,"targetId":105103,"targetType":10,"url":"http://p0.meituan.net/movie/70dd82998ff0d151bbddefc848d43d4536864.jpg@300w_225h_1e_1c_1l","width":399},{"authorId":0,"height":399,"id":2698758,"sizeType":0,"targetId":105103,"targetType":10,"url":"http://p1.meituan.net/movie/c6c1e4524c9e2d2e8f0c20d309634c5524576.jpg@300w_225h_1e_1c_1l","width":399},{"authorId":0,"height":399,"id":2698762,"sizeType":0,"targetId":105103,"targetType":10,"url":"http://p1.meituan.net/movie/1a54dc68a75a8e00a0c0982e6d66d15b28672.jpg@300w_225h_1e_1c_1l","width":399}],"style":3,"time":1467147759000,"title":"确实够狠！《树大招风》这片儿为何让人又爱又恨？","upCount":0,"url":"meituanmovie://www.meituan.com/forum/postDetail?postID=105103","user":{"age":"25","authInfo":"","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/8eb65ec22fe7c6c913578ac911b167a69402.jpg","birthday":-2240553600000,"currentExp":0,"gender":0,"id":324932206,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"文慧园路三号","occupation":"","registerTime":1457943433000,"roleType":0,"signature":"","title":"青铜会员","topicCount":297,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"文慧园路三号","vipInfo":"自媒体","vipType":1,"visitorCount":29},"viewCount":41}]
      * paging : {"hasMore":true,"limit":10,"offset":0,"total":0}
-     * timestamp : 1467110309225
+     * timestamp : 1467170484850
      */
 
     private DataBean data;
@@ -34,17 +35,19 @@ public class FindListBean {
         private PagingBean paging;
         private long timestamp;
         /**
-         * commentCount : 78
-         * description : 0
-         * feedType : 4
-         * id : 14641
-         * images : [{"authorId":0,"height":150,"id":2697798,"sizeType":0,"targetId":14641,"targetType":11,"url":"http://p1.meituan.net/movie/8de03bb3fda92b4bfa827cac937a286b8192.jpg@300w_225h_1e_1c_1l","width":200}]
-         * style : 5
-         * time : 1467092028000
-         * title : 《盗墓笔记》预告：最正宗南派开启寻秘征程
-         * url : meituanmovie://www.meituan.com/videolist?id=79203&name=盗墓笔记&videoId=46676
-         * user : {"age":"25","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/09a332a7da70a44fb4d5c96427cb348177095.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":35,"gender":0,"id":371664071,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"预告片速递","occupation":"","registerTime":1461852877000,"roleType":0,"signature":"","title":"青铜会员","topicCount":0,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"预告片速递","vipInfo":"","vipType":0,"visitorCount":0}
-         * viewCount : 11021
+         * commentCount : 50
+         * description :
+         * feedType : 8
+         * id : 14666
+         * imageCount : 30
+         * images : [{"authorId":0,"height":499,"id":2698602,"sizeType":0,"targetId":12444,"targetType":13,"url":"http://p1.meituan.net/movie/a6829263ea2947ad5b1f9ee086cd6c0243008.jpg@593w_450h_1e_1c","width":499},{"authorId":0,"height":411,"id":2698603,"sizeType":0,"targetId":12444,"targetType":13,"url":"http://p1.meituan.net/movie/0a3b767dc840f950348dfa963e21d81026624.jpg@300w_225h_1e_1c","width":411},{"authorId":0,"height":503,"id":2698604,"sizeType":0,"targetId":12444,"targetType":13,"url":"http://p1.meituan.net/movie/7ce371774233ddfa751a48ba52e6dcec40960.jpg@300w_225h_1e_1c","width":503}]
+         * style : 4
+         * time : 1467159840000
+         * title : 《大鱼海棠》30张人物海报，凸显国漫古韵
+         * upCount : 110
+         * url : meituanmovie://www.meituan.com/forum/imagecollection?id=12444
+         * user : {"age":"25","authInfo":"","avatarType":255,"avatarurl":"http://p1.meituan.net/avatar/17275711bbddc419bac4726784b6edd010437.jpg","birthday":-2240553600000,"city":{"deleted":false,"id":1,"nm":"北京","py":"beijing"},"currentExp":40,"gender":0,"id":371639108,"interest":"","maoyanAge":"0","marriage":"","nextTitle":"","nickName":"电影快讯","occupation":"","registerTime":1461851454000,"roleType":0,"signature":"","title":"青铜会员","topicCount":1,"totalExp":130,"uid":0,"userLevel":1,"userNextLevel":2,"username":"头条快讯","vipInfo":"","vipType":0,"visitorCount":0}
+         * viewCount : 3004
          */
 
         private List<FeedsBean> feeds;
@@ -117,35 +120,38 @@ public class FindListBean {
             private String description;
             private int feedType;
             private int id;
+            private int imageCount;
             private int style;
             private long time;
             private String title;
+            private int upCount;
             private String url;
             /**
              * age : 25
+             * authInfo :
              * avatarType : 255
-             * avatarurl : http://p1.meituan.net/avatar/09a332a7da70a44fb4d5c96427cb348177095.jpg
+             * avatarurl : http://p1.meituan.net/avatar/17275711bbddc419bac4726784b6edd010437.jpg
              * birthday : -2240553600000
              * city : {"deleted":false,"id":1,"nm":"北京","py":"beijing"}
-             * currentExp : 35
+             * currentExp : 40
              * gender : 0
-             * id : 371664071
+             * id : 371639108
              * interest :
              * maoyanAge : 0
              * marriage :
              * nextTitle :
-             * nickName : 预告片速递
+             * nickName : 电影快讯
              * occupation :
-             * registerTime : 1461852877000
+             * registerTime : 1461851454000
              * roleType : 0
              * signature :
              * title : 青铜会员
-             * topicCount : 0
+             * topicCount : 1
              * totalExp : 130
              * uid : 0
              * userLevel : 1
              * userNextLevel : 2
-             * username : 预告片速递
+             * username : 头条快讯
              * vipInfo :
              * vipType : 0
              * visitorCount : 0
@@ -155,13 +161,13 @@ public class FindListBean {
             private int viewCount;
             /**
              * authorId : 0
-             * height : 150
-             * id : 2697798
+             * height : 499
+             * id : 2698602
              * sizeType : 0
-             * targetId : 14641
-             * targetType : 11
-             * url : http://p1.meituan.net/movie/8de03bb3fda92b4bfa827cac937a286b8192.jpg@300w_225h_1e_1c_1l
-             * width : 200
+             * targetId : 12444
+             * targetType : 13
+             * url : http://p1.meituan.net/movie/a6829263ea2947ad5b1f9ee086cd6c0243008.jpg@593w_450h_1e_1c
+             * width : 499
              */
 
             private List<ImagesBean> images;
@@ -198,6 +204,14 @@ public class FindListBean {
                 this.id = id;
             }
 
+            public int getImageCount() {
+                return imageCount;
+            }
+
+            public void setImageCount(int imageCount) {
+                this.imageCount = imageCount;
+            }
+
             public int getStyle() {
                 return style;
             }
@@ -220,6 +234,14 @@ public class FindListBean {
 
             public void setTitle(String title) {
                 this.title = title;
+            }
+
+            public int getUpCount() {
+                return upCount;
+            }
+
+            public void setUpCount(int upCount) {
+                this.upCount = upCount;
             }
 
             public String getUrl() {
@@ -256,6 +278,7 @@ public class FindListBean {
 
             public static class UserBean {
                 private String age;
+                private String authInfo;
                 private int avatarType;
                 private String avatarurl;
                 private long birthday;
@@ -296,6 +319,14 @@ public class FindListBean {
 
                 public void setAge(String age) {
                     this.age = age;
+                }
+
+                public String getAuthInfo() {
+                    return authInfo;
+                }
+
+                public void setAuthInfo(String authInfo) {
+                    this.authInfo = authInfo;
                 }
 
                 public int getAvatarType() {

@@ -9,8 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.activity.H5FindActivity;
 import com.yangbo.maoyan1.bean.FindListBean;
@@ -47,14 +50,43 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
         if (viewType == 0) {
             View view = LayoutInflater.from(context).inflate(R.layout.item_find_header, parent, false);
-            return new MyFindHolder1(view);
+            return new MyFindHolder0(view);
         }
         if (viewType == 1) {
             View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
-            return new MyFindHolder2(view);
+            return new MyFindHolder1(view);
+        }
+        if (viewType == 2) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
+            return new MyFindHolder1(view);
+        }
+        if (viewType == 3) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
+            return new MyFindHolder1(view);
+        }
+        if (viewType == 4) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body4, parent, false);
+            return new MyFindHolder1(view);
+        }
+        if (viewType == 5) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
+            return new MyFindHolder1(view);
+        }
+        if (viewType == 6) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
+            return new MyFindHolder1(view);
+        }
+        if (viewType == 7) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
+            return new MyFindHolder1(view);
+        }
+        if (viewType == 8) {
+            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body8, parent, false);
+            return new MyFindHolder8(view);
         }
         return null;
     }
+
     /**
      * 绑定数据
      *
@@ -63,28 +95,61 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
      */
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (position == 0&&datas!= null && datas.size()>0){
+        if (position == 0 && datas != null && datas.size() > 0) {
 //            LogUtil.e("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+datas.get(0).getImgUrl());
-            MyFindHeaderAdapter myFindHeaderAdapter = new MyFindHeaderAdapter(context,datas);
-            vp_find_vp1 =  ( (MyFindHolder1)holder).vp_find_vp;
-            ( (MyFindHolder1)holder).vp_find_vp.setAdapter(myFindHeaderAdapter);
-            handler.sendEmptyMessageDelayed(1,2000);
+            MyFindHeaderAdapter myFindHeaderAdapter = new MyFindHeaderAdapter(context, datas);
+            vp_find_vp1 = ((MyFindHolder0) holder).vp_find_vp;
+            ((MyFindHolder0) holder).vp_find_vp.setAdapter(myFindHeaderAdapter);
+            handler.sendEmptyMessageDelayed(1, 2000);
+        }
+
+        if (getItemViewType(position) == 8 && feeds != null && feeds.size() > 0) {
+            //设置图片
+            List<FindListBean.DataBean.FeedsBean.ImagesBean> images = feeds.get(position-1).getImages();
+            Glide.with(context).load(images.get(0).getUrl())
+                    .placeholder(R.drawable.kg)
+                    .error(R.drawable.kg)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(((MyFindHolder8) holder).iv_find8_iv01);
+
+            Glide.with(context).load(images.get(1).getUrl())
+                    .placeholder(R.drawable.kg)
+                    .error(R.drawable.kg)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(((MyFindHolder8) holder).iv_find8_iv02);
+
+            Glide.with(context).load(images.get(2).getUrl())
+                    .placeholder(R.drawable.kg)
+                    .error(R.drawable.kg)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(((MyFindHolder8) holder).iv_find8_iv03);
+
+            ((MyFindHolder8) holder).tv_find8_tittle.setText(feeds.get(position-1).getTitle());//设置标题
+            ((MyFindHolder8) holder).tv_find8_piece.setText(feeds.get(position-1).getImageCount()+"");//图片数量
+            ((MyFindHolder8) holder).tv_find8_foot1.setText(feeds.get(position-1).getUser().getNickName());//电影快运
+            ((MyFindHolder8) holder).tv_find8_foot2.setText(feeds.get(position-1).getViewCount()+"");//电影快运
+            ((MyFindHolder8) holder).tv_find8_foot3.setText(feeds.get(position-1).getCommentCount()+"");//电影快运
 
         }
+
+
     }
 
-    private Handler handler = new Handler(){
-        public void handleMessage(Message msg){
-            if(vp_find_vp1!=null) {
-                vp_find_vp1.setCurrentItem(vp_find_vp1.getCurrentItem()+1);
+    private Handler handler = new Handler() {
+        public void handleMessage(Message msg) {
+            if (vp_find_vp1 != null) {
+                vp_find_vp1.setCurrentItem(vp_find_vp1.getCurrentItem() + 1);
                 removeCallbacksAndMessages(null);
-                handler.sendEmptyMessageDelayed(1,2000);
+                handler.sendEmptyMessageDelayed(1, 2000);
             }
         }
     };
 
     @Override
     public int getItemCount() {
+        if (feeds != null && feeds.size() > 0) {
+            return feeds.size();
+        }
         return 1;
     }
 
@@ -95,7 +160,7 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             return 0;
         }
         if (feeds != null && feeds.size() > 0) {
-            return feeds.get(position).getFeedType();
+            return feeds.get(position-1).getFeedType();
         }
 
         return 1;
@@ -105,16 +170,16 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         this.datas = datas;
     }
 
-
-    class MyFindHolder1 extends RecyclerView.ViewHolder {
-      public ViewPager vp_find_vp;
+    //头部holder
+    class MyFindHolder0 extends RecyclerView.ViewHolder {
+        public ViewPager vp_find_vp;
         TextView tv_find_huati;
         TextView tv_find_zixun;
         TextView tv_find_yingku;
         TextView tv_find_piaofang;
 
 
-        public MyFindHolder1(View itemView) {
+        public MyFindHolder0(View itemView) {
             super(itemView);
             vp_find_vp = (ViewPager) itemView.findViewById(R.id.vp_find_vp);
             tv_find_huati = (TextView) itemView.findViewById(R.id.tv_find_huati);
@@ -131,12 +196,51 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     }
 
-    class MyFindHolder2 extends RecyclerView.ViewHolder {
+    class MyFindHolder1 extends RecyclerView.ViewHolder {
 
-        public MyFindHolder2(View itemView) {
+        public MyFindHolder1(View itemView) {
             super(itemView);
         }
     }
+
+    /**
+     * 样式8的holder
+     */
+    class MyFindHolder8 extends RecyclerView.ViewHolder {
+        TextView tv_find8_date;//顶部今天
+        TextView tv_find8_tittle;//标题
+        TextView tv_find8_piece;//图片张数
+        ImageView iv_find8_iv01;//图片
+        ImageView iv_find8_iv02;
+        ImageView iv_find8_iv03;
+        TextView tv_find8_foot1;//底部
+        TextView tv_find8_foot2;//底部
+        TextView tv_find8_foot3;//底部
+
+        public MyFindHolder8(View itemView) {
+            super(itemView);
+            tv_find8_date = (TextView) itemView.findViewById(R.id.tv_find8_date);
+            tv_find8_tittle = (TextView) itemView.findViewById(R.id.tv_find8_tittle);
+            tv_find8_piece = (TextView) itemView.findViewById(R.id.tv_find8_piece);
+            iv_find8_iv01 = (ImageView) itemView.findViewById(R.id.iv_find8_iv01);
+            iv_find8_iv02 = (ImageView) itemView.findViewById(R.id.iv_find8_iv02);
+            iv_find8_iv03 = (ImageView) itemView.findViewById(R.id.iv_find8_iv03);
+            tv_find8_foot1 = (TextView) itemView.findViewById(R.id.tv_find8_foot1);
+            tv_find8_foot2 = (TextView) itemView.findViewById(R.id.tv_find8_foot2);
+            tv_find8_foot3 = (TextView) itemView.findViewById(R.id.tv_find8_foot3);
+        }
+    }
+
+    /**
+     * 样式8的holder
+     */
+    class MyFindHolder4 extends RecyclerView.ViewHolder {
+
+        public MyFindHolder4(View itemView) {
+            super(itemView);
+        }
+    }
+
 
     //onclick的描述
     class MyOnClickListener implements View.OnClickListener {

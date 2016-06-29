@@ -2,11 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <TextView
-        android:layout_width="match_parent"
-        android:text="hahhhahh "
-        android:gravity="center"
-        android:layout_height="100dp" />
+    <include layout="@layout/item_find_body_header" />
+    
+    <include layout="@layout/item_find_body_header2" />
 
 </LinearLayout>

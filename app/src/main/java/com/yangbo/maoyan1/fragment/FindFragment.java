@@ -126,8 +126,11 @@ public class FindFragment extends BaseFragment {
         FindViewPagerBean findViewPagerBean = new Gson().fromJson(response, FindViewPagerBean.class);
 //        findViewPagerBean.getData().get(1).getImgUrl();
         List<FindViewPagerBean.DataBean> datas = findViewPagerBean.getData();
-        myFindAdapter.setDatas(datas);
-        myFindAdapter.notifyItemRangeChanged(0,1);
+        if(datas!=null){
+            myFindAdapter.setDatas(datas);
+            myFindAdapter.notifyItemRangeChanged(0,1);
+        }
+
     }
 
 
