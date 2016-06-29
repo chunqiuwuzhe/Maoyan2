@@ -4,6 +4,9 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/M1.iml" filepath="$PROJECT_DIR$/M1.iml" />
       <module fileurl="file://$PROJECT_DIR$/MaoYan.iml" filepath="$PROJECT_DIR$/MaoYan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MaterialRefresh_library/MaterialRefresh_library.iml" filepath="$PROJECT_DIR$/MaterialRefresh_library/MaterialRefresh_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TabLayout/TabLayout.iml" filepath="$PROJECT_DIR$/TabLayout/TabLayout.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
