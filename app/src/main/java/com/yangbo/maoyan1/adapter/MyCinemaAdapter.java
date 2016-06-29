@@ -23,7 +23,6 @@ import java.util.List;
  * Created by yangbo on 2016/6/25.
  */
 public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private int type;
 //    private  CinemaBean cinemaBean;
 
     private Context context;
@@ -36,14 +35,15 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 
     //适配器
-    public MyCinemaAdapter(Context context, int i) {
+    public MyCinemaAdapter(Context context) {
         this.context = context;
-        this.type = i;
     }
 
     //设置数据
     public void setCinemaBean(List<CinemaBean.DataBean.changpingquBean> changpingqu) {
         this.changpingqu = changpingqu;
+
+
     }
 
     //设置ViewPager数据
@@ -55,15 +55,9 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == 0) {
-            if(type ==1) {
                 View view = LayoutInflater.from(context).inflate(R.layout.item_cinema_vp, parent, false);
                 return new MyHolder1(view);
-            }
 
-            if(type ==2) {
-                View view = LayoutInflater.from(context).inflate(R.layout.item_cinema_vp1, parent, false);
-                return new MyHolder3(view);
-            }
 
         }
         if (viewType == 1) {
@@ -75,7 +69,7 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-        if (type==1&&position == 0 && viewPagerDatas != null && viewPagerDatas.size() > 0) {
+        if (position == 0 && viewPagerDatas != null && viewPagerDatas.size() > 0) {
             ((MyHolder1) holder).vp_cinema_header.setVisibility(View.VISIBLE);
             MyCinemaHeaderAdapter cinema_header_adapter = new MyCinemaHeaderAdapter(context, viewPagerDatas);
             viewpager = ((MyHolder1) holder).vp_cinema_header;
@@ -95,11 +89,7 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 internalHander.postDelayed(new InternalRunnable(), 3000);
             }
 
-        }else if(type ==2){
-
-            ((MyHolder3) holder).tv_cinema_header.setText("  ");
         }
-
 
         //list的绑定数据
         if (changpingqu != null && changpingqu.size() > 0) {
@@ -235,15 +225,6 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }
 
 
-        }
-    }
-    class MyHolder3 extends RecyclerView.ViewHolder {
-
-        public TextView tv_cinema_header;
-
-        public MyHolder3(View itemView) {
-            super(itemView);
-            tv_cinema_header = (TextView) itemView.findViewById(R.id.tv_cinema_header);
         }
     }
 

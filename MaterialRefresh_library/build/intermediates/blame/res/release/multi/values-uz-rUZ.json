@@ -364,6 +364,7 @@
                 }
             }
         ]
+<<<<<<< HEAD
     },
     {
         "outputFile": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\release\\values-uz-rUZ\\values-uz-rUZ.xml",
@@ -730,5 +731,7 @@
                 }
             }
         ]
+=======
+>>>>>>> 446ced90f32d0127dbc893e5dc74ef1debddc971
     }
 ]

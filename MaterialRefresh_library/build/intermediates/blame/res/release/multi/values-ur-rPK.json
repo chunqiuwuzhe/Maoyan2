@@ -383,6 +383,7 @@
                 }
             }
         ]
+<<<<<<< HEAD
     },
     {
         "outputFile": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\release\\values-ur-rPK\\values-ur-rPK.xml",
@@ -768,5 +769,7 @@
                 }
             }
         ]
+=======
+>>>>>>> 446ced90f32d0127dbc893e5dc74ef1debddc971
     }
 ]

@@ -155,6 +155,7 @@
                 }
             }
         ]
+<<<<<<< HEAD
     },
     {
         "outputFile": "C:\\Users\\yangbo\\AndroidStudioProjects\\MaoYan\\MaterialRefresh_library\\build\\intermediates\\res\\merged\\release\\values-sw600dp-v13\\values-sw600dp-v13.xml",
@@ -312,5 +313,7 @@
                 }
             }
         ]
+=======
+>>>>>>> 446ced90f32d0127dbc893e5dc74ef1debddc971
     }
 ]
