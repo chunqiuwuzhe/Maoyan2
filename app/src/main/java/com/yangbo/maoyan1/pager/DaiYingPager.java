@@ -1,12 +1,13 @@
 package com.yangbo.maoyan1.pager;
 
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
@@ -38,6 +39,10 @@ public class DaiYingPager extends BasePager {
     //假数据
     private ArrayList<ImageView> arr;
 
+    private View progressBar;
+    private Button btn_flush;
+    private LinearLayout ll_flush;
+
     private List<DaiYIngRcViewBean.DataBean.ComingBean> coming;
 
     public DaiYingPager(Context context) {
@@ -46,9 +51,19 @@ public class DaiYingPager extends BasePager {
 
     @Override
     public View initView() {
-        ProgressDialog pro=new ProgressDialog(context);
-        View recylerViewlist=View.inflate(context,R.layout.daiying_rv_paer,null);
+        View recylerViewlist=View.inflate(context, R.layout.daiying_rv_paer, null);
+        progressBar = recylerViewlist.findViewById(R.id.progressBar);
         rlv_daiying = (RecyclerView) recylerViewlist.findViewById(R.id.rlv_daiying);
+
+        ll_flush = (LinearLayout) recylerViewlist.findViewById(R.id.ll_flush);
+        btn_flush = (Button) recylerViewlist.findViewById(R.id.btn_flush);
+        btn_flush.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initData();
+            }
+        });
+
         //设置布局管理器
         manager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         rlv_daiying.setLayoutManager(manager);
@@ -63,6 +78,8 @@ public class DaiYingPager extends BasePager {
     @Override
     public void initData() {
         super.initData();
+        progressBar.setVisibility(View.VISIBLE);
+        ll_flush.setVisibility(View.GONE);
         //联网获取viewpager数据
         OkHttpUtils
                 .get()
@@ -72,12 +89,15 @@ public class DaiYingPager extends BasePager {
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         Log.e("TAG", "待映数据请求失败" + e.getMessage());
+                        ll_flush.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
                         Log.e("TAG", "待映数据请求成功");
                         parseRLData(response);
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
     }

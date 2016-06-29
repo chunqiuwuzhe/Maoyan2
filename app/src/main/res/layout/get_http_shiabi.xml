@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/ll_flush"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/wi"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13dp"
+            android:textColor="#33000000"
+            android:text="网络正在开小差"/>
+        <Button
+            android:layout_marginTop="10dp"
+            android:id="@+id/btn_flush"
+            android:layout_width="65dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_hw_love_selector"
+            android:padding="5dp"
+            android:text="点击刷新"
+            android:textColor="@drawable/tv_hw_color_selector"
+            android:textSize="10dp" />
+    </LinearLayout>
+</RelativeLayout>

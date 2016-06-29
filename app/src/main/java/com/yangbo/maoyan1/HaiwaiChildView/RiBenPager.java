@@ -3,7 +3,10 @@ package com.yangbo.maoyan1.HaiwaiChildView;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
@@ -26,6 +29,10 @@ public class RiBenPager extends BaseFireFragment {
 
     private List<HaiWaiRiBenBean.DataBean.HotBean> hot;
 
+    private ProgressBar progressBar;
+    private LinearLayout ll_flush;
+    private Button btn_flush;
+
     public RiBenPager(Context context) {
         super(context);
     }
@@ -33,13 +40,25 @@ public class RiBenPager extends BaseFireFragment {
     @Override
     public View initView() {
         View view=View.inflate(context, R.layout.haiwai_riebn_pager,null);
+        progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
+        ll_flush = (LinearLayout) view.findViewById(R.id.ll_flush);
         lv_riben = (ListView) view.findViewById(R.id.lv_riben);
+        btn_flush = (Button) view.findViewById(R.id.btn_flush);
+
+        btn_flush.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initData();
+            }
+        });
         return view;
     }
 
     @Override
     public void initData() {
         super.initData();
+        progressBar.setVisibility(View.VISIBLE);
+        ll_flush.setVisibility(View.GONE);
         //联网获取viewpager数据
         OkHttpUtils
                 .get()
@@ -49,6 +68,8 @@ public class RiBenPager extends BaseFireFragment {
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         Log.e("TAG", "ListView日本数据请求失败" + e.getMessage());
+                        ll_flush.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -56,6 +77,7 @@ public class RiBenPager extends BaseFireFragment {
                         Log.e("TAG", "ListView日本数据请求成功");
                         Log.e("TAG--response", response);
                         parselvData(response);
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
     }

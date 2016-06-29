@@ -13,6 +13,9 @@ import com.yangbo.maoyan1.base.BaseFragment;
 public class MyFragment extends BaseFragment {
     private TextView tv;
 
+//        public MoiveFragment(Context context) {
+//        super();
+//    }
     @Override
     public View initView() {
 

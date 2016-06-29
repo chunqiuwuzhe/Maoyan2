@@ -1,16 +1,21 @@
 package com.yangbo.maoyan1.pager;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.activity.RyItemWebViewActivity;
 import com.yangbo.maoyan1.adapter.Rcl_Reying_Adapter;
 import com.yangbo.maoyan1.base.BasePager;
 import com.yangbo.maoyan1.bean.ReYingListViewBean;
@@ -46,6 +51,10 @@ public class ReYingPager extends BasePager {
 
     private MaterialRefreshLayout materialrefresh;
 
+    private ProgressBar progressBar;
+
+    private Button btn_flush;
+    private LinearLayout ll_flush;
 
     public ReYingPager(Context context) {
         super(context);
@@ -56,7 +65,17 @@ public class ReYingPager extends BasePager {
 
         View recylerViewlist=View.inflate(context,R.layout.reying_rv_paer,null);
         rlv_reying = (RecyclerView) recylerViewlist.findViewById(R.id.rlv_reying);
+        progressBar = (ProgressBar) recylerViewlist.findViewById(R.id.progressBar);
         materialrefresh = (MaterialRefreshLayout) recylerViewlist.findViewById(R.id.materialrefresh);
+
+        ll_flush = (LinearLayout) recylerViewlist.findViewById(R.id.ll_flush);
+        btn_flush = (Button) recylerViewlist.findViewById(R.id.btn_flush);
+        btn_flush.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initData();
+            }
+        });
 
         //设置布局管理器
         manager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
@@ -77,9 +96,17 @@ public class ReYingPager extends BasePager {
                     }
                 }, 3000);
             }
+
             @Override
             public void onfinish() {
                 Toast.makeText(context, "finish", Toast.LENGTH_LONG).show();
+            }
+        });
+        //item的点击事件
+        rcl_adapter.setMyItemOnClickLinster(new Rcl_Reying_Adapter.MyItemOnClickLinster() {
+            @Override
+            public void itemOnClickLinster() {
+                context.startActivity(new Intent(context, RyItemWebViewActivity.class));
             }
         });
         return recylerViewlist;
@@ -88,6 +115,8 @@ public class ReYingPager extends BasePager {
     @Override
     public void initData() {
         super.initData();
+        progressBar.setVisibility(View.VISIBLE);
+        ll_flush.setVisibility(View.GONE);
         Log.e("TAG", "VIewPager数据请求数据");
         url_vp = UrlUtils.URL_REYING_VIEWPAGER;
         url_listview=UrlUtils.URL_REYING_LISTVIEW;
@@ -100,12 +129,15 @@ public class ReYingPager extends BasePager {
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         Log.e("TAG", "VIewPager数据请求失败" + e.getMessage());
+                        ll_flush.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
                         Log.e("TAG", "VIewPager数据请求成功");
                         parseViewPagerData(response);
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
         //联网获取listview数据
@@ -117,6 +149,8 @@ public class ReYingPager extends BasePager {
                     @Override
                     public void onError(Call call, Exception e, int id) {
                         Log.e("TAG", "LIstView数据请求失败" + e.getMessage());
+                        ll_flush.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
                     }
 
                     @Override
@@ -124,6 +158,7 @@ public class ReYingPager extends BasePager {
                         Log.e("TAG", "LIstView数据请求成功");
                         Log.e("TAG:LIstView数据请求成功+++", response);
                         parseListViewData(response);
+                        progressBar.setVisibility(View.GONE);
                     }
                 });
     }
