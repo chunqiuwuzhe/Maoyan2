@@ -57,8 +57,8 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             return new MyFindHolder1(view);
         }
         if (viewType == 2) {
-            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
-            return new MyFindHolder1(view);
+            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body2, parent, false);
+            return new MyFindHolder2(view);
         }
         if (viewType == 3) {
             View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
@@ -66,7 +66,7 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         }
         if (viewType == 4) {
             View view = LayoutInflater.from(context).inflate(R.layout.item_find_body4, parent, false);
-            return new MyFindHolder1(view);
+            return new MyFindHolder4(view);
         }
         if (viewType == 5) {
             View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
@@ -77,8 +77,8 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             return new MyFindHolder1(view);
         }
         if (viewType == 7) {
-            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body1, parent, false);
-            return new MyFindHolder1(view);
+            View view = LayoutInflater.from(context).inflate(R.layout.item_find_body7, parent, false);
+            return new MyFindHolder7(view);
         }
         if (viewType == 8) {
             View view = LayoutInflater.from(context).inflate(R.layout.item_find_body8, parent, false);
@@ -102,37 +102,111 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             ((MyFindHolder0) holder).vp_find_vp.setAdapter(myFindHeaderAdapter);
             handler.sendEmptyMessageDelayed(1, 2000);
         }
+        if (feeds != null && feeds.size() > 0&&(getItemViewType(position) == 8 ||getItemViewType(position) == 2||
+                getItemViewType(position) == 4)||getItemViewType(position) == 7) {
 
-        if (getItemViewType(position) == 8 && feeds != null && feeds.size() > 0) {
-            //设置图片
-            List<FindListBean.DataBean.FeedsBean.ImagesBean> images = feeds.get(position-1).getImages();
-            Glide.with(context).load(images.get(0).getUrl())
-                    .placeholder(R.drawable.kg)
-                    .error(R.drawable.kg)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(((MyFindHolder8) holder).iv_find8_iv01);
 
-            Glide.with(context).load(images.get(1).getUrl())
-                    .placeholder(R.drawable.kg)
-                    .error(R.drawable.kg)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(((MyFindHolder8) holder).iv_find8_iv02);
+            //第八种的绑定
+            if (getItemViewType(position) == 8 && feeds != null && feeds.size() > 0) {
+                //设置图片
+                List<FindListBean.DataBean.FeedsBean.ImagesBean> images = feeds.get(position - 1).getImages();
+                Glide.with(context).load(images.get(0).getUrl())
+                        .placeholder(R.drawable.kg)
+                        .error(R.drawable.kg)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(((MyFindHolder8) holder).iv_find8_iv01);
 
-            Glide.with(context).load(images.get(2).getUrl())
-                    .placeholder(R.drawable.kg)
-                    .error(R.drawable.kg)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(((MyFindHolder8) holder).iv_find8_iv03);
+                Glide.with(context).load(images.get(1).getUrl())
+                        .placeholder(R.drawable.kg)
+                        .error(R.drawable.kg)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(((MyFindHolder8) holder).iv_find8_iv02);
 
-            ((MyFindHolder8) holder).tv_find8_tittle.setText(feeds.get(position-1).getTitle());//设置标题
-            ((MyFindHolder8) holder).tv_find8_piece.setText(feeds.get(position-1).getImageCount()+"");//图片数量
-            ((MyFindHolder8) holder).tv_find8_foot1.setText(feeds.get(position-1).getUser().getNickName());//电影快运
-            ((MyFindHolder8) holder).tv_find8_foot2.setText(feeds.get(position-1).getViewCount()+"");//电影快运
-            ((MyFindHolder8) holder).tv_find8_foot3.setText(feeds.get(position-1).getCommentCount()+"");//电影快运
+                Glide.with(context).load(images.get(2).getUrl())
+                        .placeholder(R.drawable.kg)
+                        .error(R.drawable.kg)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(((MyFindHolder8) holder).iv_find8_iv03);
 
+//                ((MyFindHolder8) holder).tv_find8_tittle.setText(feeds.get(position - 1).getTitle());//设置标题
+                ((MyFindHolder8) holder).tv_find8_piece.setText(feeds.get(position - 1).getImageCount() + "");//图片数量
+//                ((MyFindHolder8) holder).tv_find8_foot1.setText(feeds.get(position - 1).getUser().getNickName());//电影快运
+//                ((MyFindHolder8) holder).tv_find8_foot2.setText(feeds.get(position - 1).getViewCount() + "");//电影快运
+//                ((MyFindHolder8) holder).tv_find8_foot3.setText(feeds.get(position - 1).getCommentCount() + "");//电影快运
+
+            }
+
+            //第2种的绑定
+            if (getItemViewType(position) == 2 && feeds != null && feeds.size() > 0) {
+                //设置图片
+                List<FindListBean.DataBean.FeedsBean.ImagesBean> images = feeds.get(position - 1).getImages();
+                Glide.with(context).load(images.get(0).getUrl())
+                        .placeholder(R.drawable.kg)
+                        .error(R.drawable.kg)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(((MyFindHolder2) holder).iv_find8_iv01);
+
+                Glide.with(context).load(images.get(1).getUrl())
+                        .placeholder(R.drawable.kg)
+                        .error(R.drawable.kg)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(((MyFindHolder2) holder).iv_find8_iv02);
+
+                Glide.with(context).load(images.get(2).getUrl())
+                        .placeholder(R.drawable.kg)
+                        .error(R.drawable.kg)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(((MyFindHolder2) holder).iv_find8_iv03);
+//
+//                ((MyFindHolder2) holder).tv_find8_tittle.setText(feeds.get(position - 1).getTitle());//设置标题
+//                ((MyFindHolder2) holder).tv_find8_foot1.setText(feeds.get(position - 1).getUser().getNickName());//电影快运
+//                ((MyFindHolder2) holder).tv_find8_foot2.setText(feeds.get(position - 1).getViewCount() + "");//电影快运
+//                ((MyFindHolder2) holder).tv_find8_foot3.setText(feeds.get(position - 1).getCommentCount() + "");//电影快运
+
+            }
+
+            //第四种的绑定
+            if (getItemViewType(position) == 4 && feeds != null && feeds.size() > 0) {
+                List<FindListBean.DataBean.FeedsBean.ImagesBean> images = feeds.get(position - 1).getImages();
+                Glide.with(context).load(images.get(0).getUrl())
+                        .placeholder(R.drawable.kg)
+                        .error(R.drawable.kg)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(((MyFindHolder4) holder).iv_find4_body);
+
+//                ((MyFindHolder4) holder).tv_find8_tittle.setText(feeds.get(position - 1).getTitle());//设置标题
+//                ((MyFindHolder4) holder).tv_find8_foot1.setText(feeds.get(position - 1).getUser().getNickName());//电影快运
+//                ((MyFindHolder4) holder).tv_find8_foot2.setText(feeds.get(position - 1).getViewCount() + "");//电影快运
+//                ((MyFindHolder4) holder).tv_find8_foot3.setText(feeds.get(position - 1).getCommentCount() + "");//电影快运
+            }
+
+            //第七种的绑定
+            if (getItemViewType(position) == 7 && feeds != null && feeds.size() > 0) {
+                List<FindListBean.DataBean.FeedsBean.ImagesBean> images = feeds.get(position - 1).getImages();
+                Glide.with(context).load(images.get(0).getUrl())
+                        .placeholder(R.drawable.kg)
+                        .error(R.drawable.kg)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(((MyFindHolder7) holder).iv_find4_body);
+//
+//            ((MyFindHolder7) holder).tv_find8_tittle.setText(feeds.get(position-1).getTitle());//设置标题
+//            ((MyFindHolder7) holder).tv_find8_foot1.setText(feeds.get(position-1).getUser().getNickName());//电影快运
+//            ((MyFindHolder7) holder).tv_find8_foot2.setText(feeds.get(position-1).getViewCount()+"");//电影快运
+//            ((MyFindHolder7) holder).tv_find8_foot3.setText(feeds.get(position-1).getCommentCount()+"");//电影快运
+
+
+            }
+            if(position==1) {
+                ((MyFindHolderParent) holder).tv_find8_date.setText("今天");
+                ((MyFindHolderParent) holder).tv_find8_date.setVisibility(View.VISIBLE);
+            }else {
+                ((MyFindHolderParent) holder).tv_find8_date.setVisibility(View.GONE);
+            }
+            ((MyFindHolderParent) holder).tv_find8_tittle.setText(feeds.get(position - 1).getTitle());//设置标题
+            ((MyFindHolderParent) holder).tv_find8_foot1.setText(feeds.get(position - 1).getUser().getNickName());//电影快运
+            ((MyFindHolderParent) holder).tv_find8_foot2.setText(feeds.get(position - 1).getViewCount() + "");//电影快运
+            ((MyFindHolderParent) holder).tv_find8_foot3.setText(feeds.get(position - 1).getCommentCount() + "");//电影快运
         }
-
-
     }
 
     private Handler handler = new Handler() {
@@ -160,7 +234,7 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             return 0;
         }
         if (feeds != null && feeds.size() > 0) {
-            return feeds.get(position-1).getFeedType();
+            return feeds.get(position - 1).getFeedType();
         }
 
         return 1;
@@ -206,38 +280,128 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     /**
      * 样式8的holder
      */
-    class MyFindHolder8 extends RecyclerView.ViewHolder {
-        TextView tv_find8_date;//顶部今天
-        TextView tv_find8_tittle;//标题
+    class MyFindHolder8 extends MyFindHolderParent {
+//        TextView tv_find8_date;//顶部今天
+//        TextView tv_find8_tittle;//标题
         TextView tv_find8_piece;//图片张数
         ImageView iv_find8_iv01;//图片
         ImageView iv_find8_iv02;
         ImageView iv_find8_iv03;
-        TextView tv_find8_foot1;//底部
-        TextView tv_find8_foot2;//底部
-        TextView tv_find8_foot3;//底部
+//        TextView tv_find8_foot1;//底部
+//        TextView tv_find8_foot2;//底部
+//        TextView tv_find8_foot3;//底部
 
         public MyFindHolder8(View itemView) {
             super(itemView);
-            tv_find8_date = (TextView) itemView.findViewById(R.id.tv_find8_date);
-            tv_find8_tittle = (TextView) itemView.findViewById(R.id.tv_find8_tittle);
+//            tv_find8_date = (TextView) itemView.findViewById(R.id.tv_find8_date);
+//            tv_find8_tittle = (TextView) itemView.findViewById(R.id.tv_find8_tittle);
             tv_find8_piece = (TextView) itemView.findViewById(R.id.tv_find8_piece);
             iv_find8_iv01 = (ImageView) itemView.findViewById(R.id.iv_find8_iv01);
             iv_find8_iv02 = (ImageView) itemView.findViewById(R.id.iv_find8_iv02);
             iv_find8_iv03 = (ImageView) itemView.findViewById(R.id.iv_find8_iv03);
-            tv_find8_foot1 = (TextView) itemView.findViewById(R.id.tv_find8_foot1);
-            tv_find8_foot2 = (TextView) itemView.findViewById(R.id.tv_find8_foot2);
-            tv_find8_foot3 = (TextView) itemView.findViewById(R.id.tv_find8_foot3);
+//            tv_find8_foot1 = (TextView) itemView.findViewById(R.id.tv_find8_foot1);
+//            tv_find8_foot2 = (TextView) itemView.findViewById(R.id.tv_find8_foot2);
+//            tv_find8_foot3 = (TextView) itemView.findViewById(R.id.tv_find8_foot3);
         }
     }
 
     /**
      * 样式8的holder
      */
-    class MyFindHolder4 extends RecyclerView.ViewHolder {
+    class MyFindHolder2 extends MyFindHolderParent {
+//        TextView tv_find8_date;//顶部今天
+//        TextView tv_find8_tittle;//标题
+        TextView tv_find8_piece;//图片张数
+        ImageView iv_find8_iv01;//图片
+        ImageView iv_find8_iv02;
+        ImageView iv_find8_iv03;
+//        TextView tv_find8_foot1;//底部
+//        TextView tv_find8_foot2;//底部
+//        TextView tv_find8_foot3;//底部
+
+        public MyFindHolder2(View itemView) {
+            super(itemView);
+//            tv_find8_date = (TextView) itemView.findViewById(R.id.tv_find8_date);
+//            tv_find8_tittle = (TextView) itemView.findViewById(R.id.tv_find8_tittle);
+            tv_find8_piece = (TextView) itemView.findViewById(R.id.tv_find8_piece);
+            iv_find8_iv01 = (ImageView) itemView.findViewById(R.id.iv_find8_iv01);
+            iv_find8_iv02 = (ImageView) itemView.findViewById(R.id.iv_find8_iv02);
+            iv_find8_iv03 = (ImageView) itemView.findViewById(R.id.iv_find8_iv03);
+//            tv_find8_foot1 = (TextView) itemView.findViewById(R.id.tv_find8_foot1);
+//            tv_find8_foot2 = (TextView) itemView.findViewById(R.id.tv_find8_foot2);
+//            tv_find8_foot3 = (TextView) itemView.findViewById(R.id.tv_find8_foot3);
+        }
+    }
+
+    /**
+     * 样式4的holder
+     */
+    class MyFindHolder4 extends MyFindHolderParent {
+//        TextView tv_find8_date;//顶部今天
+//        TextView tv_find8_tittle;//标题
+//
+//        TextView tv_find8_foot1;//底部
+//        TextView tv_find8_foot2;//底部
+//        TextView tv_find8_foot3;//底部
+
+        ImageView iv_find4_body;//中间图片
 
         public MyFindHolder4(View itemView) {
             super(itemView);
+//            tv_find8_date = (TextView) itemView.findViewById(R.id.tv_find8_date);
+//            tv_find8_tittle = (TextView) itemView.findViewById(R.id.tv_find8_tittle);
+
+//            tv_find8_foot1 = (TextView) itemView.findViewById(R.id.tv_find8_foot1);
+//            tv_find8_foot2 = (TextView) itemView.findViewById(R.id.tv_find8_foot2);
+//            tv_find8_foot3 = (TextView) itemView.findViewById(R.id.tv_find8_foot3);
+            iv_find4_body = (ImageView) itemView.findViewById(R.id.iv_find4_body);
+        }
+    }
+
+    /**
+     * 样式7的holder
+     */
+    class MyFindHolder7 extends MyFindHolderParent {
+//        TextView tv_find8_date;//顶部今天
+//        TextView tv_find8_tittle;//标题
+//
+//        TextView tv_find8_foot1;//底部
+//        TextView tv_find8_foot2;//底部
+//        TextView tv_find8_foot3;//底部
+
+        ImageView iv_find4_body;//中间图片
+
+        public MyFindHolder7(View itemView) {
+            super(itemView);
+//            tv_find8_date = (TextView) itemView.findViewById(R.id.tv_find8_date);
+//            tv_find8_tittle = (TextView) itemView.findViewById(R.id.tv_find8_tittle);
+//
+//            tv_find8_foot1 = (TextView) itemView.findViewById(R.id.tv_find8_foot1);
+//            tv_find8_foot2 = (TextView) itemView.findViewById(R.id.tv_find8_foot2);
+//            tv_find8_foot3 = (TextView) itemView.findViewById(R.id.tv_find8_foot3);
+            iv_find4_body = (ImageView) itemView.findViewById(R.id.iv_find4_body);
+        }
+    }
+
+    /**
+     * 样式7的holder
+     */
+    class MyFindHolderParent extends RecyclerView.ViewHolder {
+        TextView tv_find8_date;//顶部今天
+        TextView tv_find8_tittle;//标题
+
+        TextView tv_find8_foot1;//底部
+        TextView tv_find8_foot2;//底部
+        TextView tv_find8_foot3;//底部
+
+        public MyFindHolderParent(View itemView) {
+            super(itemView);
+            tv_find8_date = (TextView) itemView.findViewById(R.id.tv_find8_date);
+            tv_find8_tittle = (TextView) itemView.findViewById(R.id.tv_find8_tittle);
+
+            tv_find8_foot1 = (TextView) itemView.findViewById(R.id.tv_find8_foot1);
+            tv_find8_foot2 = (TextView) itemView.findViewById(R.id.tv_find8_foot2);
+            tv_find8_foot3 = (TextView) itemView.findViewById(R.id.tv_find8_foot3);
         }
     }
 
@@ -266,5 +430,6 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             context.startActivity(intent);
         }
     }
+
 
 }

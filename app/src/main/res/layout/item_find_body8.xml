@@ -10,6 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         android:orientation="horizontal">
 
         <ImageView
@@ -22,6 +24,7 @@
 
         <LinearLayout
             android:layout_width="0dp"
+
             android:layout_height="match_parent"
             android:layout_marginLeft="3dp"
             android:layout_weight="1"
@@ -66,7 +69,9 @@
     </LinearLayout>
 
     <include layout="@layout/item_find_body_foot" />
-    <Button
+    <View
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="1px" />
+        android:background="#55222222"
+        android:layout_height="1px"/>
 </LinearLayout>
