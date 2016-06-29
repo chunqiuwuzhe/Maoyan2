@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_shop"
+        android:background="#22000000"
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+    </android.support.v4.view.ViewPager>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:orientation="vertical">
+        <RadioGroup
+            android:id="@+id/rg_one"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb_shuma"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a01"
+                android:text="数码" />
+            <RadioButton
+                android:id="@+id/rb_gaowan"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a02"
+                android:text="高玩专区" />
+            <RadioButton
+                android:id="@+id/rb_wanju"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a03"
+                android:text="玩具" />
+            <RadioButton
+                android:id="@+id/rb_shenghuo"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a04"
+                android:text="生活" />
+            <RadioButton
+                android:id="@+id/rb_fushi"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a05"
+                android:text="服饰" />
+        </RadioGroup>
+        <RadioGroup
+            android:id="@+id/rg_two"
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rb_chaobian"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a06"
+                android:text="超蝙" />
+            <RadioButton
+                android:id="@+id/rb_jiqimao"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a07"
+                android:text="机器猫" />
+            <RadioButton
+                android:id="@+id/rb_moshou"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a08"
+                android:text="魔兽" />
+            <RadioButton
+                android:id="@+id/rb_meidui"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a09"
+                android:text="美队" />
+            <RadioButton
+                android:id="@+id/rb_xingqiu"
+                style="@style/My_logo_style"
+                android:drawableTop="@drawable/a10"
+                android:text="星球大战" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>
