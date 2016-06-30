@@ -109,11 +109,13 @@ public class SplashActivity extends Activity {
         SplashBean splashBean = gson.fromJson(result, SplashBean.class);
         if (splashBean != null) {
             List<SplashBean.PostersBean> posters = splashBean.getPosters();
-            if (posters != null&&posters.size()>0) {
+            if (posters != null && posters.size() > 0) {
                 pic = posters.get(0).getPic();
             }
 
         }
+
+
         //LogUtil.e(pic);
         // 设置加载图片的参数
         ImageOptions options = new ImageOptions.Builder()
