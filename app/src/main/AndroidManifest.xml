@@ -68,7 +68,8 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".activity.FindYingKuActivity" />
-        <activity android:name=".activity.ShopH5Activity"></activity>
+        <activity android:name=".activity.ShopH5Activity" />
+        <activity android:name=".activity.ShopWraseFactionActivity"></activity>
     </application>
 
 </manifest>

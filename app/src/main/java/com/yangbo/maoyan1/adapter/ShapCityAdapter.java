@@ -19,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.activity.ShopH5Activity;
+import com.yangbo.maoyan1.activity.ShopWraseFactionActivity;
 import com.yangbo.maoyan1.bean.ShopBean;
 import com.yangbo.maoyan1.bean.ShopCityVpBean;
 
@@ -232,6 +233,7 @@ public class ShapCityAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                     switch (checkedId) {
                         case R.id.rb_shuma:
                             Toast.makeText(context, "数码", Toast.LENGTH_SHORT).show();
+                            context.startActivity(new Intent(context,ShopWraseFactionActivity.class));
                             break;
                         case R.id.rb_gaowan:
                             break;
