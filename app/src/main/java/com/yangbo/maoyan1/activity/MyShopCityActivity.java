@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.ShapCityAdapter;
+import com.yangbo.maoyan1.bean.ShopBean;
 import com.yangbo.maoyan1.bean.ShopCityVpBean;
 import com.yangbo.maoyan1.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -27,6 +28,8 @@ public class MyShopCityActivity extends Activity {
     private List<ShopCityVpBean.DataBean> beans;
     private  ShapCityAdapter shapAdapter;
 
+    List<ShopBean.DataBean.ListBean> list;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +44,19 @@ public class MyShopCityActivity extends Activity {
         rcl_shop_city.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
         shapAdapter=new ShapCityAdapter(this);
         rcl_shop_city.setAdapter(shapAdapter);
+        //商城数据
+        setData();
+    }
+
+    private void setData() {
+        Gson gson=new Gson();
+        ShopBean shopBean = gson.fromJson(UrlUtils.SHOP_DATA, ShopBean.class);
+        list = shopBean.getData().getList();
+        if(list!=null&&list.size()>0){
+            shapAdapter.setList(list);
+            shapAdapter.notifyItemRangeChanged(4,5);
+        }
+
     }
 
     public void getHttpVP() {
@@ -62,6 +78,7 @@ public class MyShopCityActivity extends Activity {
                         parseData(response);
                     }
                 });
+
     }
 
     private void parseData(String data) {
