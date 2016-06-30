@@ -109,7 +109,7 @@ public class SplashActivity extends Activity {
         SplashBean splashBean = gson.fromJson(result, SplashBean.class);
         if (splashBean != null) {
             List<SplashBean.PostersBean> posters = splashBean.getPosters();
-            if (posters != null) {
+            if (posters != null && posters.size() > 0) {
                 pic = posters.get(0).getPic();
             }
 

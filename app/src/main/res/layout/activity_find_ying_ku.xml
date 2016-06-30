@@ -1,12 +1,439 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.yangbo.maoyan1.activity.FindYingKuActivity">
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/rl_find_yingu"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#DD403B"
+
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:id="@+id/iv_yingku_find"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:src="@drawable/je" />
+
+        <TextView
+            android:id="@+id/ll_yingku_zi"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/iv_yingku_find"
+            android:background="@drawable/iv_cinema_selector"
+            android:gravity="center"
+            android:text="影库"
+            android:textColor="#ffffff"
+            android:textSize="20sp"></TextView>
+    </RelativeLayout>
+
+    <com.yangbo.maoyan1.view.MyScrollview
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rl_find_yingu"
+        android:background="#aaaaaa">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="180dp"-->
+            <!--android:gravity="center"-->
+            <!--android:text="1211111111111">-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/iv_yingku_heaher"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#11ff0000" />-->
+
+            <!--<ImageView-->
+            <!--android:id="@+id/iv_yingku_heaher_small"-->
+            <!--android:layout_width="130dp"-->
+            <!--android:layout_height="150dp"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="10dp"-->
+            <!--android:background="#11ff0000" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_yingku_tou1"-->
+            <!--android:layout_width="199dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_above="@id/tv_yingku_tou2"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:text="假装特异功能。"-->
+            <!--android:textColor="#ffffff" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_yingku_tou2"-->
+            <!--android:layout_width="199dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:padding="10dp"-->
+            <!--android:text="望远镜让我能更近地看东西，我假装这是我的特异功能。"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textSize="18sp" />-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_yingku_tou3"-->
+            <!--android:layout_width="180dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@id/tv_yingku_tou2"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:text="我假装这是我的特异功能。"-->
+            <!--android:textColor="#ffffff"-->
+            <!--android:textSize="13sp" />-->
+
+            <!--</RelativeLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:background="#ffffff"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:paddingBottom="2dp"-->
+            <!--android:layout_height="90dp">-->
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/ll_reyingkoubei"-->
+            <!--android:layout_marginRight="2dp"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#0000ff"-->
+            <!--android:layout_weight="1">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#0ff0ff"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_teyingkoubei"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="热映口碑"-->
+            <!--android:layout_height="wrap_content" />-->
+            <!--<TextView-->
+            <!--android:id="@+id/tv_teyingkoubei2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="魔兽"-->
+            <!--android:textSize="12sp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+            <!--<ImageView-->
+            <!--android:id="@+id/iv_reyingkoubei"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="match_parent" />-->
+
+
+            <!--</LinearLayout>-->
+            <!--<LinearLayout-->
+            <!--android:id="@+id/ll_zuishouqidai"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_marginLeft="2dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#0000ff"-->
+            <!--android:layout_weight="1">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#0ff0ff"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="vertical">-->
+            <!--<TextView-->
+            <!--android:id="@+id/tv_zuishouqidai"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="最受期待"-->
+            <!--android:layout_height="wrap_content" />-->
+            <!--<TextView-->
+            <!--android:id="@+id/tv_zuishouqidai2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="魔兽"-->
+            <!--android:textSize="12sp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+            <!--<ImageView-->
+            <!--android:id="@+id/iv_zuishouqidai"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="match_parent" />-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:paddingTop="2dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:background="#ffffff"-->
+            <!--android:paddingRight="10dp"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:layout_height="90dp">-->
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/ll_beimeipiaofang"-->
+            <!--android:layout_marginRight="2dp"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#0000ff"-->
+            <!--android:layout_weight="1">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#0ff0ff"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:id="@+id/tv_beimeipiaofang"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="北美票房"-->
+            <!--android:layout_height="wrap_content" />-->
+            <!--<TextView-->
+            <!--android:id="@+id/tv_beimeipiaofang2"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="魔兽"-->
+            <!--android:textSize="12sp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+            <!--<ImageView-->
+            <!--android:id="@+id/iv_beimeipiaofang"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="match_parent" />-->
+
+
+            <!--</LinearLayout>-->
+            <!--<LinearLayout-->
+            <!--android:id="@+id/ll_top100"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_marginLeft="2dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#0000ff"-->
+            <!--android:layout_weight="1">-->
+            <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="#0ff0ff"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:orientation="vertical">-->
+            <!--<TextView-->
+            <!--android:id="@+id/tv_top100"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="top100"-->
+            <!--android:layout_height="wrap_content" />-->
+            <!--<TextView-->
+            <!--android:id="@+id/tv_top1002"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:text="魔兽"-->
+            <!--android:textSize="12sp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+            <!--<ImageView-->
+            <!--android:id="@+id/iv_top100"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_height="match_parent" />-->
+
+
+            <!--</LinearLayout>-->
+
+            <!--</LinearLayout>-->
+
+            <!--每日推荐-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:layout_marginTop="10dp"
+                android:background="#ffffff"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="每日推荐"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_tuijian_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="#454545" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="亲爱的"
+                            android:textColor="#ffffff" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="7.7分"
+                            android:textSize="13sp"
+                            android:textColor="#ffffff" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginLeft="4dp"
+                        android:layout_marginRight="4dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_tuijian_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="#454545" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="超能陆战队"
+                            android:textColor="#ffffff" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="7.9分"
+                            android:textSize="13sp"
+                            android:textColor="#ffffff" />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/iv_tuijian_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:background="#454545" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="敢死队3"
+                            android:textColor="#ffffff" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"
+                            android:text="8.2分"
+                            android:textSize="13sp"
+                            android:textColor="#ffffff" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="1211111111111" />
+            />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_find_yingku"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_find_yingu" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="1211111111111" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="1211111111111" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="1211111111111" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:gravity="center"
+                android:text="1211111111111" />
+
+        </LinearLayout>
+
+    </com.yangbo.maoyan1.view.MyScrollview>
+
+
+    <ProgressBar
+        android:id="@+id/pb_find_yingku_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:indeterminateDrawable="@drawable/custom_progress"
+        android:visibility="gone" />
 
 </RelativeLayout>
