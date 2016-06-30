@@ -31,6 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.MyShopCityActivity"/>
         <activity android:name=".activity.SouSuoActivity" />
         <activity android:name=".activity.CinemaDetailActivity" />
         <activity android:name=".activity.SearchCinemaActivity" />
