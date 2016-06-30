@@ -8,13 +8,11 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="#f5f5f5" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="220dp"
+        android:layout_height="250dp"
         android:background="#44000000"
         android:orientation="vertical">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -26,11 +24,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="210dp"
             android:orientation="horizontal"
             android:padding="1dp">
 
             <LinearLayout
+                android:id="@+id/ll_one"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
@@ -77,6 +76,7 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/ll_two"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_marginBottom="1dp"
@@ -114,155 +114,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:background="#fafafa"
-                    android:padding="1dp">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="3"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="多利在这里"
-                            android:textSize="18dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="海洋周边"
-                            android:textSize="15dp" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/iv_three"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/a62"
-                        android:layout_weight="2" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="#f5f5f5" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:background="#44000000"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="#fafafa"
-            android:gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="每月特价"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:padding="1dp">
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:background="#fafafa"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_weight="2"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="多利在这里"
-                        android:textSize="18dp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="海洋周边"
-                        android:textSize="15dp" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/iv_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:src="@drawable/a62"
-                    android:scaleType="fitXY" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="1dp"
-                android:layout_weight="3"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginBottom="1dp"
-                    android:layout_weight="1"
-                    android:background="#fafafa">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:layout_weight="3"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="多利在这里"
-                            android:textSize="18dp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:text="海洋周边"
-                            android:textSize="15dp" />
-                    </LinearLayout>
-
-                    <ImageView
-                        android:id="@+id/iv_two"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/a62"
-                        android:layout_weight="2" />
-                </LinearLayout>
-
-                <LinearLayout
+                    android:id="@+id/ll_three"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"

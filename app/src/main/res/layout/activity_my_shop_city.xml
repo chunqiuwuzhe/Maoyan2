@@ -6,17 +6,16 @@
     android:orientation="vertical"
     android:background="#ffffff"
     tools:context="com.yangbo.maoyan1.activity.MyShopCityActivity">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rcl_shop_city"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcl_shop_city"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.RecyclerView>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#22000000">
-
         <ImageView
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"

@@ -31,7 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MyShopCityActivity"/>
+        <activity android:name=".activity.MyShopCityActivity" />
         <activity android:name=".activity.SouSuoActivity" />
         <activity android:name=".activity.CinemaDetailActivity" />
         <activity android:name=".activity.SearchCinemaActivity" />
@@ -67,7 +67,9 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".activity.FindYingKuActivity"></activity>
+        <activity android:name=".activity.FindYingKuActivity" />
+        <activity android:name=".activity.ShopH5Activity" />
+        <activity android:name=".activity.ShopWraseFactionActivity"></activity>
     </application>
 
 </manifest>
