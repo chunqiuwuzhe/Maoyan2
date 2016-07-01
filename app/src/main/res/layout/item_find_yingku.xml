@@ -2,18 +2,36 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:paddingLeft="3dp"
+    android:background="#ffffff"
+    android:paddingRight="3dp"
     android:orientation="vertical">
 
-   <RelativeLayout
-       android:layout_width="185dp"
-       android:layout_height="185dp">
-       <ImageView
-           android:layout_width="match_parent"
-            android:scaleType="fitXY"
-           android:layout_height="match_parent" />
        <TextView
-           android:layout_width="180dp"
-           android:text="望远镜让我能更近地看东西，我假装这是我的特异功能。"
+           android:id="@+id/tv_jiangxiang_1"
+           android:paddingTop="10dp"
+           android:paddingBottom="10dp"
+           android:layout_width="wrap_content"
+           android:text="上海电影节"
+           android:gravity="center"
+           android:drawableRight="@drawable/triangle"
            android:layout_height="wrap_content" />
-   </RelativeLayout>
+    <ImageView
+        android:id="@+id/iv_jiangxiang"
+        android:layout_width="110dp"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:scaleType="fitXY"
+        android:background="#ffffff"
+        android:layout_height="150dp" />
+    <TextView
+        android:id="@+id/tv_jiangxiang_2"
+        android:layout_width="wrap_content"
+        android:text="上海电影节"
+        android:paddingTop="10dp"
+        android:paddingBottom="15dp"
+
+        android:gravity="center"
+        android:layout_height="wrap_content" />
 </LinearLayout>

@@ -40,240 +40,258 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/rl_find_yingu"
-        android:background="#aaaaaa">
+        android:background="#22444444">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="180dp"-->
-            <!--android:gravity="center"-->
-            <!--android:text="1211111111111">-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp"
+                android:gravity="center"
+                android:text="1211111111111">
 
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_yingku_heaher"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#11ff0000" />-->
+                <ImageView
+                    android:id="@+id/iv_yingku_heaher"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#11ff0000" />
 
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_yingku_heaher_small"-->
-            <!--android:layout_width="130dp"-->
-            <!--android:layout_height="150dp"-->
-            <!--android:layout_alignParentRight="true"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:layout_marginRight="10dp"-->
-            <!--android:background="#11ff0000" />-->
-
-            <!--<TextView-->
-            <!--android:id="@+id/tv_yingku_tou1"-->
-            <!--android:layout_width="199dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_above="@id/tv_yingku_tou2"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:text="假装特异功能。"-->
-            <!--android:textColor="#ffffff" />-->
-
-            <!--<TextView-->
-            <!--android:id="@+id/tv_yingku_tou2"-->
-            <!--android:layout_width="199dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_centerVertical="true"-->
-            <!--android:padding="10dp"-->
-            <!--android:text="望远镜让我能更近地看东西，我假装这是我的特异功能。"-->
-            <!--android:textColor="#ffffff"-->
-            <!--android:textSize="18sp" />-->
-
-            <!--<TextView-->
-            <!--android:id="@+id/tv_yingku_tou3"-->
-            <!--android:layout_width="180dp"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_below="@id/tv_yingku_tou2"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:text="我假装这是我的特异功能。"-->
-            <!--android:textColor="#ffffff"-->
-            <!--android:textSize="13sp" />-->
-
-            <!--</RelativeLayout>-->
-
-            <!--<LinearLayout-->
-            <!--android:background="#ffffff"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:paddingTop="10dp"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:paddingRight="10dp"-->
-            <!--android:paddingBottom="2dp"-->
-            <!--android:layout_height="90dp">-->
-
-            <!--<LinearLayout-->
-            <!--android:id="@+id/ll_reyingkoubei"-->
-            <!--android:layout_marginRight="2dp"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#0000ff"-->
-            <!--android:layout_weight="1">-->
-            <!--<LinearLayout-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#0ff0ff"-->
-            <!--android:layout_weight="2"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:orientation="vertical">-->
-
-            <!--<TextView-->
-            <!--android:id="@+id/tv_teyingkoubei"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:text="热映口碑"-->
-            <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-            <!--android:id="@+id/tv_teyingkoubei2"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:text="魔兽"-->
-            <!--android:textSize="12sp"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:layout_height="wrap_content" />-->
-
-            <!--</LinearLayout>-->
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_reyingkoubei"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_height="match_parent" />-->
+                <ImageView
+                    android:id="@+id/iv_yingku_heaher_small"
+                    android:layout_width="100dp"
+                    android:layout_height="130dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"
+                    android:background="#11ff0000" />
 
 
-            <!--</LinearLayout>-->
-            <!--<LinearLayout-->
-            <!--android:id="@+id/ll_zuishouqidai"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_marginLeft="2dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#0000ff"-->
-            <!--android:layout_weight="1">-->
-            <!--<LinearLayout-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#0ff0ff"-->
-            <!--android:layout_weight="2"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:orientation="vertical">-->
-            <!--<TextView-->
-            <!--android:id="@+id/tv_zuishouqidai"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:text="最受期待"-->
-            <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-            <!--android:id="@+id/tv_zuishouqidai2"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:text="魔兽"-->
-            <!--android:textSize="12sp"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:layout_height="wrap_content" />-->
+                <TextView
+                    android:id="@+id/tv_yingku_tou2"
+                    android:layout_width="230dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="10dp"
+                    android:text="望远镜让我能更近地看东西，我假装这是我的特异功能。"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp" />
 
-            <!--</LinearLayout>-->
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_zuishouqidai"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_height="match_parent" />-->
+                <TextView
+                    android:id="@+id/tv_yingku_tou1"
+                    android:layout_width="199dp"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_yingku_tou2"
+                    android:paddingLeft="10dp"
+                    android:text="假装特异功能。"
+                    android:textColor="#ffffff" />
 
+                <TextView
+                    android:id="@+id/tv_yingku_tou3"
+                    android:layout_width="180dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_yingku_tou2"
 
-            <!--</LinearLayout>-->
+                    android:paddingLeft="10dp"
+                    android:text="我假装这是我的特异功能。"
+                    android:textColor="#ffffff"
+                    android:textSize="13sp" />
 
-            <!--</LinearLayout>-->
+            </RelativeLayout>
 
-            <!--<LinearLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:paddingTop="2dp"-->
-            <!--android:paddingLeft="10dp"-->
-            <!--android:background="#ffffff"-->
-            <!--android:paddingRight="10dp"-->
-            <!--android:paddingBottom="10dp"-->
-            <!--android:layout_height="90dp">-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#ffffff"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
 
-            <!--<LinearLayout-->
-            <!--android:id="@+id/ll_beimeipiaofang"-->
-            <!--android:layout_marginRight="2dp"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#0000ff"-->
-            <!--android:layout_weight="1">-->
-            <!--<LinearLayout-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#0ff0ff"-->
-            <!--android:layout_weight="2"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:orientation="vertical">-->
+                <LinearLayout
+                    android:id="@+id/ll_reyingkoubei"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="1"
+                    android:background="#0000ff">
 
-            <!--<TextView-->
-            <!--android:id="@+id/tv_beimeipiaofang"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:text="北美票房"-->
-            <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-            <!--android:id="@+id/tv_beimeipiaofang2"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:text="魔兽"-->
-            <!--android:textSize="12sp"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:layout_height="wrap_content" />-->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="#ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
 
-            <!--</LinearLayout>-->
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_beimeipiaofang"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_height="match_parent" />-->
+                        <TextView
+                            android:id="@+id/tv_teyingkoubei"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="热映口碑" />
+
+                        <TextView
+                            android:id="@+id/tv_teyingkoubei2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="所以···和黑粉结···"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_reyingkoubei"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
 
 
-            <!--</LinearLayout>-->
-            <!--<LinearLayout-->
-            <!--android:id="@+id/ll_top100"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_marginLeft="2dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#0000ff"-->
-            <!--android:layout_weight="1">-->
-            <!--<LinearLayout-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:background="#0ff0ff"-->
-            <!--android:layout_weight="2"-->
-            <!--android:gravity="center_vertical"-->
-            <!--android:orientation="vertical">-->
-            <!--<TextView-->
-            <!--android:id="@+id/tv_top100"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:text="top100"-->
-            <!--android:layout_height="wrap_content" />-->
-            <!--<TextView-->
-            <!--android:id="@+id/tv_top1002"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:text="魔兽"-->
-            <!--android:textSize="12sp"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:layout_height="wrap_content" />-->
+                </LinearLayout>
 
-            <!--</LinearLayout>-->
-            <!--<ImageView-->
-            <!--android:id="@+id/iv_top100"-->
-            <!--android:layout_width="0dp"-->
-            <!--android:layout_weight="1"-->
-            <!--android:layout_height="match_parent" />-->
+                <LinearLayout
+                    android:id="@+id/ll_zuishouqidai"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:background="#0000ff">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="#ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_zuishouqidai"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="最受期待" />
+
+                        <TextView
+                            android:id="@+id/tv_zuishouqidai2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="致青春 原来你还在···"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_zuishouqidai"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
 
 
-            <!--</LinearLayout>-->
+                </LinearLayout>
 
-            <!--</LinearLayout>-->
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="#ffffff"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_beimeipiaofang"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="2dp"
+                    android:layout_weight="1"
+                    android:background="#0000ff">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="#ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_beimeipiaofang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="北美票房" />
+
+                        <TextView
+                            android:id="@+id/tv_beimeipiaofang2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="忍者神龟2：破影而出"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_beimeipiaofang"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_top100"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:background="#0000ff">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="#ffffff"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_top100"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="top100" />
+
+                        <TextView
+                            android:id="@+id/tv_top1002"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="魔兽"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/iv_top100"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <!--每日推荐-->
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="230dp"
+                android:layout_marginTop="20dp"
                 android:background="#ffffff"
                 android:orientation="vertical"
                 android:paddingLeft="10dp"
@@ -303,29 +321,29 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:background="#454545" />
+                            android:background="#ffffff" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="亲爱的"
-                            android:textColor="#ffffff" />
+                            android:text="X战警"
+                            android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:text="7.7分"
-                            android:textSize="13sp"
-                            android:textColor="#ffffff" />
+                            android:textSize="13sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
                         android:layout_marginLeft="4dp"
                         android:layout_marginRight="4dp"
+                        android:layout_weight="1"
                         android:gravity="center_horizontal"
                         android:orientation="vertical">
 
@@ -334,23 +352,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:background="#454545" />
+                            android:background="#ffffff" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="超能陆战队"
-                            android:textColor="#ffffff" />
+                            android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:text="7.9分"
-                            android:textSize="13sp"
-                            android:textColor="#ffffff" />
+                            android:textSize="13sp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
@@ -363,33 +381,38 @@
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:background="#454545" />
+                            android:background="#ffffff" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
                             android:text="敢死队3"
-                            android:textColor="#ffffff" />
+                            android:textColor="#000000" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10dp"
                             android:text="8.2分"
-                            android:textSize="13sp"
-                            android:textColor="#ffffff" />
+                            android:textSize="13sp" />
                     </LinearLayout>
 
                 </LinearLayout>
 
             </LinearLayout>
 
+            <!--每日推荐-->
+
             <TextView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:gravity="center"
-                android:text="1211111111111" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:padding="10dp"
+                android:text="全球电影奖项"
+                android:textColor="#000000"
+                android:textSize="18sp" />
             />
 
             <android.support.v7.widget.RecyclerView
@@ -398,29 +421,178 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/rl_find_yingu" />
 
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:gravity="center"
-                android:text="1211111111111" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#444444" />
 
             <TextView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/全部电影奖项"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
                 android:gravity="center"
-                android:text="1211111111111" />
+                android:padding="10dp"
+                android:text="全部电影奖项"
+                android:textColor="#DD403B" />
+            />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#444444" />
 
             <TextView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:gravity="center"
-                android:text="1211111111111" />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#ffffff"
+                android:padding="10dp"
+                android:text="热门分类"
+                android:textColor="#000000" />
+            />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <Button
+                    android:id="@+id/btn_yingku_donghua"
+                    style="@style/yingku_btn"
+                    android:text="动画" />
+
+                <Button
+                    android:id="@+id/btn_yingku_xiju"
+                    style="@style/yingku_btn"
+                    android:text="喜剧" />
+
+                <Button
+                    android:id="@+id/btn_yingku_kongbu"
+                    style="@style/yingku_btn"
+                    android:text="恐怖" />
+
+                <Button
+                    android:id="@+id/btn_yingku_aiqing"
+                    style="@style/yingku_btn"
+                    android:text="爱情" />
+
+                <Button
+                    android:id="@+id/btn_yingku_kehuan"
+                    style="@style/yingku_btn"
+                    android:text="科幻" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <Button
+                    android:id="@+id/btn_yingku_dongzuo"
+                    style="@style/yingku_btn"
+                    android:text="动作" />
+
+                <Button
+                    android:id="@+id/btn_yingku_juqing"
+                    style="@style/yingku_btn"
+                    android:text="剧情" />
+
+                <Button
+                    android:id="@+id/btn_yingku_jingsong"
+                    style="@style/yingku_btn"
+                    android:text="惊悚" />
+
+                <Button
+                    android:id="@+id/btn_yingku_zhanzheng"
+                    style="@style/yingku_btn"
+                    android:text="战争" />
+
+                <Button
+                    android:id="@+id/btn_yingku_fanzui"
+                    style="@style/yingku_btn"
+                    android:text="犯罪" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <Button
+                    android:id="@+id/btn_yingku_xuanyi"
+                    style="@style/yingku_btn"
+                    android:text="悬疑" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="12dp"
+                    android:background="#ffffff"
+                    android:layout_weight="4" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#ffffff"
+                android:layout_height="20dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:layout_marginTop="10dp"
+                    android:background="#444444" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <Button
+                    android:id="@+id/btn_yingku_meiguo"
+                    style="@style/yingku_btn"
+                    android:text="美国" />
+
+                <Button
+                    android:id="@+id/btn_yingku_dalu"
+                    style="@style/yingku_btn"
+                    android:text="大陆" />
+
+                <Button
+                    android:id="@+id/btn_yingku_riben"
+                    style="@style/yingku_btn"
+                    android:text="日本" />
+
+                <Button
+                    android:id="@+id/btn_yingku_hanguo"
+                    style="@style/yingku_btn"
+                    android:text="韩国" />
+
+                <Button
+                    android:id="@+id/btn_yingku_gangtai"
+                    style="@style/yingku_btn"
+                    android:text="港台" />
+            </LinearLayout>
 
             <TextView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:id="@+id/tv_quanbufenlei"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:background="#ffffff"
                 android:gravity="center"
-                android:text="1211111111111" />
+                android:padding="10dp"
+                android:text="全部分类"
+                android:textColor="#DD403B" />
+
 
         </LinearLayout>
 
