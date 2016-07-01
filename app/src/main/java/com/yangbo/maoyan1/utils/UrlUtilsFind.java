@@ -4,12 +4,15 @@ package com.yangbo.maoyan1.utils;
  * Created by yangbo on 2016/6/28.
  */
 public class UrlUtilsFind {
+    //影院详情
+    public static final String URL_CINEMA_DETAIL ="http://m.maoyan.com/showtime/wrap.json%EF%BC%9Fcinemaid=65&movieid=request#tmp=showtime&cinemaid=";
 
     //发现界面 话题页面
     public static final String URL_FIND_HUATI ="http://m.maoyan.com/groups?_v_=yes&f=android&userid=-1&pushToken=7e6bd5fe73912116ed3ca24d473265cc37ad738879f590efaf0a436f905b945b103b4d6d4a8cb7a6cd70f822f26ffff9&cityId=1";
     //发现 资讯
     public static final String URL_FIND_ZIXUN="http://m.maoyan.com/groups?_v_=yes&f=android&userid=-1&pushToken=7e6bd5fe73912116ed3ca24d473265cc37ad738879f590efaf0a436f905b945b103b4d6d4a8cb7a6cd70f822f26ffff9&cityId=1";
-
+    //发现 票房
+    public static final String URL_FIND_PIAOFANG="http://m.maoyan.com/newGuide/maoyanpiaofang?f=nohdft";
     //发现 list
     public static final String URL_FIND_LIST="http://api.meituan.com/sns/v2/feed.json?offset=0&limit=10&timestamp=0&__vhost=api.maoyan.com&utm_campaign=AmovieBmovieC110189035496448D-1&movieBundleVersion=6801&utm_source=baidumobile1&utm_medium=android&utm_term=6.8.0&utm_content=863777020121611&ci=1&net=255";
     //发现viewpager

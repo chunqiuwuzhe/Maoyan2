@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="350dp"
+    android:orientation="horizontal">
+
+    <RadioGroup
+        android:id="@+id/rg_cinema_pw"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rb_000"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/popup_rb_bg"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="行政区" />
+
+        <RadioButton
+            android:id="@+id/rb_001"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/popup_rb_bg"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="地铁" />
+
+        <RadioButton
+            android:id="@+id/rb_002"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/popup_rb_bg"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="特殊厅" />
+
+        <RadioButton
+            android:id="@+id/rb_003"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/popup_rb_bg"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="品牌" />
+
+        <RadioButton
+            android:id="@+id/rb_004"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/popup_rb_bg"
+            android:button="@android:color/transparent"
+            android:gravity="center"
+            android:text="服务" />
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:background="#ffffff">
+        <ListView
+            android:id="@+id/lv_pop01"
+            android:divider="@null"
+            android:fastScrollEnabled="false"
+            android:scrollbars="none"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+    </LinearLayout>
+    <View
+        android:id="@+id/vi_pop_line"
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="#555555"/>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:background="#ffffff">
+        <ListView
+            android:id="@+id/lv_pop02"
+            android:divider="@null"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
