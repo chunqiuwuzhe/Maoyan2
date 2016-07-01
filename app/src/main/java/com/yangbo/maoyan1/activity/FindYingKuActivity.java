@@ -282,6 +282,7 @@ public class FindYingKuActivity extends Activity implements View.OnClickListener
      * @param i
      */
     private void pressData001(String response, int i) {
+        MyOnClickListener myOnClickListener = new MyOnClickListener();
         if (i == 0) {//顶部图片设置
             pb_find_yingku_loading.setVisibility(View.GONE);
             Gson gson = new Gson();
@@ -317,12 +318,7 @@ public class FindYingKuActivity extends Activity implements View.OnClickListener
                     .into(ivReyingkoubei);
             tvTeyingkoubei2.setText(moviesBean.getNm());
             //设置点击事件
-            llReyingkoubei.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
+            llReyingkoubei.setOnClickListener(myOnClickListener);
             //北美票房
         }else if(i==2) {
             Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean = new Gson().fromJson(response, Yingku_ReMenKouBeiBean.class);
@@ -359,7 +355,13 @@ public class FindYingKuActivity extends Activity implements View.OnClickListener
             rv_find_yingku.setAdapter(new MyFindYingKuAdapter(this, coming));
         }
     }
+class MyOnClickListener implements View.OnClickListener {
 
+    @Override
+    public void onClick(View v) {
+
+    }
+}
 
     //每日推荐
     private void setDataMeiRiTuiJian() {

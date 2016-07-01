@@ -4,19 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
-import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.Window;
 import android.widget.EditText;
 
-import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.MyCinemaAdapter;
-import com.yangbo.maoyan1.bean.CinemaBean;
 
-import org.xutils.common.util.LogUtil;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class SearchCinemaActivity extends Activity {
@@ -25,7 +19,7 @@ public class SearchCinemaActivity extends Activity {
 
     RecyclerView rv_search_cinema;
     List datas;
-    private List<CinemaBean.DataBean.changpingquBean> changpingqu;
+//    private List<CinemaBean.DataBean.changpingquBean> changpingqu;
     private MyCinemaAdapter adapter;
 
     @Override
@@ -74,33 +68,33 @@ public class SearchCinemaActivity extends Activity {
     }
     //查询数据
     private void searchData(String s) {
-
-        String result = getIntent().getStringExtra("tt");
-        LogUtil.e("=================="+ result);
-
-        Gson gson = new Gson();
-        CinemaBean cinemaBean = gson.fromJson(result, CinemaBean.class);
-        List<CinemaBean.DataBean.changpingquBean> changpingqu;
-        if(cinemaBean!=null) {
-            changpingqu = cinemaBean.getData().getchangpingqu();
-//        LogUtil.e(changpingqu.get(1).getNm());
-
-
-            datas = new ArrayList<CinemaBean.DataBean.changpingquBean>();
-            if (!TextUtils.isEmpty(s)) {
-                for (int i = 0; i < changpingqu.size(); i++) {
-                    if (changpingqu.get(i).getNm().contains(s)) {
-                        datas.add(changpingqu.get(i));
-                    }
-                }
-
-            }
-        }
-
-
-        //设置适配器的数据
-        adapter.setCinemaBean(datas);
-        adapter.notifyItemRangeChanged(1,datas.size());
+//
+//        String result = getIntent().getStringExtra("tt");
+//        LogUtil.e("=================="+ result);
+//
+//        Gson gson = new Gson();
+//        CinemaBean cinemaBean = gson.fromJson(result, CinemaBean.class);
+//        List<CinemaBean.DataBean.changpingquBean> changpingqu;
+//        if(cinemaBean!=null) {
+//            changpingqu = cinemaBean.getData().getchangpingqu();
+////        LogUtil.e(changpingqu.get(1).getNm());
+//
+//
+//            datas = new ArrayList<CinemaBean.DataBean.changpingquBean>();
+//            if (!TextUtils.isEmpty(s)) {
+//                for (int i = 0; i < changpingqu.size(); i++) {
+//                    if (changpingqu.get(i).getNm().contains(s)) {
+////                        datas.add(changpingqu.get(i));
+//                    }
+//                }
+//
+//            }
+//        }
+//
+//
+//        //设置适配器的数据
+//        adapter.setCinemaBean(datas);
+//        adapter.notifyItemRangeChanged(1,datas.size());
 
     }
 

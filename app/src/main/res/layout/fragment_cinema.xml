@@ -55,7 +55,6 @@
             android:padding="15dp"
             android:src="@drawable/select" />
 
-
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView

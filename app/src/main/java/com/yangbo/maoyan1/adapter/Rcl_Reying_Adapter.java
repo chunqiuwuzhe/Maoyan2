@@ -109,8 +109,6 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         }
     }
 
-
-
     private void isContains(Ry_RclViewHolder holder, ReYingListViewBean.DataBean.HotBean hotBean) {
         //如果包含其中的字符床就显示反之不显示
         if(hotBean.getVer().contains("2D/3D")){//显示3d

@@ -493,7 +493,8 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
                     context.startActivity(intent1);
                     break;
                 case R.id.tv_find_piaofang:
-                    intent.putExtra("url", "");
+                    intent.putExtra("url", UrlUtilsFind.URL_FIND_PIAOFANG);
+                    context.startActivity(intent);
                     break;
             }
 

@@ -55,8 +55,8 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
         if (viewType == 0) {
-                View view = LayoutInflater.from(context).inflate(R.layout.item_cinema_vp, parent, false);
-                return new MyHolder1(view);
+            View view = LayoutInflater.from(context).inflate(R.layout.item_cinema_vp, parent, false);
+            return new MyHolder1(view);
 
 
         }
