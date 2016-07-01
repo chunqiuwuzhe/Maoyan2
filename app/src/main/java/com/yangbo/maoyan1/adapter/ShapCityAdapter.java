@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioGroup;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -77,15 +77,15 @@ public class ShapCityAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             return;
         }
 
-        if (position >= 4 &&position<list.size()-1&& list != null && list.size() > 0) {
+        if (position >= 4 && position < list.size() - 1 && list != null && list.size() > 0) {
             ((ViewHolder) holder)._view.setVisibility(View.GONE);
             ((ViewHolder) holder).tv_title.setVisibility(View.GONE);
             if (position == 4) {
                 ((ViewHolder) holder)._view.setVisibility(View.VISIBLE);
                 ((ViewHolder) holder).tv_title.setVisibility(View.VISIBLE);
             }
-            ShopBean.DataBean.ListBean listBean = list.get(2*position-8);
-            ShopBean.DataBean.ListBean listBean2 = list.get(2*position-7);
+            ShopBean.DataBean.ListBean listBean = list.get(2 * position - 8);
+            ShopBean.DataBean.ListBean listBean2 = list.get(2 * position - 7);
             ((ViewHolder) holder).tv_shop_name.setText(listBean.getTitle());
             ((ViewHolder) holder).tv_shop_name2.setText(listBean2.getTitle());
             ((ViewHolder) holder).tv_price.setText(listBean.getPrice() + "");
@@ -111,7 +111,7 @@ public class ShapCityAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     @Override
     public int getItemCount() {
         if (list != null && list.size() > 0) {
-            return Math.abs(list.size()/2) + 4;
+            return Math.abs(list.size() / 2) + 4;
         }
         return 0;
 
@@ -135,6 +135,7 @@ public class ShapCityAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         ImageView iv_shop_picture, iv_shop_picture2;
         TextView tv_shop_name, tv_shop_name2;
         TextView tv_price, tv_price2;
+
         public ViewHolder(View itemView) {
             super(itemView);
             _view = itemView.findViewById(R.id._view);
@@ -217,52 +218,79 @@ public class ShapCityAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     //Viewpager类型
-    class vP_ViewHolder extends RecyclerView.ViewHolder {
+    class vP_ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         ViewPager vpShop;
-        RadioGroup rg_one;
-        RadioGroup rg_two;
-
+        RadioButton rbShuma;
+        RadioButton rbGaowan;
+        RadioButton rbWanju;
+        RadioButton rbShenghuo;
+        RadioButton rbFushi;
+        RadioButton rbChaobian;
+        RadioButton rbJiqimao;
+        RadioButton rbMoshou;
+        RadioButton rbMeidui;
+        RadioButton rbXingqiu;
         public vP_ViewHolder(View itemView) {
             super(itemView);
             vpShop = (ViewPager) itemView.findViewById(R.id.vp_shop);
-            rg_one = (RadioGroup) itemView.findViewById(R.id.rg_one);
-            rg_two = (RadioGroup) itemView.findViewById(R.id.rg_two);
-            rg_one.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    switch (checkedId) {
-                        case R.id.rb_shuma:
-                            Toast.makeText(context, "数码", Toast.LENGTH_SHORT).show();
-                            context.startActivity(new Intent(context,ShopWraseFactionActivity.class));
-                            break;
-                        case R.id.rb_gaowan:
-                            break;
-                        case R.id.rb_wanju:
-                            break;
-                        case R.id.rb_shenghuo:
-                            break;
-                        case R.id.rb_fushi:
-                            break;
-                    }
-                }
-            });
-            rg_two.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                @Override
-                public void onCheckedChanged(RadioGroup group, int checkedId) {
-                    switch (checkedId) {
-                        case R.id.rb_chaobian:
-                            break;
-                        case R.id.rb_jiqimao:
-                            break;
-                        case R.id.rb_moshou:
-                            break;
-                        case R.id.rb_meidui:
-                            break;
-                        case R.id.rb_xingqiu:
-                            break;
-                    }
-                }
-            });
+            rbShuma = (RadioButton) itemView.findViewById(R.id.rb_shuma);
+            rbGaowan = (RadioButton) itemView.findViewById(R.id.rb_gaowan);
+            rbWanju = (RadioButton) itemView.findViewById(R.id.rb_wanju);
+            rbShenghuo = (RadioButton) itemView.findViewById(R.id.rb_shenghuo);
+            rbFushi = (RadioButton) itemView.findViewById(R.id.rb_fushi);
+            rbChaobian = (RadioButton) itemView.findViewById(R.id.rb_chaobian);
+            rbJiqimao = (RadioButton) itemView.findViewById(R.id.rb_jiqimao);
+            rbMoshou = (RadioButton) itemView.findViewById(R.id.rb_moshou);
+            rbMeidui = (RadioButton) itemView.findViewById(R.id.rb_meidui);
+            rbXingqiu = (RadioButton) itemView.findViewById(R.id.rb_xingqiu);
+
+            rbShuma.setOnClickListener(this);
+            rbGaowan.setOnClickListener(this);
+            rbWanju.setOnClickListener(this);
+            rbShenghuo.setOnClickListener(this);
+            rbFushi.setOnClickListener(this);
+            rbChaobian.setOnClickListener(this);
+            rbJiqimao.setOnClickListener(this);
+            rbMoshou.setOnClickListener(this);
+            rbMeidui.setOnClickListener(this);
+            rbXingqiu.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(context, ShopWraseFactionActivity.class);
+            if (v == rbShuma) {
+                Toast.makeText(context, "数码", Toast.LENGTH_SHORT).show();
+                intent.putExtra("id",1);
+                context.startActivity(intent);
+            } else if (v == rbGaowan) {
+                intent.putExtra("id",2);
+                context.startActivity(intent);
+            } else if (v == rbWanju) {
+                intent.putExtra("id",3);
+                context.startActivity(intent);
+            } else if (v == rbShenghuo) {
+                intent.putExtra("id",4);
+                context.startActivity(intent);
+            } else if (v == rbFushi) {
+                intent.putExtra("id",5);
+                context.startActivity(intent);
+            } else if (v == rbChaobian) {
+                intent.putExtra("id",6);
+                context.startActivity(intent);
+            } else if (v == rbJiqimao) {
+                intent.putExtra("id",7);
+                context.startActivity(intent);
+            } else if (v == rbMoshou) {
+                intent.putExtra("id",8);
+                context.startActivity(intent);
+            } else if (v == rbMeidui) {
+                intent.putExtra("id",9);
+                context.startActivity(intent);
+            } else if (v == rbXingqiu) {
+                intent.putExtra("id",10);
+                context.startActivity(intent);
+            }
         }
     }
 }
