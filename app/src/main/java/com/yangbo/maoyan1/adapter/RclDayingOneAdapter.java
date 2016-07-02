@@ -5,17 +5,24 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.bean.DaiYIngRcViewBean;
+
+import java.util.List;
 
 /**
  * Created by sdf on 2016/6/27.
  */
 public class RclDayingOneAdapter extends RecyclerView.Adapter<RclDayingOneAdapter.MyRclViewHolder>{
     private Context context;
-
-    public RclDayingOneAdapter(Context context) {
+    private List<DaiYIngRcViewBean.DataBean.ComingBean> coming;
+    public RclDayingOneAdapter(Context context, List<DaiYIngRcViewBean.DataBean.ComingBean> coming) {
         this.context=context;
+        this.coming=coming;
     }
 
     @Override
@@ -26,18 +33,36 @@ public class RclDayingOneAdapter extends RecyclerView.Adapter<RclDayingOneAdapte
 
     @Override
     public void onBindViewHolder(MyRclViewHolder holder, int position) {
-
+        //图片地址
+        String img = coming.get(position).getImg();
+        //替换字符串
+        img = replace(img);
+        //联网请求图片
+        Glide.with(context).load(img)
+                .placeholder(R.drawable.kg)
+                .error(R.drawable.kg)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.iv_movie);
     }
-
+    //替换字符串
+    private String replace(String img) {
+        String replace = img.replace("w.h", "165.220");
+        return replace;
+    }
     @Override
     public int getItemCount() {
-        return 20;
+        if(coming!=null&&coming.size()>0){
+            return coming.size();
+        }
+        return 0;
     }
 
     class MyRclViewHolder extends RecyclerView.ViewHolder{
-
+        ImageView iv_movie;
         public MyRclViewHolder(View itemView) {
             super(itemView);
+            iv_movie = (ImageView) itemView.findViewById(R.id.iv_movie);
+
         }
     }
 }

@@ -20,6 +20,8 @@
             android:layout_height="130dp">
 
             <ImageView
+                android:id="@+id/iv_movie"
+                android:scaleType="fitXY"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#22ff0000"/>
