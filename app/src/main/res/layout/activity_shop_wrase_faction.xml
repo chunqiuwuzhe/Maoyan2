@@ -85,12 +85,12 @@
                 android:layout_marginLeft="5dp"/>
         </LinearLayout>
     </LinearLayout>
-    <android.support.v7.widget.RecyclerView
+    <com.yangbo.maoyan1.refresh.PRecycleview
         android:id="@+id/rcl_shop_fication"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginRight="10dp"
         android:layout_weight="1">
 
-    </android.support.v7.widget.RecyclerView>
+    </com.yangbo.maoyan1.refresh.PRecycleview>
 </LinearLayout>

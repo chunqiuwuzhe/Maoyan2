@@ -1,19 +1,21 @@
 package com.yangbo.maoyan1.pager;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.Rcl_Daiying_Adapter;
 import com.yangbo.maoyan1.base.BasePager;
 import com.yangbo.maoyan1.bean.DaiYIngRcViewBean;
+import com.yangbo.maoyan1.refresh.PRecycleview;
 import com.yangbo.maoyan1.ui.RecyclerViewItemDecoration;
 import com.yangbo.maoyan1.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -28,10 +30,10 @@ import okhttp3.Call;
 /**
  * Created by yangbo on 2016/6/22.
  */
-public class DaiYingPager extends BasePager {
+public class DaiYingPager extends BasePager implements PRecycleview.OnRefreshAndLoadMoreListener {
 //    View recylerViewlist= LayoutInflater.from(context).inflate( R.layout.pager_reying,parent,false);
 
-    private RecyclerView rlv_daiying;
+    private PRecycleview rlv_daiying;
     //布局管理器
     private LinearLayoutManager manager;
     //适配器
@@ -53,7 +55,7 @@ public class DaiYingPager extends BasePager {
     public View initView() {
         View recylerViewlist=View.inflate(context, R.layout.daiying_rv_paer, null);
         progressBar = recylerViewlist.findViewById(R.id.progressBar);
-        rlv_daiying = (RecyclerView) recylerViewlist.findViewById(R.id.rlv_daiying);
+        rlv_daiying = (PRecycleview) recylerViewlist.findViewById(R.id.rlv_daiying);
 
         ll_flush = (LinearLayout) recylerViewlist.findViewById(R.id.ll_flush);
         btn_flush = (Button) recylerViewlist.findViewById(R.id.btn_flush);
@@ -72,6 +74,7 @@ public class DaiYingPager extends BasePager {
         //设置适配器
         rcl_adapter=new Rcl_Daiying_Adapter(context);
         rlv_daiying.setAdapter(rcl_adapter);
+        rlv_daiying.setRefreshAndLoadMoreListener(this);
         return recylerViewlist;
     }
 
@@ -106,14 +109,37 @@ public class DaiYingPager extends BasePager {
         coming = rcViewBean.getData().getComing();
         if(coming!=null&&coming.size()>0){
             rcl_adapter.setComing(coming);
-            rcl_adapter.notifyItemRangeChanged(0,coming.size());
+            rcl_adapter.notifyItemRangeChanged(1,coming.size());
         }
-
     }
 
     private DaiYIngRcViewBean parseRLJson(String json) {
         Gson gson=new Gson();
         DaiYIngRcViewBean rcViewBean = gson.fromJson(json, DaiYIngRcViewBean.class);
         return rcViewBean;
+    }
+    private Handler handler=new Handler();
+    @Override
+    public void onRefresh() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //设置刷新完成
+                rlv_daiying.setReFreshComplete();
+                Toast.makeText(context, "刷新完成", Toast.LENGTH_SHORT).show();
+            }
+        },4000);
+    }
+
+    @Override
+    public void onLoadMore() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                加载完成
+                rlv_daiying.setloadMoreComplete();
+                Toast.makeText(context, "加载完成", Toast.LENGTH_SHORT).show();
+            }
+        },4000);
     }
 }
