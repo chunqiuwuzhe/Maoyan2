@@ -25,13 +25,13 @@
             android:textSize="20sp"></TextView>
     </RelativeLayout>
 
-    <android.support.v7.widget.RecyclerView
+    <com.yangbo.maoyan1.refresh.PRecycleview
         android:id="@+id/rv_find"
         android:layout_below="@id/rl_cinema"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </android.support.v7.widget.RecyclerView>
+    </com.yangbo.maoyan1.refresh.PRecycleview>
 
     <ProgressBar
         android:id="@+id/pb_loading123"

@@ -1,16 +1,19 @@
 package com.yangbo.maoyan1.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.activity.H5FindActivity;
 import com.yangbo.maoyan1.adapter.MyFindAdapter;
 import com.yangbo.maoyan1.base.BaseFragment;
 import com.yangbo.maoyan1.bean.FindListBean;
 import com.yangbo.maoyan1.bean.FindViewPagerBean;
+import com.yangbo.maoyan1.refresh.PRecycleview;
 import com.yangbo.maoyan1.utils.CacheUtils;
 import com.yangbo.maoyan1.utils.UrlUtilsFind;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -25,7 +28,7 @@ import okhttp3.Call;
  * Created by yangbo on 2016/6/22.
  */
 public class FindFragment extends BaseFragment {
-    private RecyclerView rv_find;
+    private PRecycleview rv_find;
     //list的数据
     private String url;
     private String url2;
@@ -40,7 +43,7 @@ public class FindFragment extends BaseFragment {
     public View initView() {
 
         View view = View.inflate(context, R.layout.fragment_find,null);
-        rv_find = (RecyclerView) view.findViewById(R.id.rv_find);
+        rv_find = (PRecycleview) view.findViewById(R.id.rv_find);
         pb_loading = (ProgressBar) view.findViewById(R.id.pb_loading123);
         pb_loading.setVisibility(View.VISIBLE);
         //设置布局管理器
@@ -48,6 +51,20 @@ public class FindFragment extends BaseFragment {
         //设置适配器
        myFindAdapter = new MyFindAdapter(context);
         rv_find.setAdapter(myFindAdapter);
+        rv_find.setRefreshAndLoadMoreListener(new PRecycleview.OnRefreshAndLoadMoreListener() {
+            @Override
+            public void onRefresh() {
+                getListDataFromNet();
+
+
+            }
+
+            @Override
+            public void onLoadMore() {
+                rv_find.setloadMoreComplete();
+                Toast.makeText(context, "loadmore", Toast.LENGTH_SHORT).show();
+            }
+        });
         return view;
     }
 
@@ -70,7 +87,7 @@ public class FindFragment extends BaseFragment {
     }
 
     private void getListDataFromNet() {
-
+        //list的数据
         OkHttpUtils
                 .get()
                 .url(url)
@@ -78,12 +95,14 @@ public class FindFragment extends BaseFragment {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Call call, Exception e, int id) {
+                        rv_find.setReFreshComplete();
                     }
 
                     @Override
                     public void onResponse(String response, int id) {
 //                        LogUtil.e("请求成功！！！！" + response);
                         //存储
+                        rv_find.setReFreshComplete();
                         pb_loading.setVisibility(View.GONE);
                         CacheUtils.putString(context, url,response);
                         //解析数据
@@ -116,11 +135,22 @@ public class FindFragment extends BaseFragment {
 
     private void processData(String response) {
         FindListBean findListBean = new Gson().fromJson(response, FindListBean.class);
-        List<FindListBean.DataBean.FeedsBean> feeds = findListBean.getData().getFeeds();
+        final List<FindListBean.DataBean.FeedsBean> feeds = findListBean.getData().getFeeds();
 
         //把数据传递给适配器，并刷新适配器
         myFindAdapter.setFeeds(feeds);
-        myFindAdapter.notifyItemRangeChanged(1,feeds.size());
+        myFindAdapter.notifyItemRangeChanged(2,feeds.size());
+        //设置item的点击事件
+        myFindAdapter.setOnItemClickListener(new MyFindAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int layoutPosition) {
+                int targetId = feeds.get(layoutPosition - 1).getImages().get(0).getTargetId();
+                String urlFindListH5 = UrlUtilsFind.URL_FIND_LIST_H5.replace("12498",targetId+"");
+                Intent intent = new Intent(context, H5FindActivity.class);
+                intent.putExtra("url",urlFindListH5);
+                startActivity(intent);
+            }
+        });
     }
     private void processpagerData(String response) {
         FindViewPagerBean findViewPagerBean = new Gson().fromJson(response, FindViewPagerBean.class);
@@ -128,10 +158,7 @@ public class FindFragment extends BaseFragment {
         List<FindViewPagerBean.DataBean> datas = findViewPagerBean.getData();
         if(datas!=null){
             myFindAdapter.setDatas(datas);
-            myFindAdapter.notifyItemRangeChanged(0,1);
+            myFindAdapter.notifyItemRangeChanged(1,1);
         }
-
     }
-
-
 }

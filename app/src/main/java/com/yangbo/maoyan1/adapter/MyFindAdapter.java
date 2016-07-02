@@ -104,6 +104,8 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
      */
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
+
         if (position == 0 && datas != null && datas.size() > 0) {
 //            LogUtil.e("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+datas.get(0).getImgUrl());
             MyFindHeaderAdapter myFindHeaderAdapter = new MyFindHeaderAdapter(context, datas);
@@ -271,6 +273,7 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             ((MyFindHolderParent) holder).tv_find8_foot2.setText(feeds.get(position - 1).getViewCount() + "");//电影快运
             ((MyFindHolderParent) holder).tv_find8_foot3.setText(feeds.get(position - 1).getCommentCount() + "");//电影快运
         }
+
     }
 
     private Handler handler = new Handler() {
@@ -286,7 +289,7 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
     @Override
     public int getItemCount() {
         if (feeds != null && feeds.size() > 0) {
-            return feeds.size();
+            return feeds.size()+1;
         }
         return 1;
     }
@@ -464,13 +467,31 @@ public class MyFindAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
             super(itemView);
             tv_find8_date = (TextView) itemView.findViewById(R.id.tv_find8_date);
             tv_find8_tittle = (TextView) itemView.findViewById(R.id.tv_find8_tittle);
-
             tv_find8_foot1 = (TextView) itemView.findViewById(R.id.tv_find8_foot1);
             tv_find8_foot2 = (TextView) itemView.findViewById(R.id.tv_find8_foot2);
             tv_find8_foot3 = (TextView) itemView.findViewById(R.id.tv_find8_foot3);
+
+            //设置接口监听变化
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(onItemClickListener!=null) {
+                        onItemClickListener.onItemClick(v,getLayoutPosition());
+                    }
+//                    Toast.makeText(context , getLayoutPosition()+"", Toast.LENGTH_SHORT).show();
+                }
+            });
         }
     }
+    //item监听的接口
+    public interface OnItemClickListener {
+        public void onItemClick(View v, int layoutPosition);
+    }
+    OnItemClickListener onItemClickListener;
 
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
 
     //onclick的描述
     class MyOnClickListener implements View.OnClickListener {
