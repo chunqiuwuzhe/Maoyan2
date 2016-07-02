@@ -33,8 +33,6 @@ dependencies {
     compile files('libs/ShareSDK-Wechat-Favorite-2.7.3.jar')
     compile files('libs/ShareSDK-Wechat-Moments-2.7.3.jar')
     compile 'com.zhy:okhttputils:2.6.2'
-
-
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
@@ -43,6 +41,8 @@ dependencies {
     compile 'org.xutils:xutils:3.2.2'
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
-
-
+    compile files('libs/baidumapapi_v2_1_2.jar')
+    compile files('libs/locSDK_3.1.jar')
+    compile files('libs/pinyin4android1.0.jar')
+    compile files('libs/pinyin4j-2.5.0.jar')
 }

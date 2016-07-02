@@ -41,6 +41,7 @@ import org.xutils.common.util.LogUtil;
 
 import java.util.List;
 
+import droid.Activity01;
 import okhttp3.Call;
 
 
@@ -155,9 +156,11 @@ public class CinemaFragment extends BaseFragment {
             switch (v.getId()) {
                 case R.id.tv_cinena_city:
                     Toast.makeText(context, "tv_moive_city", Toast.LENGTH_SHORT).show();
+                    Intent intent1 = new Intent(context, Activity01.class);
+                    context.startActivity(intent1);
                     break;
                 case R.id.iv_cinema_select:
-                    Toast.makeText(context, "iv_cinema_select", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(context, "iv_cinema_select", Toast.LENGTH_SHORT).show();
                     showPopupWindow(v);
                     break;
                 case R.id.iv_cinema_search:
