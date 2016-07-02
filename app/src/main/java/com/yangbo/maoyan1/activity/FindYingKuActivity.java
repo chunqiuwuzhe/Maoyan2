@@ -92,6 +92,9 @@ public class FindYingKuActivity extends Activity implements View.OnClickListener
     private ProgressBar pbFindYingkuLoading;
     private ArrayList list;
     private Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean;
+    private Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean1;
+    private Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean2;
+    private Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean3;
 
     /**
      * Find the Views in the layout<br />
@@ -323,31 +326,34 @@ public class FindYingKuActivity extends Activity implements View.OnClickListener
             llReyingkoubei.setOnClickListener(myOnClickListener);
             //北美票房
         }else if(i==2) {
-            Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean = new Gson().fromJson(response, Yingku_ReMenKouBeiBean.class);
-            Yingku_ReMenKouBeiBean.DataBean.MoviesBean moviesBean = yingku_reMenKouBeiBean.getData().getMovies().get(0);
+             yingku_reMenKouBeiBean1 = new Gson().fromJson(response, Yingku_ReMenKouBeiBean.class);
+            Yingku_ReMenKouBeiBean.DataBean.MoviesBean moviesBean = yingku_reMenKouBeiBean1.getData().getMovies().get(0);
             Glide.with(this).load(moviesBean.getImg().replace("w.h", "165.220"))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(ivBeimeipiaofang);
             ivBeimeipiaofang.setScaleType(ImageView.ScaleType.FIT_XY);
             tvBeimeipiaofang2.setText(moviesBean.getNm());
+            llBeimeipiaofang.setOnClickListener(myOnClickListener);
             //最受期待
         }else if(i==3) {
-            Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean = new Gson().fromJson(response, Yingku_ReMenKouBeiBean.class);
-            Yingku_ReMenKouBeiBean.DataBean.MoviesBean moviesBean = yingku_reMenKouBeiBean.getData().getMovies().get(0);
+            yingku_reMenKouBeiBean2 = new Gson().fromJson(response, Yingku_ReMenKouBeiBean.class);
+            Yingku_ReMenKouBeiBean.DataBean.MoviesBean moviesBean = yingku_reMenKouBeiBean2.getData().getMovies().get(0);
             Glide.with(this).load(moviesBean.getImg().replace("w.h", "165.220"))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(ivZuishouqidai);
             ivZuishouqidai.setScaleType(ImageView.ScaleType.FIT_XY);
             tvZuishouqidai2.setText(moviesBean.getNm());
+            llZuishouqidai.setOnClickListener(myOnClickListener);
             //Top100
         } else if(i==4) {
-            Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean = new Gson().fromJson(response, Yingku_ReMenKouBeiBean.class);
-            Yingku_ReMenKouBeiBean.DataBean.MoviesBean moviesBean = yingku_reMenKouBeiBean.getData().getMovies().get(0);
+            yingku_reMenKouBeiBean3 = new Gson().fromJson(response, Yingku_ReMenKouBeiBean.class);
+            Yingku_ReMenKouBeiBean.DataBean.MoviesBean moviesBean = yingku_reMenKouBeiBean3.getData().getMovies().get(0);
             Glide.with(this).load(moviesBean.getImg().replace("w.h", "165.220"))
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(ivTop100);
             ivTop100.setScaleType(ImageView.ScaleType.FIT_XY);
             tvTop1002.setText(moviesBean.getNm());
+            llTop100.setOnClickListener(myOnClickListener);
         } else if(i==5) {
             Gson gson = new Gson();
             DaiYIngRcViewBean daiYIngRcViewBean = gson.fromJson(response, DaiYIngRcViewBean.class);
@@ -361,17 +367,41 @@ class MyOnClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
+        Bundle bundle = new Bundle();
+        Intent intent = new Intent(FindYingKuActivity.this,BangDanActivity.class);
+
         switch (v.getId()) {
             case R.id.ll_reyingkoubei :
-//                yingku_reMenKouBeiBean
-                Bundle bundle = new Bundle();
-                Intent intent = new Intent(FindYingKuActivity.this,BangDanActivity.class);
+
                 bundle.putSerializable("yk",yingku_reMenKouBeiBean);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                finish();
+
+                break;
+            case R.id.ll_beimeipiaofang :
+//                Toast.makeText(FindYingKuActivity.this, "ll_beimeipiaofang", Toast.LENGTH_SHORT).show();
+//                Bundle bundle1 = new Bundle();
+//                Intent intent1 = new Intent(FindYingKuActivity.this,BangDanActivity.class);
+                bundle.putSerializable("yk",yingku_reMenKouBeiBean1);
+//                intent1.putExtras(bundle1);
+//                startActivity(intent1);
+//                finish();
+                break;
+            case R.id.ll_zuishouqidai :
+//                Toast.makeText(FindYingKuActivity.this, "ll_zuishouqidai", Toast.LENGTH_SHORT).show();
+//                Bundle bundle2 = new Bundle();
+//                Intent intent2 = new Intent(FindYingKuActivity.this,BangDanActivity.class);
+                bundle.putSerializable("yk",yingku_reMenKouBeiBean2);
+//                intent2.putExtras(bundle2);
+//                startActivity(intent2);
+//                finish();
+                break;
+            case R.id.ll_top100 :
+                bundle.putSerializable("yk",yingku_reMenKouBeiBean3);
                 break;
         }
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
+
     }
 }
 

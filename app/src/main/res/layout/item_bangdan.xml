@@ -59,15 +59,16 @@
 
                     <TextView
                         android:id="@+id/tv_name_one"
-                        android:layout_width="wrap_content"
+                        android:layout_width="210dp"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="6dp"
-                        android:text="一个大杯子"
+                        android:singleLine="true"
+                        android:text="一个大一杯子大杯子杯子"
                         android:textSize="13sp" />
 
                     <TextView
                         android:id="@+id/tv_name_two"
-                        android:layout_width="wrap_content"
+                        android:layout_width="210dp"
                         android:layout_height="wrap_content"
                         android:text="一个大杯子"
                         android:textSize="13sp" />
@@ -110,6 +111,9 @@
                         android:background="@drawable/btn_ry_selector"
                         android:gravity="center"
                         android:text="想看"
+                        android:focusable="false"
+                        android:clickable="false"
+                        android:focusableInTouchMode="false"
                         android:textColor="@drawable/tv_ry_color_selector"
                         android:textSize="12dp" />
                 </LinearLayout>

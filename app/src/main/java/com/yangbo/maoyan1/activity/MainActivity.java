@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.base.BaseFragment;
@@ -14,6 +16,8 @@ import com.yangbo.maoyan1.fragment.CinemaFragment;
 import com.yangbo.maoyan1.fragment.FindFragment;
 import com.yangbo.maoyan1.fragment.MoiveFragment;
 import com.yangbo.maoyan1.fragment.MyFragment;
+
+import org.xutils.x;
 
 import java.util.ArrayList;
 
@@ -24,6 +28,26 @@ public class MainActivity extends FragmentActivity {
     private RadioButton rb_moive;
     private ArrayList<BaseFragment> list;
     private MainActivity context;
+
+    private long firstTime; //第一次按下back键的时间
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK) {
+            if ((System.currentTimeMillis() - firstTime) > 2000) {//当前是第一次
+                //提示
+                Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
+                //记录时间
+                firstTime = System.currentTimeMillis();
+                return true;
+            } else {
+                //清除缓存(内存)
+                x.image().clearMemCache();
+                //清除缓存(文件)
+                //x.image().clearCacheFiles();
+            }
+        }
+        return super.onKeyUp(keyCode, event);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,9 +1,11 @@
 package com.yangbo.maoyan1.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +18,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.bean.Yingku_ReMenKouBeiBean;
+import com.yangbo.maoyan1.utils.UrlUtilsFind;
+
+import org.xutils.common.util.LogUtil;
 
 import java.io.Serializable;
 import java.util.List;
@@ -33,6 +38,8 @@ public class BangDanActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bang_dan);
 
+
+
         Serializable yk = getIntent().getSerializableExtra("yk");
 //        String title = ((Yingku_ReMenKouBeiBean) yk).getData().getTitle();
 //        LogUtil.e(title);
@@ -42,11 +49,37 @@ public class BangDanActivity extends Activity {
         tv_bangdan_tou = (TextView)findViewById(R.id.tv_bangdan_tou);
         tv_bangdan = (TextView) findViewById(R.id.tv_bangdan);
         lv_bangdan = (ListView) findViewById(R.id.lv_bangdan);
-//        LinearLayout.LayoutParams ff=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, height);
+        LinearLayout.LayoutParams ff=new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 //        lv_bangdan.addHeaderView(ll_bangdan);
         tv_bangdan.setText(((Yingku_ReMenKouBeiBean) yk).getData().getContent());
         tv_bangdan_tou.setText(((Yingku_ReMenKouBeiBean) yk).getData().getCreated());
         lv_bangdan.setAdapter(new MyBangdanAdapter());
+//        ListView.LayoutParams LP=new ListView.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
+
+
+        ll_bangdan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //分享文本
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "我用手机测试分享内容");
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, "我是弹出框的标题"));
+
+            }
+        });
+
+        lv_bangdan.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(BangDanActivity.this, ""+position, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(BangDanActivity.this,H5FindActivity.class);
+                intent.putExtra("url", UrlUtilsFind.URL_MOVIE_H5+movies.get(position).getId());
+                LogUtil.e(UrlUtilsFind.URL_MOVIE_H5+movies.get(position).getId());
+                startActivity(intent);
+            }
+        });
     }
 
     class MyBangdanAdapter extends BaseAdapter {
@@ -58,7 +91,7 @@ public class BangDanActivity extends Activity {
 
         @Override
         public Object getItem(int position) {
-            return null;
+            return movies.get(position);
         }
 
         @Override

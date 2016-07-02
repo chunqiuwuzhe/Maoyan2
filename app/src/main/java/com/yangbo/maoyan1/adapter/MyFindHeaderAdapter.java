@@ -8,7 +8,6 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.bean.FindViewPagerBean;
 
 import java.util.List;
@@ -43,8 +42,8 @@ public class MyFindHeaderAdapter extends PagerAdapter {
         String imgUrl = datas.get(i).getImgUrl();
 
         Glide.with(context).load(imgUrl)
-                .placeholder(R.drawable.kg)
-                .error(R.drawable.kg)
+//                .placeholder(R.drawable.kg)
+//                .error(R.drawable.kg)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imageView);
         //拉伸
