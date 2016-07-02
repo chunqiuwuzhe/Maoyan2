@@ -9,16 +9,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/MaterialRefresh_library" />
-            <option value="$PROJECT_DIR$/TabLayout" />
-            <option value="$PROJECT_DIR$/app" />
-          </set>
-        </option>
-        <option name="myModules">
-          <set>
-            <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/MaterialRefresh_library" />
-            <option value="$PROJECT_DIR$/TabLayout" />
             <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
