@@ -3,8 +3,8 @@ package com.yangbo.maoyan1.activity;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.ShopFenLeiAdapter;
 import com.yangbo.maoyan1.bean.ShopFenLeiBean;
+import com.yangbo.maoyan1.refresh.PRecycleview;
 import com.yangbo.maoyan1.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -32,10 +33,10 @@ import java.util.List;
 
 import okhttp3.Call;
 
-public class ShopWraseFactionActivity extends Activity implements View.OnClickListener {
+public class ShopWraseFactionActivity extends Activity implements View.OnClickListener, PRecycleview.OnRefreshAndLoadMoreListener {
     private ImageView iv_back;
     private LinearLayout ll_them,ll_shuma,ll_sort;
-    private RecyclerView rcl_shop_fication;
+    private PRecycleview rcl_shop_fication;
     private String sUrl;
 
     private List<ShopFenLeiBean.DataBean.ListBean> list;
@@ -74,7 +75,7 @@ public class ShopWraseFactionActivity extends Activity implements View.OnClickLi
         ll_them = (LinearLayout)findViewById(R.id.ll_them);
         ll_shuma = (LinearLayout)findViewById(R.id.ll_shuma);
         ll_sort = (LinearLayout)findViewById(R.id.ll_sort);
-        rcl_shop_fication = (RecyclerView)findViewById(R.id.rcl_shop_fication);
+        rcl_shop_fication = (PRecycleview) findViewById(R.id.rcl_shop_fication);
 
         tv_them = (TextView)findViewById(R.id.tv_them);
         tv_moddle = (TextView)findViewById(R.id.tv_moddle);
@@ -85,6 +86,8 @@ public class ShopWraseFactionActivity extends Activity implements View.OnClickLi
         ll_shuma.setOnClickListener(this);
         ll_sort.setOnClickListener(this);
         rcl_shop_fication.setOnClickListener(this);
+        //刷新监听
+        rcl_shop_fication.setRefreshAndLoadMoreListener(this);
     }
     private void getUrl(int id) {
        if(id==1){
@@ -212,6 +215,31 @@ public class ShopWraseFactionActivity extends Activity implements View.OnClickLi
         Gson gson=new Gson();
         ShopFenLeiBean fenLeiBean = gson.fromJson(json, ShopFenLeiBean.class);
         return fenLeiBean;
+    }
+
+    private Handler handler=new Handler();
+    @Override
+    public void onRefresh() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                //设置刷新完成
+                rcl_shop_fication.setReFreshComplete();
+                Toast.makeText(ShopWraseFactionActivity.this, "刷新完成", Toast.LENGTH_SHORT).show();
+            }
+        },4000);
+    }
+
+    @Override
+    public void onLoadMore() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                加载完成
+                rcl_shop_fication.setloadMoreComplete();
+                Toast.makeText(ShopWraseFactionActivity.this, "加载完成", Toast.LENGTH_SHORT).show();
+            }
+        },4000);
     }
 
     private class PoPAdapter extends BaseAdapter {

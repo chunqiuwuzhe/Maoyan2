@@ -3,33 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="#ffffff"
+    android:orientation="vertical"
     tools:context="com.yangbo.maoyan1.activity.MyShopCityActivity">
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rcl_shop_city"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
+    <com.yangbo.maoyan1.refresh.PRecycleview
+        android:id="@+id/rcl_shop_city"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.yangbo.maoyan1.refresh.PRecycleview>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="#22000000">
+
         <ImageView
             android:id="@+id/iv_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/je"/>
+            android:src="@drawable/je" />
+
         <ImageView
             android:id="@+id/iv_sousuo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
             android:layout_marginRight="10dp"
-            android:src="@drawable/jo"/>
-        </RelativeLayout>
+            android:src="@drawable/jo" />
+    </RelativeLayout>
 </FrameLayout>
