@@ -1,1 +1,1 @@
-include ':TabLayout', ':app', ':MaterialRefresh_library'
+include ':app'
