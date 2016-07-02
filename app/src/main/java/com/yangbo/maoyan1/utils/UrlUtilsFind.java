@@ -4,6 +4,8 @@ package com.yangbo.maoyan1.utils;
  * Created by yangbo on 2016/6/28.
  */
 public class UrlUtilsFind {
+    //地址
+    public static final String Url_dizhi="http://api.meituan.com/group/v1/city/latlng/40.099634,116.380006?tag=0&__vhost=api.mobile.meituan.com&utm_campaign=AmovieBmovieCD100&movieBundleVersion=6901&utm_source=baidumobile1&utm_medium=android&utm_term=6.9.0&utm_content=869402021153646&ci=1&net=255&dModel=m1%20metal&uuid=28C0DE2C5A3F109C808BE007F1011AE88795D9EFF3B99C9B3601DCF7840739F9&lat=40.099634&lng=116.380006&__skck=6a375bce8c66a0dc293860dfa83833ef&__skts=1466942610528&__skua=7e01cf8dd30a179800a7a93979b430b2&__skno=f1dd4600-184b-47b2-915e-e1b66ddda744&__skcy=StnS19Wu4JMdopIUPMwFYmdlHIs%3D";
     //影院详情
     public static final String URL_CINEMA_DETAIL ="http://m.maoyan.com/showtime/wrap.json%EF%BC%9Fcinemaid=65&movieid=request#tmp=showtime&cinemaid=";
 

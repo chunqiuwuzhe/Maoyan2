@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.bean.CinemaBean;
+import com.yangbo.maoyan1.bean.CinemaDiZhiBean;
 import com.yangbo.maoyan1.bean.CinemaViewPagerBean;
 import com.yangbo.maoyan1.utils.DistanceUtil;
 
@@ -32,6 +33,7 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private CinemaBean.DataBean.changpingquBean changpingquBean;
     private ViewPager viewpager;
     InternalHander internalHander = null;
+    private CinemaDiZhiBean cinemaDiZhiBean;
 
 
     //适配器
@@ -100,6 +102,10 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 double lng = changpingqu.get(position - 1).getLng();
                 double lat = changpingqu.get(position - 1).getLat();
                 double distance = DistanceUtil.getDistance(40.107628, 116.386267, lat, lng);
+                if(cinemaDiZhiBean!=null) {
+                    distance = DistanceUtil.getDistance(cinemaDiZhiBean.getData().getLat(),
+                            cinemaDiZhiBean.getData().getLng(), lat, lng);
+                }
 
                 String format = new DecimalFormat("#.0").format(distance);
 
@@ -128,6 +134,10 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
 //
         }
+    }
+
+    public void setDiZhiData(CinemaDiZhiBean cinemaDiZhiBean) {
+        this.cinemaDiZhiBean = cinemaDiZhiBean;
     }
 
     /**

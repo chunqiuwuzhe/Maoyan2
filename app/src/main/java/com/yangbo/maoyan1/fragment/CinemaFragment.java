@@ -28,6 +28,7 @@ import com.yangbo.maoyan1.activity.SearchCinemaActivity;
 import com.yangbo.maoyan1.adapter.MyCinemaAdapter;
 import com.yangbo.maoyan1.base.BaseFragment;
 import com.yangbo.maoyan1.bean.CinemaBean;
+import com.yangbo.maoyan1.bean.CinemaDiZhiBean;
 import com.yangbo.maoyan1.bean.CinemaViewPagerBean;
 import com.yangbo.maoyan1.utils.CacheUtils;
 import com.yangbo.maoyan1.utils.UrlUtils;
@@ -357,6 +358,8 @@ public class CinemaFragment extends BaseFragment {
 //        }
 
         // 联网请求数据
+
+
         getDataFromNet();
 
 
@@ -366,6 +369,7 @@ public class CinemaFragment extends BaseFragment {
      * 联网请求数据
      */
     private void getDataFromNet() {
+        //获取list数据
         url = UrlUtils.URL_CINEMA;
 
         OkHttpUtils
@@ -388,7 +392,7 @@ public class CinemaFragment extends BaseFragment {
 
                     }
                 });
-
+        //获取头部数据
         url = UrlUtils.URL_CINEMA_HEADER;
 
         OkHttpUtils
@@ -410,10 +414,43 @@ public class CinemaFragment extends BaseFragment {
                     }
                 });
 
+        //获取头部数据
+        url = UrlUtilsFind.Url_dizhi;
+
+        OkHttpUtils
+                .get()
+                .url(url)
+                .build()
+                .execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.e("请求成功！！！！" + response);
+                        //解析数据
+                        processDiZhiData(response);
+
+                        CacheUtils.putString(context, url, response);
+                    }
+                });
+
 
         MyOnClickListener myOnClickListener = new MyOnClickListener();
 
 
+    }
+
+    /**
+     * 解析当前位置
+     * @param response
+     */
+    private void processDiZhiData(String response) {
+        CinemaDiZhiBean cinemaDiZhiBean = new Gson().fromJson(response, CinemaDiZhiBean.class);
+        String detail = cinemaDiZhiBean.getData().getDetail();
+        tv_cinema_dress.setText(detail);
+        myCinemaAdapter.setDiZhiData(cinemaDiZhiBean);
     }
 
     private void processViewPagerData(String response) {

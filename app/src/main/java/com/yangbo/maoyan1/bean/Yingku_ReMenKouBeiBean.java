@@ -1,11 +1,12 @@
 package com.yangbo.maoyan1.bean;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by yangbo on 2016/6/30.
  */
-public class Yingku_ReMenKouBeiBean {
+public class Yingku_ReMenKouBeiBean implements Serializable {
 
     /**
      * boardtype : 7
@@ -28,7 +29,7 @@ public class Yingku_ReMenKouBeiBean {
         this.data = data;
     }
 
-    public static class DataBean {
+    public static class DataBean implements Serializable{
         private int boardtype;
         private String content;
         private String created;
@@ -120,7 +121,7 @@ public class Yingku_ReMenKouBeiBean {
             this.movies = movies;
         }
 
-        public static class PagingBean {
+        public static class PagingBean implements Serializable{
             private boolean hasMore;
             private int limit;
             private int offset;
@@ -159,7 +160,7 @@ public class Yingku_ReMenKouBeiBean {
             }
         }
 
-        public static class MoviesBean {
+        public static class MoviesBean implements Serializable{
             private String dir;
             private int id;
             private String img;

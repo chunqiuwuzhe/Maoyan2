@@ -1,6 +1,7 @@
 package com.yangbo.maoyan1.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -90,6 +91,7 @@ public class FindYingKuActivity extends Activity implements View.OnClickListener
     private TextView tvQuanbufenlei;
     private ProgressBar pbFindYingkuLoading;
     private ArrayList list;
+    private Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean;
 
     /**
      * Find the Views in the layout<br />
@@ -310,7 +312,7 @@ public class FindYingKuActivity extends Activity implements View.OnClickListener
             ivYingkuHeaherSmall.setScaleType(ImageView.ScaleType.FIT_XY);
             //热门口碑
         }else if(i==1) {
-            Yingku_ReMenKouBeiBean yingku_reMenKouBeiBean = new Gson().fromJson(response, Yingku_ReMenKouBeiBean.class);
+             yingku_reMenKouBeiBean = new Gson().fromJson(response, Yingku_ReMenKouBeiBean.class);
             Yingku_ReMenKouBeiBean.DataBean.MoviesBean moviesBean = yingku_reMenKouBeiBean.getData().getMovies().get(0);
 
             Glide.with(this).load(moviesBean.getImg().replace("w.h", "165.220"))
@@ -359,7 +361,17 @@ class MyOnClickListener implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()) {
+            case R.id.ll_reyingkoubei :
+//                yingku_reMenKouBeiBean
+                Bundle bundle = new Bundle();
+                Intent intent = new Intent(FindYingKuActivity.this,BangDanActivity.class);
+                bundle.putSerializable("yk",yingku_reMenKouBeiBean);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
+                break;
+        }
     }
 }
 

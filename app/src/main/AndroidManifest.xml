@@ -69,7 +69,8 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".activity.FindYingKuActivity" />
         <activity android:name=".activity.ShopH5Activity" />
-        <activity android:name=".activity.ShopWraseFactionActivity"></activity>
+        <activity android:name=".activity.ShopWraseFactionActivity" />
+        <activity android:name=".activity.BangDanActivity"></activity>
     </application>
 
 </manifest>
