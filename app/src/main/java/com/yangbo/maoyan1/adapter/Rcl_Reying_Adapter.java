@@ -61,8 +61,8 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
             return new Ry_HeadHolder(view);
         }
-        View view = LayoutInflater.from(context).inflate(R.layout.item_reying_rcl, parent, false);
-        return new Ry_RclViewHolder(view);
+            View view = LayoutInflater.from(context).inflate(R.layout.item_reying_rcl, parent, false);
+            return new Ry_RclViewHolder(view);
     }
 
     @Override
@@ -70,25 +70,25 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         if (position == 0 && arr != null && arr.size() > 0) {
             //设置适配器装载数据
             vp_adapter = new ReYing_title_Adapter(context, arr);
-            viewPager=((Ry_HeadHolder) holder).vp_reying_title;
+            viewPager = ((Ry_HeadHolder) holder).vp_reying_title;
             ((Ry_HeadHolder) holder).vp_reying_title.setAdapter(vp_adapter);
             //定位到中间
             viewPager.setCurrentItem(500);
-            if(internalHandler==null){
+            if (internalHandler == null) {
                 internalHandler = new InternalHandler();
                 internalHandler.removeCallbacksAndMessages(null);
-                internalHandler.postDelayed(new MyRun(),2000);
+                internalHandler.postDelayed(new MyRun(), 2000);
             }
             return;
         }
         //设置数据
         if (lv_movies != null && lv_movies.size() > 0) {
-            if(holder instanceof Ry_RclViewHolder){
-                ReYingListViewBean.DataBean.HotBean hotBean = lv_movies.get(position-1);
+            if (holder instanceof Ry_RclViewHolder) {
+                ReYingListViewBean.DataBean.HotBean hotBean = lv_movies.get(position - 1);
                 ((Ry_RclViewHolder) holder).tv_movie_name.setText(hotBean.getNm());
                 ((Ry_RclViewHolder) holder).tv_name_one.setText(hotBean.getScm());
                 ((Ry_RclViewHolder) holder).tv_name_two.setText(hotBean.getShowInfo());
-                ((Ry_RclViewHolder) holder).tv_pingfen.setText(hotBean.getMk()+"");
+                ((Ry_RclViewHolder) holder).tv_pingfen.setText(hotBean.getMk() + "");
                 ((Ry_RclViewHolder) holder).ll_one.setVisibility(View.GONE);
                 ((Ry_RclViewHolder) holder).ll_two.setVisibility(View.GONE);
                 ((Ry_RclViewHolder) holder).ll_two.setVisibility(View.GONE);
@@ -111,14 +111,15 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     private void isContains(Ry_RclViewHolder holder, ReYingListViewBean.DataBean.HotBean hotBean) {
         //如果包含其中的字符床就显示反之不显示
-        if(hotBean.getVer().contains("2D/3D")){//显示3d
+        if (hotBean.getVer().contains("2D/3D")) {//显示3d
             holder.btn_imax.setVisibility(View.GONE);
 
-        }else if(hotBean.getVer().contains("2D")){//不显示
+        } else if (hotBean.getVer().contains("2D")) {//不显示
             holder.btn_imax.setVisibility(View.GONE);
             holder.iv_3d.setVisibility(View.GONE);
         }
     }
+
     //替换字符串
     private String replace(String img) {
         String replace = img.replace("w.h", "165.220");
@@ -135,23 +136,26 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
     @Override
     public int getItemCount() {
-        if(lv_movies!=null&&lv_movies.size()>0) {
-            return lv_movies.size()+1;
+        if (lv_movies != null && lv_movies.size() > 0) {
+            return lv_movies.size() + 1;
         }
         return 0;
     }
+
     private InternalHandler internalHandler;
+
     //轮播图
     class InternalHandler extends Handler {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            int item = viewPager.getCurrentItem()+1;
+            int item = viewPager.getCurrentItem() + 1;
             viewPager.setCurrentItem(item);
             internalHandler.removeCallbacksAndMessages(null);
-            internalHandler.postDelayed(new MyRun(),2000);
+            internalHandler.postDelayed(new MyRun(), 2000);
         }
     }
+
     /*
     * 热映recylerView
     * */
@@ -162,9 +166,9 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         ImageView iv_3d;
         Button btn_imax;
 
-        LinearLayout ll_one,ll_two,ll_three;
-        Button btn_one,btn_two,btn_three;
-        TextView tv_one,tv_two,tv_three;
+        LinearLayout ll_one, ll_two, ll_three;
+        Button btn_one, btn_two, btn_three;
+        TextView tv_one, tv_two, tv_three;
 
         public Ry_RclViewHolder(View itemView) {
             super(itemView);
@@ -190,7 +194,7 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(myItemOnClickLinster!=null){
+                    if (myItemOnClickLinster != null) {
                         myItemOnClickLinster.itemOnClickLinster();
                     }
                 }
@@ -198,9 +202,11 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         }
     }
-    public interface MyItemOnClickLinster{
+
+    public interface MyItemOnClickLinster {
         void itemOnClickLinster();
     }
+
     public MyItemOnClickLinster myItemOnClickLinster;
 
     public void setMyItemOnClickLinster(MyItemOnClickLinster myItemOnClickLinster) {
@@ -214,6 +220,7 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     class Ry_HeadHolder extends RecyclerView.ViewHolder {
         public LinearLayout ll_sousou;
         public ViewPager vp_reying_title;
+
         public Ry_HeadHolder(View itemView) {
             super(itemView);
             ll_sousou = (LinearLayout) itemView.findViewById(R.id.ll_sousou);
@@ -221,7 +228,7 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             ll_sousou.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    context.startActivity(new Intent(context,SouSuoActivity.class));
+                    context.startActivity(new Intent(context, SouSuoActivity.class));
                 }
             });
         }
@@ -234,22 +241,23 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             internalHandler.sendEmptyMessage(0);
         }
     }
+
     private void isVisibility(Ry_RclViewHolder holder, int position, ReYingListViewBean.DataBean.HotBean hotBean) {
-        if(hotBean.getNewsHeadlines()!=null&&
-                hotBean.getNewsHeadlines().size()> 0){
+        if (hotBean.getNewsHeadlines() != null &&
+                hotBean.getNewsHeadlines().size() > 0) {
 
             int size = hotBean.getNewsHeadlines().size();
-            Log.e("TAG-----------",size+"");
-            Log.e("TAG-----------",position+"");
+            Log.e("TAG-----------", size + "");
+            Log.e("TAG-----------", position + "");
             List<ReYingListViewBean.DataBean.HotBean.NewsHeadlinesBean> newsHeadlines = hotBean.getNewsHeadlines();
 
-            if(size==1){
+            if (size == 1) {
                 //设置布局为显示
                 holder.ll_one.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_one.setText(newsHeadlines.get(position-1).getType());
-                holder.tv_one.setText(newsHeadlines.get(position-1).getTitle());
-            }else if(size==2){
+                holder.btn_one.setText(newsHeadlines.get(position - 1).getType());
+                holder.tv_one.setText(newsHeadlines.get(position - 1).getTitle());
+            } else if (size == 2) {
                 //设置布局为显示
                 holder.ll_one.setVisibility(View.VISIBLE);
                 //装载数据
@@ -260,7 +268,7 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 //装载数据
                 holder.btn_two.setText(newsHeadlines.get(position).getType());
                 holder.tv_two.setText(newsHeadlines.get(position).getTitle());
-            }else if(size==3){
+            } else if (size == 3) {
                 //设置布局为显示
                 holder.ll_one.setVisibility(View.VISIBLE);
                 //装载数据
