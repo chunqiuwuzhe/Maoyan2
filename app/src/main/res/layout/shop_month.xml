@@ -33,14 +33,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2"
-                android:background="#fafafa"
+                android:background="#ffffff"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="70dp"
                     android:layout_marginLeft="10dp"
-                    android:layout_weight="2"
                     android:orientation="vertical">
 
                     <TextView
@@ -59,11 +58,12 @@
                 </LinearLayout>
 
                 <ImageView
+                    android:layout_gravity="center"
+                    android:padding="10dp"
                     android:id="@+id/iv_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="3"
-                    android:src="@drawable/a62"
+                    android:layout_width="120dp"
+                    android:layout_height="135dp"
+                    android:src="@drawable/timg"
                     android:scaleType="fitXY" />
 
             </LinearLayout>
@@ -81,7 +81,7 @@
                     android:layout_height="0dp"
                     android:layout_marginBottom="1dp"
                     android:layout_weight="1"
-                    android:background="#fafafa">
+                    android:background="#ffffff">
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -106,10 +106,11 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:scaleType="fitXY"
                         android:id="@+id/iv_two"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/a62"
+                        android:src="@drawable/wuqi"
                         android:layout_weight="2" />
                 </LinearLayout>
 
@@ -118,7 +119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="#fafafa"
+                    android:background="#ffffff"
                     android:padding="1dp">
 
                     <LinearLayout
@@ -144,10 +145,11 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:scaleType="fitXY"
                         android:id="@+id/iv_three"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:src="@drawable/a62"
+                        android:src="@drawable/duoli"
                         android:layout_weight="2" />
                 </LinearLayout>
             </LinearLayout>

@@ -62,14 +62,14 @@ public class Rcl_Daiying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             //设置布局管理器
             ((Dy_HeadHolder) holder).manager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
             ((Dy_HeadHolder) holder).rcl_haiwai_title.setLayoutManager(((Dy_HeadHolder) holder).manager);
-            RclDayingOneAdapter rclDayingOneAdapter = new RclDayingOneAdapter(context);
+            RclDayingOneAdapter rclDayingOneAdapter = new RclDayingOneAdapter(context,coming);
             ((Dy_HeadHolder) holder).rcl_haiwai_title.setAdapter(rclDayingOneAdapter);
             return ;
         }
         if(position==1){
             ((Dy_TwoHeadHolder) holder).manager = new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
             ((Dy_TwoHeadHolder) holder).rcl_haiwai_title_two.setLayoutManager(((Dy_TwoHeadHolder) holder).manager);
-            RclDayingTwoAdapter rclDayingTwoAdapter = new RclDayingTwoAdapter(context);
+            RclDayingTwoAdapter rclDayingTwoAdapter = new RclDayingTwoAdapter(context,coming);
             ((Dy_TwoHeadHolder) holder).rcl_haiwai_title_two.setAdapter(rclDayingTwoAdapter);
             return ;
         }

@@ -1,6 +1,7 @@
 package com.yangbo.maoyan1.activity;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -41,6 +42,7 @@ public class ShopWraseFactionActivity extends Activity implements View.OnClickLi
 
     private TextView tv_them;
     private TextView tv_moddle;
+    private TextView tv_sort;
 
     private int width;
     private int height;
@@ -76,6 +78,7 @@ public class ShopWraseFactionActivity extends Activity implements View.OnClickLi
 
         tv_them = (TextView)findViewById(R.id.tv_them);
         tv_moddle = (TextView)findViewById(R.id.tv_moddle);
+        tv_sort = (TextView)findViewById(R.id.tv_sort);
 
         iv_back.setOnClickListener(this);
         ll_them.setOnClickListener(this);
@@ -150,20 +153,26 @@ public class ShopWraseFactionActivity extends Activity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
+        tv_them.setTextColor(Color.BLACK);
+        tv_moddle.setTextColor(Color.BLACK);
+        tv_sort.setTextColor(Color.BLACK);
         switch (v.getId()) {
             case R.id.iv_back :
                 finish();
                 break;
             case R.id.ll_them :
                 ShowPoPupWindow(1);
+                tv_them.setTextColor(Color.RED);
                 Toast.makeText(ShopWraseFactionActivity.this, "主题", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.ll_shuma :
                 ShowPoPupWindow(2);
+                tv_moddle.setTextColor(Color.RED);
                 Toast.makeText(ShopWraseFactionActivity.this, "数码", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.ll_sort :
                 ShowPoPupWindow(3);
+                tv_sort.setTextColor(Color.RED);
                 Toast.makeText(ShopWraseFactionActivity.this, "排序", Toast.LENGTH_SHORT).show();
                 break;
         }

@@ -33,9 +33,9 @@ public class ShopFenLeiAdapter extends RecyclerView.Adapter<ShopFenLeiAdapter.Vi
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.item_shop_fenlei,parent,false);
-        ViewGroup.LayoutParams params = view.getLayoutParams();
-        params.width=widthL/2;
-        view.setLayoutParams(params);
+//        ViewGroup.LayoutParams params = view.getLayoutParams();
+//        params.width=widthL/2;
+//        view.setLayoutParams(params);
         return new ViewHolder(view);
     }
 
