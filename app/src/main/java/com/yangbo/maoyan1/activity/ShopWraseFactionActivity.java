@@ -1,6 +1,7 @@
 package com.yangbo.maoyan1.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -48,6 +49,8 @@ public class ShopWraseFactionActivity extends Activity implements View.OnClickLi
     private int width;
     private int height;
 
+    private ImageView iv_shop_cart;
+
     String[] them={"数码","高玩专区","玩具","生活","服饰","超蝙","机器猫","魔兽","美队","星球大战"};
     String[] type={"玩具","生活","服饰","3C配件","箱包","手办公仔","电影原著","配饰","家纺","文具","毛绒公仔"};
     String[] sort={"价格从高到低","价格从低到高","销量最多","销量最少","最近更新","最远更新"};
@@ -80,7 +83,14 @@ public class ShopWraseFactionActivity extends Activity implements View.OnClickLi
         tv_them = (TextView)findViewById(R.id.tv_them);
         tv_moddle = (TextView)findViewById(R.id.tv_moddle);
         tv_sort = (TextView)findViewById(R.id.tv_sort);
-
+        //购物车
+        iv_shop_cart = (ImageView)findViewById(R.id.iv_shop_cart);
+        iv_shop_cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ShopWraseFactionActivity.this,shoppingCarsActivity.class));
+            }
+        });
         iv_back.setOnClickListener(this);
         ll_them.setOnClickListener(this);
         ll_shuma.setOnClickListener(this);

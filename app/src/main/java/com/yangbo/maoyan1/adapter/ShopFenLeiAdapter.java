@@ -8,11 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.ShopCart.ShoppingCart;
 import com.yangbo.maoyan1.bean.ShopFenLeiBean;
+import com.yangbo.maoyan1.utils.CartProvider;
 
 import java.util.List;
 
@@ -24,18 +27,18 @@ public class ShopFenLeiAdapter extends RecyclerView.Adapter<ShopFenLeiAdapter.Vi
     private Context context;
     private List<ShopFenLeiBean.DataBean.ListBean> list;
 
+    private CartProvider cartProvider;
+
     public ShopFenLeiAdapter(Context context, List<ShopFenLeiBean.DataBean.ListBean> list, int width) {
         this.context=context;
         this.list=list;
         this.widthL=width;
+        this.cartProvider=new CartProvider(context);
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(context).inflate(R.layout.item_shop_fenlei,parent,false);
-//        ViewGroup.LayoutParams params = view.getLayoutParams();
-//        params.width=widthL/2;
-//        view.setLayoutParams(params);
         return new ViewHolder(view);
     }
 
@@ -64,6 +67,8 @@ public class ShopFenLeiAdapter extends RecyclerView.Adapter<ShopFenLeiAdapter.Vi
         TextView tv_price;
         TextView tv_valueprice;
         TextView yuan;
+
+        ImageView iv_addShopCar;
         public ViewHolder(View itemView) {
             super(itemView);
             iv_shop_picture = (ImageView) itemView.findViewById(R.id.iv_shop_picture);
@@ -74,6 +79,17 @@ public class ShopFenLeiAdapter extends RecyclerView.Adapter<ShopFenLeiAdapter.Vi
             //设置中间划线
             tv_valueprice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
             yuan.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+            //添加购物车
+            iv_addShopCar = (ImageView) itemView.findViewById(R.id.iv_addShopCar);
+            iv_addShopCar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "添加购物车", Toast.LENGTH_SHORT).show();
+                    ShopFenLeiBean.DataBean.ListBean wares =  list.get(getLayoutPosition());
+                    ShoppingCart cart = cartProvider.conversion(wares);
+                    cartProvider.update(cart);
+                }
+            });
         }
     }
 }
