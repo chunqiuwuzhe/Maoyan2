@@ -68,7 +68,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="droid.Activity01"/>
+        <activity android:name="droid.Activity01" />
 
         <!-- 微信分享回调 -->
         <activity
@@ -82,20 +82,15 @@
         <activity android:name=".activity.ShopWraseFactionActivity" />
         <activity android:name=".activity.BangDanActivity"></activity>
 
-    <!--baiduditu-->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote" >
-            <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2" />
-            </intent-filter>
-        </service>
+            android:process=":remote"></service>
 
         <!-- meta-data需要写在application中 -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="vc8gixf5F6k7789nX9nscmiG" />
+            android:value="cBoINm8seCcUKn4WtxUjjDgZ70RQpR4Z" />
     </application>
 
 </manifest>

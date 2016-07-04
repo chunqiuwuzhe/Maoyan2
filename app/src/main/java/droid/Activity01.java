@@ -23,6 +23,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -32,6 +33,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.location.Poi;
 import com.yangbo.maoyan1.R;
 
 import java.io.IOException;
@@ -43,6 +45,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class Activity01 extends Activity implements OnScrollListener {
+	private ImageView iv_back_return;
 	private BaseAdapter adapter;
 	private ResultListAdapter resultListAdapter;
 	private ListView personList;
@@ -75,6 +78,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		iv_back_return = (ImageView)findViewById(R.id.iv_back_return);
 		personList = (ListView) findViewById(R.id.list_view);
 		allCity_lists = new ArrayList<City>();
 		city_hot = new ArrayList<City>();
@@ -84,6 +88,14 @@ public class Activity01 extends Activity implements OnScrollListener {
 		sh = (EditText) findViewById(R.id.sh);
 		tv_noresult = (TextView) findViewById(R.id.tv_noresult);
 		helper = new DatabaseHelper(this);
+		//返回的点击事件
+		iv_back_return.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				finish();
+			}
+		});
+		//editView的监听
 		sh.addTextChangedListener(new TextWatcher() {
 
 			@Override
@@ -127,6 +139,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 		handler = new Handler();
 		overlayThread = new OverlayThread();
 		isNeedFresh = true;
+		//正文的list监听
 		personList.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
@@ -181,23 +194,41 @@ public class Activity01 extends Activity implements OnScrollListener {
 	}
 
 	private void InitLocation() {
-		// 设置定位参数
+//		// 设置定位参数
+//		LocationClientOption option = new LocationClientOption();
+//		option.setCoorType("bd09ll"); // 设置坐标类型
+//		option.setScanSpan(10000); // 10分钟扫描1次
+//		// 需要地址信息，设置为其他任何值（string类型，且不能为null）时，都表示无地址信息。
+//		option.setAddrType("all");
+//		// 设置是否返回POI的电话和地址等详细信息。默认值为false，即不返回POI的电话和地址信息。
+//		option.setPoiExtraInfo(true);
+//		// 设置产品线名称。强烈建议您使用自定义的产品线名称，方便我们以后为您提供更高效准确的定位服务。
+//		option.setProdName("通过GPS定位我当前的位置");
+//		// 禁用启用缓存定位数据
+//		option.disableCache(true);
+//		// 设置最多可返回的POI个数，默认值为3。由于POI查询比较耗费流量，设置最多返回的POI个数，以便节省流量。
+//		option.setPoiNumber(3);
+//		// 设置定位方式的优先级。
+//		// 当gps可用，而且获取了定位结果时，不再发起网络请求，直接返回给用户坐标。这个选项适合希望得到准确坐标位置的用户。如果gps不可用，再发起网络请求，进行定位。
+//		option.setPriority(LocationClientOption.GpsFirst);
+//		mLocationClient.setLocOption(option);
+
+
+
 		LocationClientOption option = new LocationClientOption();
-		option.setCoorType("bd09ll"); // 设置坐标类型
-		option.setScanSpan(10000); // 10分钟扫描1次
-		// 需要地址信息，设置为其他任何值（string类型，且不能为null）时，都表示无地址信息。
-		option.setAddrType("all");
-		// 设置是否返回POI的电话和地址等详细信息。默认值为false，即不返回POI的电话和地址信息。
-		option.setPoiExtraInfo(true);
-		// 设置产品线名称。强烈建议您使用自定义的产品线名称，方便我们以后为您提供更高效准确的定位服务。
-		option.setProdName("通过GPS定位我当前的位置");
-		// 禁用启用缓存定位数据
-		option.disableCache(true);
-		// 设置最多可返回的POI个数，默认值为3。由于POI查询比较耗费流量，设置最多返回的POI个数，以便节省流量。
-		option.setPoiNumber(3);
-		// 设置定位方式的优先级。
-		// 当gps可用，而且获取了定位结果时，不再发起网络请求，直接返回给用户坐标。这个选项适合希望得到准确坐标位置的用户。如果gps不可用，再发起网络请求，进行定位。
-		option.setPriority(LocationClientOption.GpsFirst);
+		option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy
+		);//可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
+		option.setCoorType("bd09ll");//可选，默认gcj02，设置返回的定位结果坐标系
+		int span=10000;
+		option.setScanSpan(span);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
+		option.setIsNeedAddress(true);//可选，设置是否需要地址信息，默认不需要
+		option.setOpenGps(true);//可选，默认false,设置是否使用gps
+		option.setLocationNotify(true);//可选，默认false，设置是否当gps有效时按照1S1次频率输出GPS结果
+		option.setIsNeedLocationDescribe(true);//可选，默认false，设置是否需要位置语义化结果，可以在BDLocation.getLocationDescribe里得到，结果类似于“在北京天安门附近”
+		option.setIsNeedLocationPoiList(true);//可选，默认false，设置是否需要POI结果，可以在BDLocation.getPoiList里得到
+		option.setIgnoreKillProcess(false);//可选，默认true，定位SDK内部是一个SERVICE，并放到了独立进程，设置是否在stop的时候杀死这个进程，默认不杀死
+		option.SetIgnoreCacheException(false);//可选，默认false，设置是否收集CRASH信息，默认收集
+		option.setEnableSimulateGps(false);//可选，默认false，设置是否需要过滤gps仿真结果，默认需要
 		mLocationClient.setLocOption(option);
 	}
 
@@ -328,29 +359,95 @@ public class Activity01 extends Activity implements OnScrollListener {
 	public class MyLocationListener implements BDLocationListener {
 
 		@Override
-		public void onReceiveLocation(BDLocation arg0) {
-			Log.e("info", "city = " + arg0.getCity());
-			if (!isNeedFresh) {
-				return;
+		public void onReceiveLocation(BDLocation location) {
+
+			//Receive Location
+			StringBuffer sb = new StringBuffer(256);
+			sb.append("time : ");
+			sb.append(location.getTime());
+			sb.append("\nerror code : ");
+			sb.append(location.getLocType());
+			sb.append("\nlatitude : ");
+			sb.append(location.getLatitude());
+			sb.append("\nlontitude : ");
+			sb.append(location.getLongitude());
+			sb.append("\nradius : ");
+			sb.append(location.getRadius());
+			if (location.getLocType() == BDLocation.TypeGpsLocation){// GPS定位结果
+				sb.append("\nspeed : ");
+				sb.append(location.getSpeed());// 单位：公里每小时
+				sb.append("\nsatellite : ");
+				sb.append(location.getSatelliteNumber());
+				sb.append("\nheight : ");
+				sb.append(location.getAltitude());// 单位：米
+				sb.append("\ndirection : ");
+				sb.append(location.getDirection());// 单位度
+				sb.append("\naddr : ");
+				sb.append(location.getAddrStr());
+				sb.append("\ndescribe : ");
+				sb.append("gps定位成功");
+
+			} else if (location.getLocType() == BDLocation.TypeNetWorkLocation){// 网络定位结果
+				sb.append("\naddr : ");
+				sb.append(location.getAddrStr());
+				//运营商信息
+				sb.append("\noperationers : ");
+				sb.append(location.getOperators());
+				sb.append("\ndescribe : ");
+				sb.append("网络定位成功");
+			} else if (location.getLocType() == BDLocation.TypeOffLineLocation) {// 离线定位结果
+				sb.append("\ndescribe : ");
+				sb.append("离线定位成功，离线定位结果也是有效的");
+			} else if (location.getLocType() == BDLocation.TypeServerError) {
+				sb.append("\ndescribe : ");
+				sb.append("服务端网络定位失败，可以反馈IMEI号和大体定位时间到loc-bugs@baidu.com，会有人追查原因");
+			} else if (location.getLocType() == BDLocation.TypeNetWorkException) {
+				sb.append("\ndescribe : ");
+				sb.append("网络不同导致定位失败，请检查网络是否通畅");
+			} else if (location.getLocType() == BDLocation.TypeCriteriaException) {
+				sb.append("\ndescribe : ");
+				sb.append("无法获取有效定位依据导致定位失败，一般是由于手机的原因，处于飞行模式下一般会造成这种结果，可以试着重启手机");
 			}
-			isNeedFresh = false;
-			if (arg0.getCity() == null) {
-				locateProcess = 3; // 定位失败
-				personList.setAdapter(adapter);
-				adapter.notifyDataSetChanged();
-				return;
+			sb.append("\nlocationdescribe : ");
+			sb.append(location.getLocationDescribe());// 位置语义化信息
+			List<Poi> list = location.getPoiList();// POI数据
+			if (list != null) {
+				sb.append("\npoilist size = : ");
+				sb.append(list.size());
+				for (Poi p : list) {
+					sb.append("\npoi= : ");
+					sb.append(p.getId() + " " + p.getName() + " " + p.getRank());
+				}
 			}
-			currentCity = arg0.getCity().substring(0,
-					arg0.getCity().length() - 1);
+
+			Log.i("BaiduLocationApiDem", sb.toString());
+
+			currentCity = location.getCity();
 			locateProcess = 2; // 定位成功
+//			Log.e("info", "city = " + arg0.getCity());
+//			if (!isNeedFresh) {
+//				return;
+//			}
+//			isNeedFresh = false;
+//			if (arg0.getCity() == null) {
+//				locateProcess = 3; // 定位失败
+//				personList.setAdapter(adapter);
+//				adapter.notifyDataSetChanged();
+////				Toast.makeText(Activity01.this, locateProcess+"", Toast.LENGTH_SHORT).show();
+//				return;
+//			}
+//			currentCity = arg0.getCity().substring(0,
+//					arg0.getCity().length() - 1);
+//			locateProcess = 2; // 定位成功
 			personList.setAdapter(adapter);
 			adapter.notifyDataSetChanged();
-		}
-
-		@Override
-		public void onReceivePoi(BDLocation arg0) {
 
 		}
+
+//		@Override
+//		public void onReceivePoi(BDLocation arg0) {
+//
+//		}
 	}
 
 	private class ResultListAdapter extends BaseAdapter {
@@ -764,7 +861,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 
 	@Override
 	protected void onDestroy() {
+		windowManager.removeView(overlay);
 		super.onDestroy();
-        windowManager.removeView(overlay);
 	}
 }
