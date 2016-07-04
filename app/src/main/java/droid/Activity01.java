@@ -432,8 +432,11 @@ public class Activity01 extends Activity implements OnScrollListener {
 			}
 
 			Log.i("BaiduLocationApiDem", sb.toString());
-
+			//回传到MainActivty
 			currentCity = location.getCity();
+			Intent intent = new Intent();
+			intent.putExtra("current",currentCity);
+			setResult(2,intent);
 			locateProcess = 2; // 定位成功
 //			Log.e("info", "city = " + arg0.getCity());
 //			if (!isNeedFresh) {

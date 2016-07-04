@@ -1,5 +1,7 @@
 package com.yangbo.maoyan1.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
@@ -13,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.activity.MainActivity;
 import com.yangbo.maoyan1.base.BaseFragment;
 import com.yangbo.maoyan1.base.BasePager;
 import com.yangbo.maoyan1.pager.DaiYingPager;
@@ -63,7 +66,32 @@ public class MoiveFragment extends BaseFragment {
         tv_moive_city.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context, Activity01.class));
+                Intent intent1 = new Intent(context, Activity01.class);
+                ((MainActivity)context).startActivityForResult(intent1,1);
+            }
+        });
+        //调自己别的回调方法，取得城市的信息
+        ( (MainActivity) context).setMyHuidiaoListener(new MainActivity.MyHuidiaoListener() {
+            @Override
+            public void myHuidiao(final String key) {
+
+
+                if(key != tv_moive_city.getText()) {
+                    TextView textView = new TextView(context);
+                    textView.setText("你选择的城市与定位城市不同，是否切换？");
+                    new AlertDialog.Builder(context)
+                            .setTitle("提示")
+                            .setView(textView)
+                            .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    tv_moive_city.setText(key);
+                                }
+                            })
+                            .setNegativeButton("取消", null)
+                            .show();
+                }
+
             }
         });
 

@@ -89,8 +89,8 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="cBoINm8seCcUKn4WtxUjjDgZ70RQpR4Z" />
-
-        <activity android:name=".activity.shoppingCarsActivity"></activity>
+        <activity android:name=".activity.shoppingCarsActivity"/>
+        <activity android:name=".activity.LoginActivity"></activity>
     </application>
 
 </manifest>

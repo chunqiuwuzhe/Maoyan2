@@ -95,6 +95,7 @@ public class ReYingPager extends BasePager implements PRecycleview.OnRefreshAndL
         return recylerViewlist;
     }
 
+
     @Override
     public void initData() {
         super.initData();
