@@ -26,16 +26,6 @@ public class MyApplication extends Application {
         x.Ext.init(this);
         x.Ext.setDebug(true);
 
-//        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-////                .addInterceptor(new LoggerInterceptor("TAG"))
-//                .connectTimeout(10000L, TimeUnit.MILLISECONDS)
-//                .readTimeout(10000L, TimeUnit.MILLISECONDS)
-//                        //其他配置
-//                .build();
-//
-//        OkHttpUtils.initClient(okHttpClient);
-
-
         HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
@@ -52,15 +42,6 @@ public class MyApplication extends Application {
                 .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
                 .build();
         OkHttpUtils.initClient(okHttpClient);
-//
-//
-//
-////        HttpsUtils.SSLParams sslParams = HttpsUtils.getSslSocketFactory(null, null, null);
-////        OkHttpClient okHttpClient = new OkHttpClient.Builder()
-////                .sslSocketFactory(sslParams.sSLSocketFactory, sslParams.trustManager)
-////                        //其他配置
-////                .build();
-////        OkHttpUtils.initClient(okHttpClient);
 
     }
 }

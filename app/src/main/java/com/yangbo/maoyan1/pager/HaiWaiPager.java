@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
-import android.widget.TextView;
 
 import com.yangbo.maoyan1.HaiwaiChildView.HanguoPager;
 import com.yangbo.maoyan1.HaiwaiChildView.MeiguoPager;
@@ -23,7 +22,6 @@ import java.util.ArrayList;
  */
 public class HaiWaiPager extends BasePager {
     private TabLayout tab_haiwai;
-    private TextView tv_haiwai_guojia;
     private HaiWaiViewPager vp_haiwai;
     private ArrayList<BaseFireFragment> arr_vp;
     private Vp_HaiWai_Adapter hwAdapter;
@@ -39,7 +37,6 @@ public class HaiWaiPager extends BasePager {
         View view = View.inflate(context, R.layout.fragment_haiwai, null);
         tab_haiwai = (TabLayout) view.findViewById(R.id.tab_haiwai);
         vp_haiwai = (HaiWaiViewPager) view.findViewById(R.id.vp_haiwai);
-        tv_haiwai_guojia = (TextView) view.findViewById(R.id.tv_haiwai_guojia);
         return view;
     }
 
@@ -67,7 +64,6 @@ public class HaiWaiPager extends BasePager {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 vp_haiwai.setCurrentItem(tab.getPosition());
-                tv_haiwai_guojia.setText(str[tab.getPosition()]);
             }
 
             @Override

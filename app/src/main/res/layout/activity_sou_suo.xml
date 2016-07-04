@@ -14,7 +14,7 @@
         <LinearLayout
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="28dp"
+            android:layout_height="32dp"
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
@@ -32,9 +32,10 @@
                 android:layout_marginLeft="5dp"
                 android:textColor="#66000000"
                 android:textCursorDrawable="@drawable/color_cursor"
-                android:textSize="10sp"/>
+                android:textSize="13sp"/>
         </LinearLayout>
         <TextView
+            android:id="@+id/tv_bace"
             android:layout_alignParentRight="true"
             android:layout_width="55dp"
             android:layout_height="match_parent"
