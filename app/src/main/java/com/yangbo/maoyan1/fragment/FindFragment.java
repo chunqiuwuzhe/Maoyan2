@@ -144,7 +144,7 @@ public class FindFragment extends BaseFragment {
         myFindAdapter.setOnItemClickListener(new MyFindAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View v, int layoutPosition) {
-                int targetId = feeds.get(layoutPosition - 1).getImages().get(0).getTargetId();
+                int targetId = feeds.get(layoutPosition - 2).getImages().get(0).getTargetId();
                 String urlFindListH5 = UrlUtilsFind.URL_FIND_LIST_H5.replace("12498",targetId+"");
                 Intent intent = new Intent(context, H5FindActivity.class);
                 intent.putExtra("url",urlFindListH5);

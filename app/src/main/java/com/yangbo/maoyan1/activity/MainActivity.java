@@ -1,5 +1,6 @@
 package com.yangbo.maoyan1.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -17,6 +18,7 @@ import com.yangbo.maoyan1.fragment.FindFragment;
 import com.yangbo.maoyan1.fragment.MoiveFragment;
 import com.yangbo.maoyan1.fragment.MyFragment;
 
+import org.xutils.common.util.LogUtil;
 import org.xutils.x;
 
 import java.util.ArrayList;
@@ -30,9 +32,15 @@ public class MainActivity extends FragmentActivity {
     private MainActivity context;
 
     private long firstTime; //第一次按下back键的时间
+    private String key;
+
+    public String getKey() {
+        return key;
+    }
+
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent event) {
-        if(keyCode==KeyEvent.KEYCODE_BACK) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
             if ((System.currentTimeMillis() - firstTime) > 2000) {//当前是第一次
                 //提示
                 Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
@@ -54,14 +62,53 @@ public class MainActivity extends FragmentActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        context =this;
+//        //注册EvenBus
+//        EventBus.getDefault().register(this);
+
+        context = this;
         findView();
         initView();
     }
+//    public void onEventMainThread(FirstEvent event) {
+//        String msg =  event.getMsg();
+//        LogUtil.e(msg.toString());
+//    }
+
+    //    public void staAc(){
+//        Intent intent= new Intent(this, Activity01.class);
+//        startActivityForResult(intent,1);
+//    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        key = data.getStringExtra("key");
+        LogUtil.e(key + "!!!!!!!!!!!!!!!!!!!!!!!!");
+        if(myHuidiaoListener!=null) {
+            myHuidiaoListener.myHuidiao(key);
+        }
+    }
+    public interface MyHuidiaoListener{
+        public void myHuidiao(String key);
+    }
+
+    public MyHuidiaoListener myHuidiaoListener;
+
+    public void setMyHuidiaoListener(MyHuidiaoListener myHuidiaoListener) {
+        this.myHuidiaoListener = myHuidiaoListener;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        //解注册Evenbus
+//        EventBus.getDefault().unregister(this);
+    }
+
     int cur = 0;
+
     private void findView() {
-        rg_main = (RadioGroup)findViewById(R.id.rg_main);
-        rb_moive = (RadioButton)findViewById(R.id.rb_moive);
+        rg_main = (RadioGroup) findViewById(R.id.rg_main);
+        rb_moive = (RadioButton) findViewById(R.id.rb_moive);
     }
 
     private void initView() {
@@ -86,22 +133,22 @@ public class MainActivity extends FragmentActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
 
                 switch (checkedId) {
-                    case R.id.rb_moive :
-                            cur = 0;
+                    case R.id.rb_moive:
+                        cur = 0;
 //                        ft.replace(R.id.fl_main,new MoiveFragment());
 //                        ft.commit();
                         break;
-                    case R.id.rb_cinema :
+                    case R.id.rb_cinema:
                         cur = 1;
 //                        ft.replace(R.id.fl_main,new CinemaFragment());
 //                        ft.commit();
                         break;
-                    case R.id.rb_find :
+                    case R.id.rb_find:
                         cur = 2;
 //                        ft.replace(R.id.fl_main,new FindFragment());
 //                        ft.commit();
                         break;
-                    case R.id.rb_my :
+                    case R.id.rb_my:
                         cur = 3;
 //                        ft.replace(R.id.fl_main,new MyFragment());
 //                        ft.commit();
@@ -116,7 +163,7 @@ public class MainActivity extends FragmentActivity {
     private void switchFragment(int cur) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction ft = manager.beginTransaction();
-        ft.replace(R.id.fl_main,list.get(cur));
+        ft.replace(R.id.fl_main, list.get(cur));
 //            @Nullable
 //            @Override
 //            public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

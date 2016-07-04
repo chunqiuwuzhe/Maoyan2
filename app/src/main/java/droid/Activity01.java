@@ -2,6 +2,7 @@ package droid;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.PixelFormat;
@@ -150,6 +151,11 @@ public class Activity01 extends Activity implements OnScrollListener {
 					Toast.makeText(getApplicationContext(),
 							allCity_lists.get(position).getName(),
 							Toast.LENGTH_SHORT).show();
+					//传回mainActivity
+					Intent intent = getIntent();
+					intent.putExtra("key",allCity_lists.get(position).getName());
+					setResult(1,intent);
+					Activity01.this.finish();
 				}
 			}
 		});
@@ -166,6 +172,11 @@ public class Activity01 extends Activity implements OnScrollListener {
 				Toast.makeText(getApplicationContext(),
 						city_result.get(position).getName(), Toast.LENGTH_SHORT)
 						.show();
+				//传回mainActivity
+				Intent intent = getIntent();
+				intent.putExtra("key",city_result.get(position).getName());
+				setResult(1,intent);
+				Activity01.this.finish();
 			}
 		});
 		initOverlay();
@@ -441,7 +452,6 @@ public class Activity01 extends Activity implements OnScrollListener {
 //			locateProcess = 2; // 定位成功
 			personList.setAdapter(adapter);
 			adapter.notifyDataSetChanged();
-
 		}
 
 //		@Override
@@ -570,6 +580,9 @@ public class Activity01 extends Activity implements OnScrollListener {
 							Toast.makeText(getApplicationContext(),
 									city.getText().toString(),
 									Toast.LENGTH_SHORT).show();
+//							EventBus.getDefault().post(new FirstEvent(city.getText().toString()));
+//							finish();
+
 						} else if (locateProcess == 3) {
 							locateProcess = 1;
 							personList.setAdapter(adapter);
@@ -580,6 +593,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 							currentCity = "";
 							mLocationClient.start();
 						}
+
 					}
 				});
 				ProgressBar pbLocate = (ProgressBar) convertView
@@ -600,6 +614,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 					city.setText("重新选择");
 					pbLocate.setVisibility(View.GONE);
 				}
+
 			} else if (viewType == 1) { // 最近访问城市
 				convertView = inflater.inflate(R.layout.recent_city, null);
 				GridView rencentCity = (GridView) convertView
@@ -615,7 +630,10 @@ public class Activity01 extends Activity implements OnScrollListener {
 						Toast.makeText(getApplicationContext(),
 								city_history.get(position), Toast.LENGTH_SHORT)
 								.show();
-
+						Intent intent = getIntent();
+						intent.putExtra("key",city_history.get(position));
+						setResult(1,intent);
+						Activity01.this.finish();
 					}
 				});
 				TextView recentHint = (TextView) convertView
@@ -634,6 +652,11 @@ public class Activity01 extends Activity implements OnScrollListener {
 						Toast.makeText(getApplicationContext(),
 								city_hot.get(position).getName(),
 								Toast.LENGTH_SHORT).show();
+						//传回mainActivity
+						Intent intent = getIntent();
+						intent.putExtra("key",city_hot.get(position).getName());
+						setResult(1,intent);
+						Activity01.this.finish();
 
 					}
 				});
@@ -641,6 +664,8 @@ public class Activity01 extends Activity implements OnScrollListener {
 				TextView hotHint = (TextView) convertView
 						.findViewById(R.id.recentHint);
 				hotHint.setText("热门城市");
+
+
 			} else if (viewType == 3) {
 				convertView = inflater.inflate(R.layout.total_item, null);
 			} else {
@@ -714,6 +739,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 			convertView = inflater.inflate(R.layout.item_city, null);
 			TextView city = (TextView) convertView.findViewById(R.id.city);
 			city.setText(hotCitys.get(position).getName());
+
 			return convertView;
 		}
 	}
@@ -749,6 +775,7 @@ public class Activity01 extends Activity implements OnScrollListener {
 			convertView = inflater.inflate(R.layout.item_city, null);
 			TextView city = (TextView) convertView.findViewById(R.id.city);
 			city.setText(hotCitys.get(position));
+
 			return convertView;
 		}
 	}

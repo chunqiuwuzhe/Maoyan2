@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.activity.CinemaDetailActivity;
+import com.yangbo.maoyan1.activity.MainActivity;
 import com.yangbo.maoyan1.activity.SearchCinemaActivity;
 import com.yangbo.maoyan1.adapter.MyCinemaAdapter;
 import com.yangbo.maoyan1.base.BaseFragment;
@@ -70,6 +71,7 @@ public class CinemaFragment extends BaseFragment {
     MyCinemaAdapter myCinemaAdapter;
     private String url;
 
+
 //    public CinemaFragment(Context context) {
 //        super();
 //    }
@@ -77,6 +79,7 @@ public class CinemaFragment extends BaseFragment {
     //初始化布局  重写父类的方法
     @Override
     public View initView() {
+
 
         View view = View.inflate(context, R.layout.fragment_cinema, null);
         //初始化
@@ -132,9 +135,19 @@ public class CinemaFragment extends BaseFragment {
             }
         });
 
+        //调自己别的回调方法，取得城市的信息
+        ( (MainActivity) context).setMyHuidiaoListener(new MainActivity.MyHuidiaoListener() {
+            @Override
+            public void myHuidiao(String key) {
+                tv_cinena_city.setText(key);
+            }
+        });
         return view;
 
     }
+
+
+
 
     /**
      * 设置顶部的点击事件
@@ -155,9 +168,10 @@ public class CinemaFragment extends BaseFragment {
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.tv_cinena_city:
-                    Toast.makeText(context, "tv_moive_city", Toast.LENGTH_SHORT).show();
                     Intent intent1 = new Intent(context, Activity01.class);
-                    context.startActivity(intent1);
+                    ((MainActivity)context).startActivityForResult(intent1,1);
+
+
                     break;
                 case R.id.iv_cinema_select:
 //                    Toast.makeText(context, "iv_cinema_select", Toast.LENGTH_SHORT).show();
@@ -174,6 +188,14 @@ public class CinemaFragment extends BaseFragment {
             }
         }
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+         String key = data.getStringExtra("key");
+        LogUtil.e(key);
+    }
+
 
     /**
      * 弹窗PopupWindow

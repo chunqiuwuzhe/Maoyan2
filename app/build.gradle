@@ -12,6 +12,8 @@ android {
         versionName "1.0"
     }
 
+
+
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
@@ -51,4 +53,6 @@ dependencies {
     compile files('libs/pinyin4android1.0.jar')
     compile files('libs/pinyin4j-2.5.0.jar')
     compile files('libs/locSDK_6.23.jar')
+    compile 'org.greenrobot:eventbus:3.0.0'
+
 }
