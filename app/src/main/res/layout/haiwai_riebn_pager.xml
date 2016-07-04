@@ -14,9 +14,9 @@
         android:indeterminateDuration="1200" />
 
     <include layout="@layout/get_http_shiabi"/>
-    <ListView
+    <com.yangbo.maoyan1.refresh.PRecycleview
         android:id="@+id/lv_riben"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-    </ListView>
+    </com.yangbo.maoyan1.refresh.PRecycleview>
 </RelativeLayout>

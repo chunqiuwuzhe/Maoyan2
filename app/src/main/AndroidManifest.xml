@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -67,8 +66,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-
-        <activity android:name="droid.Activity01"/>
+        <activity android:name="droid.Activity01" />
 
         <!-- 微信分享回调 -->
         <activity
@@ -80,13 +78,13 @@
         <activity android:name=".activity.FindYingKuActivity" />
         <activity android:name=".activity.ShopH5Activity" />
         <activity android:name=".activity.ShopWraseFactionActivity" />
-        <activity android:name=".activity.BangDanActivity"></activity>
+        <activity android:name=".activity.BangDanActivity" />
 
-    <!--baiduditu-->
+        <!-- baiduditu -->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote" >
+            android:process=":remote">
             <intent-filter>
                 <action android:name="com.baidu.location.service_v2.2" />
             </intent-filter>
@@ -96,6 +94,8 @@
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="vc8gixf5F6k7789nX9nscmiG" />
+
+        <activity android:name=".activity.ShopCitySouSuoActivity"></activity>
     </application>
 
 </manifest>

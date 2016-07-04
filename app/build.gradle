@@ -15,9 +15,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'),'proguard-rules.pro'
+
         }
     }
 }
+
 
 dependencies {
     compile files('libs/glide-3.7.0.jar')
@@ -45,4 +52,5 @@ dependencies {
     compile files('libs/locSDK_3.1.jar')
     compile files('libs/pinyin4android1.0.jar')
     compile files('libs/pinyin4j-2.5.0.jar')
+
 }

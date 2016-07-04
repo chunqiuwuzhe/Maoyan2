@@ -9,16 +9,6 @@
         android:id="@+id/tab_haiwai"
         android:layout_width="match_parent"
         android:layout_height="46dp"/>
-
-    <TextView
-        android:id="@+id/tv_haiwai_guojia"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="#22000000"
-        android:text="美国"
-        android:paddingLeft="8dp"
-        android:gravity="center_vertical"/>
-
     <com.yangbo.maoyan1.view.HaiWaiViewPager
         android:id="@+id/vp_haiwai"
         android:layout_width="match_parent"

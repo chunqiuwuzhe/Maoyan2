@@ -1,18 +1,22 @@
 package com.yangbo.maoyan1.HaiwaiChildView;
 
 import android.content.Context;
+import android.os.Handler;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.adapter.HaiwaiMeiGuoAdapter;
 import com.yangbo.maoyan1.base.BaseFireFragment;
 import com.yangbo.maoyan1.bean.MeiGuoBean;
+import com.yangbo.maoyan1.refresh.PRecycleview;
+import com.yangbo.maoyan1.ui.RecyclerViewItemDecoration;
 import com.yangbo.maoyan1.utils.UrlUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -24,8 +28,8 @@ import okhttp3.Call;
 /**
  * Created by sdf on 2016/6/25.
  */
-public class MeiguoPager extends BaseFireFragment {
-    private ListView lv_meiguo;
+public class MeiguoPager extends BaseFireFragment implements PRecycleview.OnRefreshAndLoadMoreListener {
+    private PRecycleview lv_meiguo;
 
     private List<MeiGuoBean.DataBean.ComingBean> coming;
 
@@ -42,8 +46,9 @@ public class MeiguoPager extends BaseFireFragment {
     @Override
     public View initView() {
         View view=View.inflate(context, R.layout.haiwai_meiguo_pager,null);
-        lv_meiguo = (ListView) view.findViewById(R.id.lv_meiguo);
-
+        lv_meiguo = (PRecycleview) view.findViewById(R.id.lv_meiguo);
+        //设置刷新监听
+        lv_meiguo.setRefreshAndLoadMoreListener(this);
         progressBar = (ProgressBar) view.findViewById(R.id.progressBar);
         ll_flush = (LinearLayout) view.findViewById(R.id.ll_flush);
         btn_flush = (Button) view.findViewById(R.id.btn_flush);
@@ -90,6 +95,9 @@ public class MeiguoPager extends BaseFireFragment {
         if(coming!=null&&coming.size()>0){
             hwAdapter=new HaiwaiMeiGuoAdapter(context);
             hwAdapter.setComing(coming);
+            lv_meiguo.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false));
+            //加分割线
+            lv_meiguo.addItemDecoration(new RecyclerViewItemDecoration(RecyclerViewItemDecoration.MODE_HORIZONTAL, "#22000000", 0, 1, 0));
             lv_meiguo.setAdapter(hwAdapter);
         }
 
@@ -99,5 +107,27 @@ public class MeiguoPager extends BaseFireFragment {
         Gson gson=new Gson();
         MeiGuoBean meiGuoBean = gson.fromJson(json, MeiGuoBean.class);
         return meiGuoBean;
+    }
+    private Handler handler=new Handler();
+    @Override
+    public void onRefresh() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                lv_meiguo.setReFreshComplete();
+                Toast.makeText(context, "刷新完成", Toast.LENGTH_SHORT).show();
+            }
+        },2000);
+    }
+
+    @Override
+    public void onLoadMore() {
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                lv_meiguo.setloadMoreComplete();
+                Toast.makeText(context, "加载完成", Toast.LENGTH_SHORT).show();
+            }
+        },2000);
     }
 }

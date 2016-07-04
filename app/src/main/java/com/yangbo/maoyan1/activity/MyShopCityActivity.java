@@ -1,10 +1,12 @@
 package com.yangbo.maoyan1.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -23,7 +25,7 @@ import java.util.List;
 
 import okhttp3.Call;
 
-public class MyShopCityActivity extends Activity implements PRecycleview.OnRefreshAndLoadMoreListener {
+public class MyShopCityActivity extends Activity implements PRecycleview.OnRefreshAndLoadMoreListener, View.OnClickListener {
     private PRecycleview rcl_shop_city;
     private ImageView iv_back,iv_sousuo;
 
@@ -40,6 +42,10 @@ public class MyShopCityActivity extends Activity implements PRecycleview.OnRefre
         rcl_shop_city = (PRecycleview) findViewById(R.id.rcl_shop_city);
         iv_back = (ImageView)findViewById(R.id.iv_back);
         iv_sousuo = (ImageView)findViewById(R.id.iv_sousuo);
+
+        iv_back.setOnClickListener(this);
+        iv_sousuo.setOnClickListener(this);
+
         //联网请求数据
         getHttpVP();
         //设置布局管理器
@@ -122,5 +128,14 @@ public class MyShopCityActivity extends Activity implements PRecycleview.OnRefre
                 Toast.makeText(MyShopCityActivity.this, "加载完成", Toast.LENGTH_SHORT).show();
             }
         },4000);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId()==R.id.iv_back){
+            finish();
+        }else if(v.getId()==R.id.iv_sousuo){
+            startActivity(new Intent(MyShopCityActivity.this,ShopCitySouSuoActivity.class));
+        }
     }
 }

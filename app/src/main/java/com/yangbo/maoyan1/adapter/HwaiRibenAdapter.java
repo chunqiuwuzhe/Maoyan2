@@ -1,10 +1,11 @@
 package com.yangbo.maoyan1.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,7 +21,7 @@ import java.util.List;
 /**
  * Created by sdf on 2016/6/28.
  */
-public class HwaiRibenAdapter extends BaseAdapter{
+public class HwaiRibenAdapter extends RecyclerView.Adapter<HwaiRibenAdapter.ViewHolder>{
     private Context context;
 
     private List<HaiWaiRiBenBean.DataBean.HotBean> hot;
@@ -33,55 +34,17 @@ public class HwaiRibenAdapter extends BaseAdapter{
         this.context=context;
     }
     @Override
-    public int getCount() {
-        if(hot!=null&&hot.size()>0){
-            return hot.size();
-        }
-        return 0;
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.haiwai_item_lv,parent,false);
+        return new ViewHolder(view);
     }
 
     @Override
-    public Object getItem(int position) {
-        return hot.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if(convertView==null){
-            convertView=View.inflate(context, R.layout.haiwai_item_lv,null);
-            holder=new ViewHolder();
-            holder.iv_hw_movie = (ImageView) convertView.findViewById(R.id.iv_hw_movie);
-            holder.iv_3d = (ImageView) convertView.findViewById(R.id.iv_3d);
-            holder.tv_movie_name = (TextView) convertView.findViewById(R.id.tv_movie_name);
-            holder.tv_name_one = (TextView) convertView.findViewById(R.id.tv_name_one);
-            holder.tv_name_two = (TextView) convertView.findViewById(R.id.tv_name_two);
-            holder.btn_imax = (Button) convertView.findViewById(R.id.btn_imax);
-            holder.tv_pingfen = (TextView) convertView.findViewById(R.id.tv_pingfen);
-            holder.btn_yushou = (Button) convertView.findViewById(R.id.btn_yushou);
-            holder.btn_xiangkan = (Button) convertView.findViewById(R.id.btn_xiangkan);
-            holder.btn_goupiao= (Button) convertView.findViewById(R.id.btn_goupiao);
-            holder.tv_teying= (TextView) convertView.findViewById(R.id.tv_teying);
-            holder.tv_chankan= (TextView) convertView.findViewById(R.id.tv_chankan);
-            holder.view_line= (View) convertView.findViewById(R.id.view_line);
-
-            holder.ll_one = (LinearLayout) convertView.findViewById(R.id.ll_one);
-            holder.ll_two = (LinearLayout) convertView.findViewById(R.id.ll_two);
-            holder.ll_three = (LinearLayout) convertView.findViewById(R.id.ll_three);
-            holder.btn_one = (Button) convertView.findViewById(R.id.btn_one);
-            holder.btn_two = (Button) convertView.findViewById(R.id.btn_two);
-            holder.btn_three = (Button) convertView.findViewById(R.id.btn_three);
-            holder.tv_one = (TextView) convertView.findViewById(R.id.tv_one);
-            holder.tv_two = (TextView) convertView.findViewById(R.id.tv_two);
-            holder.tv_three = (TextView) convertView.findViewById(R.id.tv_three);
-            convertView.setTag(holder);
-        }else{
-            holder= (ViewHolder) convertView.getTag();
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        holder.tv_haiwai_guojia.setVisibility(View.VISIBLE);
+        holder.tv_haiwai_guojia.setText("日本");
+        if(position!=0){
+            holder.tv_haiwai_guojia.setVisibility(View.GONE);
         }
         HaiWaiRiBenBean.DataBean.HotBean comingBean = hot.get(position);
         holder.tv_movie_name.setText(comingBean.getNm());
@@ -115,7 +78,14 @@ public class HwaiRibenAdapter extends BaseAdapter{
         isContains(holder, comingBean);
         //设置显示想看或者预售
         isButton(holder, comingBean);
-        return convertView;
+    }
+
+    @Override
+    public int getItemCount() {
+        if(hot!=null&&hot.size()>0){
+            return hot.size();
+        }
+        return 0;
     }
     //替换字符串
     private String replace(String img) {
@@ -160,7 +130,8 @@ public class HwaiRibenAdapter extends BaseAdapter{
             holder.btn_goupiao.setVisibility(View.VISIBLE);
         }
     }
-    static class ViewHolder{
+
+    class ViewHolder extends RecyclerView.ViewHolder{
         ImageView iv_hw_movie,iv_3d;
         TextView tv_movie_name,tv_name_one,tv_name_two;
         Button btn_imax;
@@ -172,6 +143,37 @@ public class HwaiRibenAdapter extends BaseAdapter{
         LinearLayout ll_one,ll_two,ll_three;
         Button btn_one,btn_two,btn_three;
         TextView tv_one,tv_two,tv_three;
+
+        TextView tv_haiwai_guojia;
+        public ViewHolder(View itemView) {
+            super(itemView);
+
+            iv_hw_movie = (ImageView) itemView.findViewById(R.id.iv_hw_movie);
+            iv_3d = (ImageView) itemView.findViewById(R.id.iv_3d);
+            tv_movie_name = (TextView) itemView.findViewById(R.id.tv_movie_name);
+            tv_name_one = (TextView) itemView.findViewById(R.id.tv_name_one);
+            tv_name_two = (TextView) itemView.findViewById(R.id.tv_name_two);
+            btn_imax = (Button) itemView.findViewById(R.id.btn_imax);
+            tv_pingfen = (TextView) itemView.findViewById(R.id.tv_pingfen);
+            btn_yushou = (Button) itemView.findViewById(R.id.btn_yushou);
+            btn_xiangkan = (Button) itemView.findViewById(R.id.btn_xiangkan);
+            btn_goupiao= (Button) itemView.findViewById(R.id.btn_goupiao);
+            tv_teying= (TextView) itemView.findViewById(R.id.tv_teying);
+            tv_chankan= (TextView) itemView.findViewById(R.id.tv_chankan);
+            view_line= (View) itemView.findViewById(R.id.view_line);
+
+            tv_haiwai_guojia = (TextView) itemView.findViewById(R.id.tv_haiwai_guojia);
+
+            ll_one = (LinearLayout) itemView.findViewById(R.id.ll_one);
+            ll_two = (LinearLayout) itemView.findViewById(R.id.ll_two);
+            ll_three = (LinearLayout) itemView.findViewById(R.id.ll_three);
+            btn_one = (Button) itemView.findViewById(R.id.btn_one);
+            btn_two = (Button) itemView.findViewById(R.id.btn_two);
+            btn_three = (Button) itemView.findViewById(R.id.btn_three);
+            tv_one = (TextView) itemView.findViewById(R.id.tv_one);
+            tv_two = (TextView) itemView.findViewById(R.id.tv_two);
+            tv_three = (TextView) itemView.findViewById(R.id.tv_three);
+        }
     }
     private void isVisibility(ViewHolder holder, int position, HaiWaiRiBenBean.DataBean.HotBean hotBean) {
         if(hotBean.getHeadLinesVO()!=null&&

@@ -1,5 +1,6 @@
 package com.yangbo.maoyan1.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.support.v4.view.PagerAdapter;
@@ -20,6 +21,8 @@ import com.yangbo.maoyan1.pager.ReYingPager;
 
 import java.util.ArrayList;
 
+import droid.Activity01;
+
 /**
  * Created by yangbo on 2016/6/22.
  */
@@ -33,6 +36,8 @@ public class MoiveFragment extends BaseFragment {
 
     private MyDaViewPagerAdapter adapter;
     private ArrayList<BasePager> pagers;
+
+    private TextView tv_moive_city;
 
     int leftMargin1;
     private ImageView iv_red_point;
@@ -50,9 +55,17 @@ public class MoiveFragment extends BaseFragment {
         ll_moive_zi = (LinearLayout) view.findViewById(R.id.ll_moive_zi);
         ll_moive_bai = (LinearLayout) view.findViewById(R.id.ll_moive_bai);
         iv_red_point = (ImageView) view.findViewById(R.id.iv_red_point);
+        tv_moive_city = (TextView) view.findViewById(R.id.tv_moive_city);
         tv1 = (TextView) view.findViewById(R.id.tv1);
         tv2 = (TextView) view.findViewById(R.id.tv2);
         tv3 = (TextView) view.findViewById(R.id.tv3);
+
+        tv_moive_city.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                context.startActivity(new Intent(context, Activity01.class));
+            }
+        });
 
         return view;
     }
