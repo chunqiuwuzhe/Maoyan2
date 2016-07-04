@@ -10,4 +10,29 @@
         android:layout_height="100dp">
 
     </android.support.v4.view.ViewPager>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:text="登陆后可查看收藏影院"
+        android:gravity="center_vertical"
+        android:layout_height="30dp" />
+    <Button
+        android:id="@+id/btn_cinama_login"
+        android:layout_width="56dp"
+        android:layout_height="30dp"
+        android:background="@drawable/btn_ry_selector"
+        android:gravity="center"
+        android:layout_marginRight="10dp"
+        android:text="登录"
+        android:focusable="false"
+        android:clickable="false"
+        android:focusableInTouchMode="false"
+        android:textColor="@drawable/tv_ry_color_selector"
+        android:textSize="12dp" />
+</LinearLayout>
 </LinearLayout>

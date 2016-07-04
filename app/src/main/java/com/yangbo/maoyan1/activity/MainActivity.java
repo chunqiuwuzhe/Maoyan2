@@ -81,11 +81,17 @@ public class MainActivity extends FragmentActivity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        key = data.getStringExtra("key");
-        LogUtil.e(key + "!!!!!!!!!!!!!!!!!!!!!!!!");
-        if(myHuidiaoListener!=null) {
-            myHuidiaoListener.myHuidiao(key);
+        if(requestCode==1&&requestCode==2) {
+            data.getStringExtra("current");
         }
+        if(requestCode==1&&requestCode==1) {
+            key = data.getStringExtra("key");
+            LogUtil.e(key + "!!!!!!!!!!!!!!!!!!!!!!!!");
+            if(myHuidiaoListener!=null) {
+                myHuidiaoListener.myHuidiao(key);
+            }
+        }
+
     }
     public interface MyHuidiaoListener{
         public void myHuidiao(String key);

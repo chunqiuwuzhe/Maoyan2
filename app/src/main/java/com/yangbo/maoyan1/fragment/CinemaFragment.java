@@ -1,5 +1,7 @@
 package com.yangbo.maoyan1.fragment;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.LinearLayoutManager;
@@ -138,8 +140,25 @@ public class CinemaFragment extends BaseFragment {
         //调自己别的回调方法，取得城市的信息
         ( (MainActivity) context).setMyHuidiaoListener(new MainActivity.MyHuidiaoListener() {
             @Override
-            public void myHuidiao(String key) {
-                tv_cinena_city.setText(key);
+            public void myHuidiao(final String key) {
+
+
+                if(key != tv_cinena_city.getText()) {
+                    TextView textView = new TextView(context);
+                    textView.setText("你选择的城市与定位城市不同，是否切换？");
+                    new AlertDialog.Builder(context)
+                                .setTitle("提示")
+                                .setView(textView)
+                                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        tv_cinena_city.setText(key);
+                                    }
+                                })
+                                .setNegativeButton("取消", null)
+                                .show();
+                }
+
             }
         });
         return view;
@@ -215,6 +234,7 @@ public class CinemaFragment extends BaseFragment {
                 LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, true);
 
         rg_cinema_pw.check(R.id.rb_000);
+        vi_pop_line.setVisibility(View.GONE);
         final String[] XingzhengQus = {"朝阳区", "海淀区", "东城区", "丰台区", "大兴区",
                 "通州区", "昌平区", "房山区"};
         lv_pop01.setAdapter(new MypopListAdapter(XingzhengQus));
