@@ -26,6 +26,7 @@ public class LoginActivity extends Activity {
     ImageView iv_qq;
     ImageView iv_weibo;
     ImageView iv_kongjian;
+    ImageView iv_back;
     private MyOnClickListener myOnClickListener;
 
     @Override
@@ -40,11 +41,18 @@ public class LoginActivity extends Activity {
         iv_qq = (ImageView) findViewById(R.id.iv_qq);
         iv_weibo = (ImageView) findViewById(R.id.iv_weibo);
         iv_kongjian = (ImageView) findViewById(R.id.iv_kongjian);
+        iv_back = (ImageView)findViewById(R.id.iv_back);
         myOnClickListener = new MyOnClickListener();
         iv_weixin.setOnClickListener(myOnClickListener);
         iv_qq.setOnClickListener(myOnClickListener);
         iv_weibo.setOnClickListener(myOnClickListener);
         iv_kongjian.setOnClickListener(myOnClickListener);
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
 

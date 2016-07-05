@@ -91,7 +91,7 @@ public class MainActivity extends FragmentActivity {
                 myHuidiaoListener.myHuidiao(key);
             }
         }
-        if(requestCode==3&&requestCode==3) {
+        if(requestCode==3&&requestCode==3&&data!=null) {
             String name = data.getStringExtra("name");
             LogUtil.e(name + "!!!!!!!!!!!!!!!!!!!!!!!!");
             if(myHuidiaoListener1!=null) {
