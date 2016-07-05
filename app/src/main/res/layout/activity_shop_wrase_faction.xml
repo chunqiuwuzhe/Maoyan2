@@ -5,27 +5,39 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.yangbo.maoyan1.activity.ShopWraseFactionActivity">
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="50dp"
-        android:background="#dd403b">
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="50dp"
+            android:background="#dd403b">
+            <ImageView
+                android:id="@+id/iv_back"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/abc_ab_back"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分类列表"
+                android:textSize="18dp"
+                android:layout_gravity="center_vertical"
+                android:textColor="#ffffff"
+                android:layout_marginLeft="25dp"/>
+        </LinearLayout>
         <ImageView
-            android:id="@+id/iv_back"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/abc_ab_back"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="分类列表"
-            android:textSize="18dp"
-            android:layout_gravity="center_vertical"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="25dp"/>
-    </LinearLayout>
+            android:id="@+id/iv_shop_cart"
+            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/white"/>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
