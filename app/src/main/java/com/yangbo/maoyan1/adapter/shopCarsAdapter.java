@@ -2,6 +2,7 @@ package com.yangbo.maoyan1.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,20 +30,29 @@ public class shopCarsAdapter extends RecyclerView.Adapter<shopCarsAdapter.ViewHo
     private float totalPrice;
 
     private CartProvider cartProvider;
+    /**
+     * 最少库存
+     */
+    private int minValue = 1;
+
+    /**
+     * 库存里面的最大值
+     */
+    private int maxValue = 10;
 
     public shopCarsAdapter(Context context, List<ShoppingCart> datas, CheckBox checkbox_all, TextView tv_total_price) {
         this.context = context;
         this.datas = datas;
-        this.checkbox=checkbox_all;
-        this.tv_total_price=tv_total_price;
-        cartProvider=new CartProvider(context);
+        this.checkbox = checkbox_all;
+        this.tv_total_price = tv_total_price;
+        cartProvider = new CartProvider(context);
         //设置总价格
         showTotalPrice();
     }
 
     public void showTotalPrice() {
-        float totalPrice=getTotalPrice();
-        tv_total_price.setText("合计:￥"+totalPrice);
+        float totalPrice = getTotalPrice();
+        tv_total_price.setText("合计:￥" + totalPrice);
     }
 
     @Override
@@ -68,28 +78,33 @@ public class shopCarsAdapter extends RecyclerView.Adapter<shopCarsAdapter.ViewHo
 
         holder.numberAddSubView.setOnButtonClickListener(new NumberAddSubView.OnButtonClickListener() {
             ShoppingCart cart = datas.get(position);
+
             //物品数量减少的监听
             @Override
             public void onSubButton(View view, int value) {
+                Log.e("TAG-----------", value + "");
                 //设置物品的数量并更新
                 cart.setCount(value);
-                //更新到本地
-                cartProvider.update(cart);
+
+                if (value>minValue&&value <= maxValue) {
+                    //更新到本地
+                    cartProvider.update(cart);
+                }
                 //重新计算总价格
                 showTotalPrice();
-
-
             }
+
             //物品数量增加的监听
             @Override
             public void onAddButton(View view, int value) {
                 //设置物品的数量并更新
                 cart.setCount(value);
-                //更新到本地
-                cartProvider.update(cart);
+                if (value <= maxValue) {
+                    //更新到本地
+                    cartProvider.update(cart);
+                }
                 //重新计算总价格
                 showTotalPrice();
-
             }
         });
     }
@@ -103,12 +118,12 @@ public class shopCarsAdapter extends RecyclerView.Adapter<shopCarsAdapter.ViewHo
     }
 
     public float getTotalPrice() {
-        float totalPrice=0;
-        if(datas!=null&&datas.size()>0){
-            for(int i=0;i<datas.size();i++){
+        float totalPrice = 0;
+        if (datas != null && datas.size() > 0) {
+            for (int i = 0; i < datas.size(); i++) {
                 ShoppingCart cart = datas.get(i);
-                if(cart.isCheck()){
-                    totalPrice= (float) (totalPrice+cart.getCount()*cart.getPrice());
+                if (cart.isCheck()) {
+                    totalPrice = (float) (totalPrice + cart.getCount() * cart.getPrice());
                 }
             }
         }
@@ -132,20 +147,21 @@ public class shopCarsAdapter extends RecyclerView.Adapter<shopCarsAdapter.ViewHo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if(myItemOnClickLinsster!=null){
-                        myItemOnClickLinsster.itemOnClickLinster(v,getLayoutPosition());
+                    if (myItemOnClickLinsster != null) {
+                        myItemOnClickLinsster.itemOnClickLinster(v, getLayoutPosition());
                     }
                 }
             });
         }
     }
+
     private MyItemOnClickLinsster myItemOnClickLinsster;
 
     public void setMyItemOnClickLinsster(MyItemOnClickLinsster myItemOnClickLinsster) {
         this.myItemOnClickLinsster = myItemOnClickLinsster;
     }
 
-    public interface MyItemOnClickLinsster{
-        void itemOnClickLinster(View view,int position);
+    public interface MyItemOnClickLinsster {
+        void itemOnClickLinster(View view, int position);
     }
 }

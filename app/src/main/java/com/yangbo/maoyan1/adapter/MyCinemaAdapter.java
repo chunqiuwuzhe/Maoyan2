@@ -1,6 +1,7 @@
 package com.yangbo.maoyan1.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.activity.LoginActivity;
 import com.yangbo.maoyan1.bean.CinemaBean;
 import com.yangbo.maoyan1.bean.CinemaDiZhiBean;
 import com.yangbo.maoyan1.bean.CinemaViewPagerBean;
@@ -77,6 +79,13 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             viewpager = ((MyHolder1) holder).vp_cinema_header;
             ((MyHolder1) holder).vp_cinema_header.setAdapter(cinema_header_adapter);
             ((MyHolder1) holder).vp_cinema_header.setCurrentItem(50);
+            ((MyHolder1) holder).btn_cinama_login.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent =new Intent(context, LoginActivity.class);
+                    context.startActivity(intent);
+                }
+            });
 
             /**
              * 设置顶部轮播图
@@ -187,10 +196,13 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     class MyHolder1 extends RecyclerView.ViewHolder {
 
         public ViewPager vp_cinema_header;
+        Button btn_cinama_login;
+
 
         public MyHolder1(View itemView) {
             super(itemView);
             vp_cinema_header = (ViewPager) itemView.findViewById(R.id.vp_cinema_header);
+            btn_cinama_login = (Button) itemView.findViewById(R.id.btn_cinama_login);
         }
     }
 

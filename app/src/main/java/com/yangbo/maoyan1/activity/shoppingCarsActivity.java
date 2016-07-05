@@ -112,6 +112,13 @@ public class shoppingCarsActivity extends Activity {
                 deleteMethod();
             }
         });
+        //支付按钮点击事件
+        btn_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                startActivity(new Intent(shoppingCarsActivity.this, PayDemoActivity.class));
+            }
+        });
     }
 
     private void deleteMethod() {

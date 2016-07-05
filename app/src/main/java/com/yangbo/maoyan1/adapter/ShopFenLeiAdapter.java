@@ -85,7 +85,7 @@ public class ShopFenLeiAdapter extends RecyclerView.Adapter<ShopFenLeiAdapter.Vi
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "添加购物车", Toast.LENGTH_SHORT).show();
-                    ShopFenLeiBean.DataBean.ListBean wares =  list.get(getLayoutPosition());
+                    ShopFenLeiBean.DataBean.ListBean wares =  list.get(getLayoutPosition()-1);
                     ShoppingCart cart = cartProvider.conversion(wares);
                     cartProvider.update(cart);
                 }

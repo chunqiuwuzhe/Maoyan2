@@ -103,17 +103,17 @@ public class NumberAddSubView extends LinearLayout implements View.OnClickListen
 
         //获取属性
         TintTypedArray tt = TintTypedArray.obtainStyledAttributes(context,attrs,R.styleable.NumberAddSubView);
-        int value = tt.getInt(R.styleable.NumberAddSubView_value, 1);
+        int value = tt.getInt(R.styleable.NumberAddSubView_value, 0);
         if(value >0){
             setValue(value);
         }
 
-        int minValue = tt.getInt(R.styleable.NumberAddSubView_minValue,1);
+        int minValue = tt.getInt(R.styleable.NumberAddSubView_minValue,0);
         if(minValue >0){
             setMinValue(minValue);
         }
 
-        int maxValue = tt.getInt(R.styleable.NumberAddSubView_maxValue,1);
+        int maxValue = tt.getInt(R.styleable.NumberAddSubView_maxValue,0);
         if(maxValue >0){
             setMaxValue(maxValue);
         }
