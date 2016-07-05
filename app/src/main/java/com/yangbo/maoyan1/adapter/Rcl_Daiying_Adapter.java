@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.SystemVideoActvity;
 import com.yangbo.maoyan1.activity.SouSuoActivity;
 import com.yangbo.maoyan1.bean.DaiYIngRcViewBean;
 
@@ -221,6 +222,15 @@ public class Rcl_Daiying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewH
             tv_one = (TextView) itemView.findViewById(R.id.tv_one);
             tv_two = (TextView) itemView.findViewById(R.id.tv_two);
             tv_three = (TextView) itemView.findViewById(R.id.tv_three);
+
+            iv_hw_movie.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, SystemVideoActvity.class);
+                    intent.putExtra("videoUrl",coming.get(getLayoutPosition()-3).getVideourl());
+                    context.startActivity(intent);
+                }
+            });
 
         }
     }

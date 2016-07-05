@@ -1,7 +1,9 @@
 package com.yangbo.maoyan1.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.SystemVideoActvity;
 import com.yangbo.maoyan1.bean.MeiGuoBean;
 
 import java.util.List;
@@ -130,7 +133,7 @@ public class HaiwaiMeiGuoAdapter extends RecyclerView.Adapter<HaiwaiMeiGuoAdapte
         }
     }
 
-    static class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder {
         ImageView iv_hw_movie, iv_3d;
         TextView tv_movie_name, tv_name_one, tv_name_two;
         Button btn_imax;
@@ -155,6 +158,17 @@ public class HaiwaiMeiGuoAdapter extends RecyclerView.Adapter<HaiwaiMeiGuoAdapte
             tv_chankan = (TextView) itemView.findViewById(R.id.tv_chankan);
             view_line = (View) itemView.findViewById(R.id.view_line);
             tv_haiwai_guojia = (TextView) itemView.findViewById(R.id.tv_haiwai_guojia);
+
+            iv_hw_movie.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, SystemVideoActvity.class);
+                    Log.e("TAG==url",getLayoutPosition()+"");
+                    intent.putExtra("videoUrl",coming.get(getLayoutPosition()-1).getVideourl());
+                    context.startActivity(intent);
+                }
+            });
+
         }
     }
 }
