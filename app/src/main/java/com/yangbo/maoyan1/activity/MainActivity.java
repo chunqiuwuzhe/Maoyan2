@@ -91,6 +91,13 @@ public class MainActivity extends FragmentActivity {
                 myHuidiaoListener.myHuidiao(key);
             }
         }
+        if(requestCode==3&&requestCode==3) {
+            String name = data.getStringExtra("name");
+            LogUtil.e(name + "!!!!!!!!!!!!!!!!!!!!!!!!");
+            if(myHuidiaoListener1!=null) {
+                myHuidiaoListener1.myHuidiao1(name);
+            }
+        }
 
     }
     public interface MyHuidiaoListener{
@@ -101,6 +108,16 @@ public class MainActivity extends FragmentActivity {
 
     public void setMyHuidiaoListener(MyHuidiaoListener myHuidiaoListener) {
         this.myHuidiaoListener = myHuidiaoListener;
+    }
+    //登陆的回调
+    public interface MyHuidiaoListener1{
+        public void myHuidiao1(String key);
+    }
+
+    public MyHuidiaoListener1 myHuidiaoListener1;
+
+    public void setMyHuidiaoListener1(MyHuidiaoListener1 myHuidiaoListener1) {
+        this.myHuidiaoListener1 = myHuidiaoListener1;
     }
 
     @Override

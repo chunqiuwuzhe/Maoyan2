@@ -38,7 +38,6 @@ public class RyItemWebViewActivity extends Activity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-
                 progressBar.setVisibility(View.GONE);
             }
         });

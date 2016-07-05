@@ -428,7 +428,7 @@ public class CinemaFragment extends BaseFragment {
 
                     @Override
                     public void onResponse(String response, int id) {
-                        LogUtil.e("请求成功！！！！" + response);
+//                        LogUtil.e("请求成功！！！！" + response);
 
                         CacheUtils.putString(context, url, response);
                         //解析数据
@@ -508,7 +508,7 @@ public class CinemaFragment extends BaseFragment {
     }
 
     private void processData(String result) {
-        LogUtil.e("youmeiyou123 " + result);
+//        LogUtil.e("youmeiyou123 " + result);
         //转化成英文，不然会报错
         result = result.replace("朝阳区", "chaoyangqu");
         result = result.replace("海淀区", "haidianqu");
@@ -528,7 +528,7 @@ public class CinemaFragment extends BaseFragment {
         result = result.replace("延庆县", "yanqingxian");
 
 //        jsonData =result;
-        LogUtil.e("youmeiyou " + result);
+//        LogUtil.e("youmeiyou " + result);
         Gson gson = new Gson();
         CinemaBean cinemaBean = gson.fromJson(result, CinemaBean.class);
 

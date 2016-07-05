@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.activity.LoginActivity;
+import com.yangbo.maoyan1.activity.MainActivity;
 import com.yangbo.maoyan1.bean.CinemaBean;
 import com.yangbo.maoyan1.bean.CinemaDiZhiBean;
 import com.yangbo.maoyan1.bean.CinemaViewPagerBean;
@@ -83,7 +84,7 @@ public class MyCinemaAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 @Override
                 public void onClick(View v) {
                     Intent intent =new Intent(context, LoginActivity.class);
-                    context.startActivity(intent);
+                    ((MainActivity)context).startActivityForResult(intent,3);
                 }
             });
 
