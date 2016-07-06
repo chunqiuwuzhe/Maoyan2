@@ -1,6 +1,7 @@
 package com.yangbo.maoyan1.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.yangbo.maoyan1.R;
+import com.yangbo.maoyan1.SystemVideoActvity;
 import com.yangbo.maoyan1.bean.HanGuoBean;
 
 import java.util.List;
@@ -175,6 +177,16 @@ public class HaiWaiHanGuoAdapter  extends RecyclerView.Adapter<HaiWaiHanGuoAdapt
             tv_one = (TextView) itemView.findViewById(R.id.tv_one);
             tv_two = (TextView) itemView.findViewById(R.id.tv_two);
             tv_three = (TextView) itemView.findViewById(R.id.tv_three);
+
+            iv_hw_movie.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, SystemVideoActvity.class);
+                    Log.e("TAG==url",getLayoutPosition()+"");
+                    intent.putExtra("videoUrl",arrhot.get(getLayoutPosition()-1).getVideourl());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
     private void isVisibility(ViewHolder holder, int position, HanGuoBean.DataBean.HotBean hotBean) {

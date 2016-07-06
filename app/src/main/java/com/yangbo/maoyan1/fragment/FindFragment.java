@@ -58,7 +58,6 @@ public class FindFragment extends BaseFragment {
 
 
             }
-
             @Override
             public void onLoadMore() {
                 rv_find.setloadMoreComplete();

@@ -61,8 +61,8 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
             return new Ry_HeadHolder(view);
         }
-            View view = LayoutInflater.from(context).inflate(R.layout.item_reying_rcl, parent, false);
-            return new Ry_RclViewHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_reying_rcl, parent, false);
+        return new Ry_RclViewHolder(view);
     }
 
     @Override
@@ -199,7 +199,6 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                     }
                 }
             });
-
         }
     }
 
@@ -261,8 +260,8 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 //设置布局为显示
                 holder.ll_one.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_one.setText(newsHeadlines.get(position-1).getType());
-                holder.tv_one.setText(newsHeadlines.get(position-1).getTitle());
+                holder.btn_one.setText(newsHeadlines.get(position - 1).getType());
+                holder.tv_one.setText(newsHeadlines.get(position - 1).getTitle());
                 //设置布局为显示
                 holder.ll_two.setVisibility(View.VISIBLE);
                 //装载数据
@@ -272,8 +271,8 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 //设置布局为显示
                 holder.ll_one.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_one.setText(newsHeadlines.get(position-1).getType());
-                holder.tv_one.setText(newsHeadlines.get(position-1).getTitle());
+                holder.btn_one.setText(newsHeadlines.get(position - 1).getType());
+                holder.tv_one.setText(newsHeadlines.get(position - 1).getTitle());
                 //设置布局为显示
                 holder.ll_two.setVisibility(View.VISIBLE);
                 //装载数据
@@ -282,8 +281,8 @@ public class Rcl_Reying_Adapter extends RecyclerView.Adapter<RecyclerView.ViewHo
                 //设置布局为显示
                 holder.ll_three.setVisibility(View.VISIBLE);
                 //装载数据
-                holder.btn_three.setText(newsHeadlines.get(position+1).getType());
-                holder.tv_three.setText(newsHeadlines.get(position+1).getTitle());
+                holder.btn_three.setText(newsHeadlines.get(position + 1).getType());
+                holder.tv_three.setText(newsHeadlines.get(position + 1).getTitle());
             }
         }
     }

@@ -3,18 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="#f5f5f5"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="50dp"
         android:background="@android:color/holo_red_dark">
 
         <ImageView
             android:id="@+id/iv_back"
-            android:layout_width="45dp"
+            android:layout_width="60dp"
             android:layout_height="match_parent"
+            android:padding="10dp"
             android:src="@drawable/je" />
 
         <TextView
@@ -25,7 +26,7 @@
             android:layout_toRightOf="@+id/iv_back"
             android:text="登录"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tv_nopass"
@@ -38,11 +39,11 @@
             android:textColor="@android:color/white"
             android:textSize="18sp" />
     </RelativeLayout>
-
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
         android:src="@drawable/a6z" />
 
@@ -52,115 +53,112 @@
         android:layout_marginLeft="15dp"
         android:text="美团账号登录" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/darker_gray" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
+        android:background="#ffffff"
         android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:text="用户名:"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <EditText
+        android:orientation="vertical">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:background="@null"
-            android:hint="邮箱/手机号/用户名"
-            android:textColor="@null" />
-    </LinearLayout>
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"
-        android:background="@android:color/darker_gray" />
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:text="用户名："
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:textSize="16sp"
+                android:hint="邮箱/手机号/用户名"
+                android:textColor="#000000" />
 
-    <LinearLayout
 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        </LinearLayout>
+        <View android:layout_width="match_parent"
+            android:layout_height="1dp"
             android:layout_marginLeft="15dp"
-            android:text="密  码："
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <EditText
+            android:layout_marginRight="15dp"
+            android:background="#f5f5f5"/>
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:background="@null"
-            android:hint="密码"
-            android:textColor="@null" />
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:layout_marginLeft="15dp"
+                android:text="密  码："
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:background="@null"
+                android:textSize="16sp"
+                android:password="true"
+                android:hint="密码"
+                android:textColor="#000000" />
+        </LinearLayout>
     </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/darker_gray" />
-
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_marginTop="15dp"
-        android:background="@android:color/holo_orange_dark"
+        android:background="@drawable/btn_logo_shap"
         android:text="登录"
+        android:textSize="18sp"
         android:textColor="@android:color/white" />
-
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="8dp">
+        android:layout_height="28dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="美团账号登录"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:text="立即注册"
             android:textColor="@android:color/holo_orange_dark" />
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="手机号快捷登录"
+                android:gravity="center_vertical"
                 android:textColor="@android:color/holo_orange_dark" />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:src="@drawable/triangle" />
 
         </LinearLayout>
-
     </RelativeLayout>
 
     <LinearLayout
@@ -172,31 +170,27 @@
 
         <ImageView
             android:id="@+id/iv_weixin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:src="@drawable/xt" />
 
         <ImageView
             android:id="@+id/iv_qq"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="25dp"
             android:src="@drawable/xj" />
-
         <ImageView
             android:id="@+id/iv_weibo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="25dp"
             android:src="@drawable/xn" />
-
         <ImageView
             android:id="@+id/iv_kongjian"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_marginLeft="25dp"
             android:src="@drawable/xl" />
     </LinearLayout>
-
-
 </LinearLayout>

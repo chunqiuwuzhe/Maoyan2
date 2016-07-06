@@ -105,6 +105,7 @@
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.ShoppingTop100Activity" />
         <activity android:name=".activity.GouWuCheActivity"></activity>
+        <activity android:name=".SystemVideoActvity"/>
     </application>
 
 </manifest>
