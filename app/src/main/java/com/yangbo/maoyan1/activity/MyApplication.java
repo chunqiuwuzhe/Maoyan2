@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSession;
 
+import cn.smssdk.SMSSDK;
 import okhttp3.OkHttpClient;
 
 /**
@@ -22,6 +23,8 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        SMSSDK.initSDK(this, "14a2ca4fbcca8", "b47e0b9afa28550dba0ed69627f7d493");
 
         x.Ext.init(this);
         x.Ext.setDebug(true);

@@ -48,8 +48,8 @@ public class shoppingCarsActivity extends Activity {
     private shopCarsAdapter carsAdapter;
     private boolean checkAll;
 
-    private static final int EDIT=1;
-    private static final int FINISH=2;
+    private static final int EDIT = 1;
+    private static final int FINISH = 2;
 
 
     // 商户PID
@@ -113,7 +113,9 @@ public class shoppingCarsActivity extends Activity {
                 default:
                     break;
             }
-        };
+        }
+
+        ;
     };
 
     @Override
@@ -121,7 +123,7 @@ public class shoppingCarsActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_shopping_cars);
-        this.cartProvider=new CartProvider(this);
+        this.cartProvider = new CartProvider(this);
         datas = cartProvider.getAllData();
         findViews();
         isCheckAll();
@@ -129,14 +131,14 @@ public class shoppingCarsActivity extends Activity {
     }
 
     private void findViews() {
-        rcl_shoppingcar = (RecyclerView)findViewById(R.id.rcl_shoppingcar);
+        rcl_shoppingcar = (RecyclerView) findViewById(R.id.rcl_shoppingcar);
         checkbox_all = (CheckBox) findViewById(R.id.checkbox_all);
         tv_total_price = (TextView) findViewById(R.id.tv_total_price);
         btn_order = (Button) findViewById(R.id.btn_order);
         btn_delete = (Button) findViewById(R.id.btn_delete);
-        btn_cart = (Button)findViewById(R.id.btn_cart);
+        btn_cart = (Button) findViewById(R.id.btn_cart);
         //设置适配器
-        carsAdapter = new shopCarsAdapter(this,datas,checkbox_all,tv_total_price);
+        carsAdapter = new shopCarsAdapter(this, datas, checkbox_all, tv_total_price);
         //设置布局管理器
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         rcl_shoppingcar.setLayoutManager(layoutManager);
@@ -174,10 +176,10 @@ public class shoppingCarsActivity extends Activity {
         btn_cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(btn_cart.getTag()==EDIT){//编辑状态
+                if (btn_cart.getTag() == EDIT) {//编辑状态
                     //显示删除按钮
                     showDelete();
-                }else if(btn_cart.getTag()==FINISH){//完成状态
+                } else if (btn_cart.getTag() == FINISH) {//完成状态
                     //隐藏删除按钮
                     hideDelete();
                 }
@@ -202,10 +204,10 @@ public class shoppingCarsActivity extends Activity {
     }
 
     private void deleteMethod() {
-        if(datas.size()>0&&datas!=null){
-            for(Iterator iterator=datas.iterator();iterator.hasNext();){
-                ShoppingCart cart= (ShoppingCart) iterator.next();
-                if(cart.isCheck()){
+        if (datas.size() > 0 && datas != null) {
+            for (Iterator iterator = datas.iterator(); iterator.hasNext(); ) {
+                ShoppingCart cart = (ShoppingCart) iterator.next();
+                if (cart.isCheck()) {
                     //获取当前item的位置
                     int position = datas.indexOf(cart);
                     //移除数据
@@ -254,8 +256,8 @@ public class shoppingCarsActivity extends Activity {
     }
 
     private void checkboxAll(boolean flag) {
-        if(datas!=null&&datas.size()>0){
-            for(int i=0;i<datas.size();i++){
+        if (datas != null && datas.size() > 0) {
+            for (int i = 0; i < datas.size(); i++) {
                 ShoppingCart cart = datas.get(i);
                 cart.setIsCheck(flag);
                 //刷新状态
@@ -265,25 +267,25 @@ public class shoppingCarsActivity extends Activity {
     }
 
     public boolean isCheckAll() {
-        if(datas!=null&&datas.size()>0){
-            int number=0;
-            for(int i=0;i<datas.size();i++){
+        if (datas != null && datas.size() > 0) {
+            int number = 0;
+            for (int i = 0; i < datas.size(); i++) {
                 ShoppingCart cart = datas.get(i);
-                if(!cart.isCheck()){
+                if (!cart.isCheck()) {
                     checkbox_all.setChecked(false);
-                }else{
-                    number+=1;
+                } else {
+                    number += 1;
                 }
             }
-            if(number==datas.size()){
+            if (number == datas.size()) {
                 checkbox_all.setChecked(true);
             }
         }
         return checkAll;
     }
+
     /**
      * call alipay sdk pay. 调用SDK支付
-     *
      */
     public void pay() {
         if (TextUtils.isEmpty(PARTNER) || TextUtils.isEmpty(RSA_PRIVATE) || TextUtils.isEmpty(SELLER)) {
@@ -336,9 +338,9 @@ public class shoppingCarsActivity extends Activity {
         Thread payThread = new Thread(payRunnable);
         payThread.start();
     }
+
     /**
      * create the order info. 创建订单信息
-     *
      */
     private String getOrderInfo(String subject, String body, String price) {
 
@@ -390,9 +392,9 @@ public class shoppingCarsActivity extends Activity {
 
         return orderInfo;
     }
+
     /**
      * get the out_trade_no for an order. 生成商户订单号，该值在商户端应保持唯一（可自定义格式规范）
-     *
      */
     private String getOutTradeNo() {
         SimpleDateFormat format = new SimpleDateFormat("MMddHHmmss", Locale.getDefault());
@@ -408,8 +410,7 @@ public class shoppingCarsActivity extends Activity {
     /**
      * sign the order info. 对订单信息进行签名
      *
-     * @param content
-     *            待签名订单信息
+     * @param content 待签名订单信息
      */
     private String sign(String content) {
         return SignUtils.sign(content, RSA_PRIVATE);
@@ -417,7 +418,6 @@ public class shoppingCarsActivity extends Activity {
 
     /**
      * get the sign type we use. 获取签名方式
-     *
      */
     private String getSignType() {
         return "sign_type=\"RSA\"";

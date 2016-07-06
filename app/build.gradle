@@ -7,7 +7,7 @@ android {
     defaultConfig {
         applicationId "com.yangbo.maoyan1"
         minSdkVersion 14
-        targetSdkVersion 23
+        targetSdkVersion 22
         versionCode 1
         versionName "1.0"
 
@@ -39,7 +39,11 @@ android {
         }
     }
 }
-
+repositories {
+    flatDir{
+        dirs 'libs'
+    }
+}
 dependencies {
     compile files('libs/glide-3.7.0.jar')
     compile files('libs/gson-2.2.4.jar')
@@ -69,6 +73,10 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
     compile files('libs/alipaySdk-20160516.jar')
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile name:'SMSSDK-2.1.0',ext:'aar'
+    compile name:'SMSSDKGUI-2.1.0',ext:'aar'
+
     compile 'com.getui:sdk:2.9.0.0'
     compile 'com.android.support:support-v4:+'
 }

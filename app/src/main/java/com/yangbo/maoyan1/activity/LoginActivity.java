@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.yangbo.maoyan1.R;
 
@@ -20,14 +21,20 @@ import cn.sharesdk.sina.weibo.SinaWeibo;
 import cn.sharesdk.tencent.qq.QQ;
 import cn.sharesdk.tencent.qzone.QZone;
 import cn.sharesdk.wechat.friends.Wechat;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
+import cn.smssdk.gui.RegisterPage;
 
-public class LoginActivity extends Activity {
+public class LoginActivity extends Activity{
     ImageView iv_weixin;
     ImageView iv_qq;
     ImageView iv_weibo;
     ImageView iv_kongjian;
     ImageView iv_back;
     private MyOnClickListener myOnClickListener;
+
+    private TextView tv_regeister;
+    private TextView tv_phone_logo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +60,17 @@ public class LoginActivity extends Activity {
                 finish();
             }
         });
+
+        tv_regeister = (TextView)findViewById(R.id.tv_regeister);
+        tv_phone_logo = (TextView)findViewById(R.id.tv_phone_logo);
+        //注册
+        tv_regeister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Regeister();
+            }
+        });
+
     }
 
 
@@ -125,9 +143,27 @@ public class LoginActivity extends Activity {
 //                    weibo.removeAccount(true);
 
             weibo.showUser(null);//执行登录，登录后在回调里面获取用户资料
-//weibo.showUser(“3189087725”);//获取账号为“3189087725”的资料
+            //weibo.showUser(“3189087725”);//获取账号为“3189087725”的资料
         }
+
     }
+    public void Regeister(){
+        //打开注册页面
+        RegisterPage registerPage = new RegisterPage();
+        registerPage.setRegisterCallback(new EventHandler() {
+            public void afterEvent(int event, int result, Object data) {
+                // 解析注册结果
+                if (result == SMSSDK.RESULT_COMPLETE) {
+                    @SuppressWarnings("unchecked")
+                    HashMap<String,Object> phoneMap = (HashMap<String, Object>) data;
+                    String country = (String) phoneMap.get("country");
+                    String phone = (String) phoneMap.get("phone");
 
-
+                    // 提交用户信息
+                    // registerUser(country, phone);
+                }
+            }
+        });
+        registerPage.show(LoginActivity.this);
+    }
 }
