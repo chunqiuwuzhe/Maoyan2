@@ -353,7 +353,18 @@ public class FindYingKuActivity extends Activity implements View.OnClickListener
                     .into(ivTop100);
             ivTop100.setScaleType(ImageView.ScaleType.FIT_XY);
             tvTop1002.setText(moviesBean.getNm());
-            llTop100.setOnClickListener(myOnClickListener);
+
+            llTop100.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Bundle bundle1 = new Bundle();
+                    Intent intent1 = new Intent(FindYingKuActivity.this,ShoppingTop100Activity.class);
+                    bundle1.putSerializable("yk",yingku_reMenKouBeiBean3);
+                    intent1.putExtras(bundle1);
+                    startActivity(intent1);
+                    finish();
+                }
+            });
         } else if(i==5) {
             Gson gson = new Gson();
             DaiYIngRcViewBean daiYIngRcViewBean = gson.fromJson(response, DaiYIngRcViewBean.class);
@@ -394,9 +405,9 @@ class MyOnClickListener implements View.OnClickListener {
 //                startActivity(intent2);
 //                finish();
                 break;
-            case R.id.ll_top100 :
-                bundle.putSerializable("yk",yingku_reMenKouBeiBean3);
-                break;
+//            case R.id.ll_top100 :
+//
+//                break;
         }
         intent.putExtras(bundle);
         startActivity(intent);

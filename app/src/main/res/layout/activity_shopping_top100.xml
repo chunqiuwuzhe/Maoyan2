@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:id="@+id/rl_find_yingu"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="#DD403B"
+
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:id="@+id/iv_shopping100_back"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:src="@drawable/je" />
+
+        <TextView
+            android:id="@+id/ll_yingku_zi"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/iv_shopping100_back"
+            android:background="@drawable/iv_cinema_selector"
+            android:gravity="center"
+            android:text="影库"
+            android:textColor="#ffffff"
+            android:textSize="20sp"></TextView>
+
+        <ImageView
+            android:id="@+id/iv_shopping100_che"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/white" />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_bangdan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </ListView>
+
+</LinearLayout>

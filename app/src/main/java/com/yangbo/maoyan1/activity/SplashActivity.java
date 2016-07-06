@@ -45,8 +45,9 @@ public class SplashActivity extends Activity {
                     finish();
                     break;
                 case 2:
-
-                    iv_splash.setVisibility(View.VISIBLE);
+                    if(iv_splash!= null) {
+                        iv_splash.setVisibility(View.VISIBLE);
+                    }
                     processData(result1);
                     ScaleAnimation scaleAnimation = new ScaleAnimation(1, 1.1f, 1, 1.1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.8f);
                     scaleAnimation.setDuration(2000);
@@ -63,7 +64,7 @@ public class SplashActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        LogUtil.e("wocao!!wocao!!wocao!!wocao!!");
+//        LogUtil.e("wocao!!wocao!!wocao!!wocao!!");
         rl_splash = (RelativeLayout) findViewById(R.id.rl_splash);
         iv_splash = (ImageView) findViewById(R.id.iv_splash);
         handler.sendEmptyMessageDelayed(1, 2000);
