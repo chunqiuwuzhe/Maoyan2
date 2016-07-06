@@ -11,6 +11,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import com.igexin.sdk.PushManager;
 import com.yangbo.maoyan1.R;
 import com.yangbo.maoyan1.base.BaseFragment;
 import com.yangbo.maoyan1.fragment.CinemaFragment;
@@ -62,6 +63,7 @@ public class MainActivity extends FragmentActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        PushManager.getInstance().initialize(this.getApplicationContext());
 //        //注册EvenBus
 //        EventBus.getDefault().register(this);
 

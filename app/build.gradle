@@ -10,6 +10,19 @@ android {
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
+
+        //参数说明
+        manifestPlaceholders = [
+                GETUI_APP_ID : "2wBxEU1axD786NsNONQSB7",
+                GETUI_APP_KEY : "VyHQ9fbPYp54C8XfBDm65",
+                GETUI_APP_SECRET : "V1uqA5zZaZ60EhsBFRacq6",
+                PACKAGE_NAME : applicationId
+        ]
+//APP_ID、APP_KEY、APP_SECRET请根据个推开发者后台申请到的应用参数进行相应替换
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a", "mips", "mips64", "x86", "x86_64"
+        }
     }
 
 
@@ -55,4 +68,7 @@ dependencies {
     compile files('libs/locSDK_6.23.jar')
     compile 'org.greenrobot:eventbus:3.0.0'
     compile files('libs/alipaySdk-20160516.jar')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.getui:sdk:2.9.0.0'
+    compile 'com.android.support:support-v4:+'
 }
